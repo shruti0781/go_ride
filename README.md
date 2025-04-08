@@ -38,7 +38,7 @@
 <!-- ABOUT THE PROJECT -->
 ##  About The Project
 <p align="center">
-<img src="missed-youre-late.gif" width="650" height="350"  alt="You're Late GIF">
+<img src="images/missed-youre-late.gif" width="650" height="350"  alt="You're Late GIF">
 </p>
 
 ### 🚀 No More Waiting & Losing a Bus!  
@@ -79,7 +79,7 @@ This section contains a list any major frameworks/libraries used in the project.
 [![Contributors](https://contrib.rocks/image?repo=shruti0781/go_ride)](https://github.com/shruti0781/go_ride/graphs/contributors)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <p align="center">
-  <img src="Sandy_Tsp-01_Single-12.jpg" width="400" height="400" alt="Bus Tracking Interface">
+  <img src="images/Sandy_Tsp-01_Single-12.jpg" width="400" height="400" alt="Bus Tracking Interface">
 </p>
 
 ## 📞 Contact
