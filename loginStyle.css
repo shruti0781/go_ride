@@ -5,11 +5,14 @@
 }
 
 body {
-	background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.5)),url("images/extra/backwallpaper.jpg");
+	background-image:url("https://media.istockphoto.com/id/1127743344/vector/tourist-bus.jpg?s=612x612&w=0&k=20&c=WGtPHPukLZwGBbDirk_Th6qkU7xdBgHoNsnUWoqnG3k=");
 	background-size: cover;
 	background-attachment: fixed;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
+	align-items: center;
+	height: 100vh;
+	padding-right: 5%;
 }
 .logo {
 	display: flex;
@@ -20,15 +23,16 @@ body {
 }
 .form-box
 {
+	 color: white;
 	width: 380px;
 	height: 500px;
 	position: relative;
-	margin: 6% auto;
-	background: #fff8;
+	margin: 0px;
+	background:rgba(255,255,255,0.2);
 	padding: 5px;
-	border-radius: 5px;
+	border-radius: 15px;
 	overflow: hidden;
-	box-shadow: 0px 0px 100px rgba(0,0,0,0.4);
+	box-shadow: 0px 0px 100px rgba(0,0,0,0.3);
 }
 
 .button-box
@@ -93,6 +97,7 @@ body {
 }
 .input-field
 {
+	color: white !important;
 	width: 100%;
 	padding: 10px 0;
 	margin: 5px 0;
@@ -105,7 +110,7 @@ body {
 	color: rgba(0,0,0);
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-	color: rgba(0,0,0,0.7);
+	color: rgba(255, 255, 255, 0.7) !important;
 	/*opacity: 1;  Firefox */
 }
 #register .input-field {
@@ -113,6 +118,7 @@ body {
 }
 .submit-btn
 {
+	  color: white !important;
 	width: 85%;
 	padding: 10px 30px;
 	cursor: pointer;
@@ -140,7 +146,7 @@ body {
 .instead h3 {
     overflow: hidden;
     text-align: center;
-    color: rgba(0,0,0,0.6);
+    color: rgba(255, 255, 255, 0.8) !important;
 }
 .instead h3:before,
 .instead h3:after {
@@ -162,7 +168,7 @@ body {
 }
 span
 {
-	color: rgba(0,0,0,0.8);
+	 color: white !important;
 	font-size: 12px;
 }
 
