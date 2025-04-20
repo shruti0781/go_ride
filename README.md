@@ -84,7 +84,7 @@ This section contains a list any major frameworks/libraries used in the project.
 
 ## 📞 Contact
 
-Project Link: [GoRide Repository](https://github.com/shruti0781/go_ride)  
+Project Link: [GoRide Repository] https://shruti0781.github.io/go_ride/  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
