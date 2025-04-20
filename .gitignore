@@ -1,3 +1,8 @@
+# js files
+app.js
+
+# ejs
+*.ejs
 # Logs
 logs
 *.log
