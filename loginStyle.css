@@ -3,7 +3,13 @@
 	padding: 0;
 	font-family: sans-serif;
 }
+.hidden {
+  display: none !important;
+}
 
+.toogle-btn.reg-btn {
+    color: white; /* Set the text color to white */
+}
 body {
 	background-image:url("https://media.istockphoto.com/id/1127743344/vector/tourist-bus.jpg?s=612x612&w=0&k=20&c=WGtPHPukLZwGBbDirk_Th6qkU7xdBgHoNsnUWoqnG3k=");
 	background-size: cover;
@@ -113,9 +119,17 @@ body {
 	color: rgba(255, 255, 255, 0.7) !important;
 	/*opacity: 1;  Firefox */
 }
-#register .input-field {
-	color: rgba(0,0,0,0.8);
+#register {
+  
+ display: block;
+  z-index: 10;
+  background: white;
+  	left: 450px;
 }
+#login {
+  z-index: 5;
+}
+
 .submit-btn
 {
 	  color: white !important;
@@ -176,16 +190,14 @@ span
 {
 	left: 50px;
 }
-#register
-{
-	left: 450px;
-}
+
 
 .other {
 	display: grid;
 	justify-content: center;
 	margin-top: 250px;
 }
+
 
 .connect {
 	display: flex;
