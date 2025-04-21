@@ -1,4 +1,4 @@
-/* Reset & Base Styles */
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,73 +6,85 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #e6f0f8;
     color: #333;
-    padding: 50px;
+    padding: 40px;
 }
 
 /* Container */
 .container {
-    max-width: 900px;
+    max-width: 850px;
     margin: auto;
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Title */
+/* Heading */
 h1 {
     text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
+    color: #1e3c72;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+}
+
+/* Bus Stop Section */
+.bus-stop {
+    background: #f9fbff;
+    border-left: 5px solid #4da3ff;
+    padding: 20px 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Labels and Inputs */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
     color: #2c3e50;
 }
 
-/* Bus Stop Sections */
-.bus-stop {
-    background-color: #f1f1f1;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
-}
-
-/* Input Fields */
-.input-field {
+.input-field,
+textarea,
+select {
     width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    margin-bottom: 18px;
+    padding: 10px 12px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
+    border-radius: 8px;
     background-color: #fff;
+    font-size: 14px;
+    transition: all 0.3s ease;
 }
 
-.input-field:focus {
-    border-color: #3498db;
+.input-field:focus,
+textarea:focus,
+select:focus {
+    border-color: #4da3ff;
+    background-color: #f0faff;
     outline: none;
-    background-color: #eef9ff;
 }
 
 /* Submit Button */
 .submit-btn {
-    display: block;
-    width: 200px;
-    margin: 20px auto 0;
-    padding: 12px;
-    background-color: #3498db;
-    color: white;
-    font-size: 15px;
+    background-color: #1e88e5;
+    color: #fff;
     font-weight: bold;
+    padding: 12px 20px;
+    font-size: 16px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.25s ease;
+    display: block;
+    margin: 0 auto;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .submit-btn:hover {
-    background-color: #2980b9;
+    background-color: #1565c0;
+    transform: scale(1.03);
 }
