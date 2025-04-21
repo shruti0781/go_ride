@@ -1,77 +1,121 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    padding: 40px;
+
+  
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    z-index: -1;
   }
   
   .container {
-    background: #fff;
+    background: white;
+    width: 90%;
     max-width: 600px;
-    margin: auto;
-    border-radius: 8px;
-    padding: 30px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
   }
   
   .progress-bar {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
+    align-items: center;
+    margin-bottom: 40px;
     position: relative;
   }
   
   .progress-bar::before {
     content: "";
     position: absolute;
-    top: 14px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #d3d3d3;
+    top: 25px;
+    left: 30px;
+    right: 30px;
+    height: 4px;
+    background: #dcdcdc;
     z-index: 0;
   }
   
   .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
     z-index: 1;
-    text-align: center;
-    width: 16%;
-    position: relative;
   }
   
-  .step::before {
-    content: "";
-    display: block;
-    margin: 0 auto 10px;
-    width: 30px;
-    height: 30px;
-    background: #d3d3d3;
+  .step .circle {
+    background: #dcdcdc;
+    color: #fff;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: background 0.3s ease;
   }
   
-  .step.active::before {
+  .step.active .circle {
     background: #4CAF50;
   }
   
   .step span {
     font-size: 12px;
-    display: block;
-    margin-top: 5px;
-    color: #555;
+    color: #333;
+    margin-top: 8px;
   }
   
-  .booking-form label {
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group label {
     display: block;
-    margin-top: 20px;
-    font-weight: bold;
     font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
   }
   
-  .booking-form input {
+  .input-group input {
     width: 100%;
-    padding: 10px;
-    margin-top: 6px;
+    padding: 12px 15px;
+    font-size: 14px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 12px;
+    transition: 0.3s;
+  }
+  
+  .input-group input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
   }
   
   .button-group {
@@ -81,19 +125,30 @@ body {
   }
   
   .back-btn, .continue-btn {
-    padding: 10px 20px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
     border: none;
-    border-radius: 4px;
-    font-weight: bold;
     cursor: pointer;
+    transition: 0.3s ease;
   }
   
   .back-btn {
-    background-color: #e0e0e0;
+    background: #e0e0e0;
+    color: #333;
+  }
+  
+  .back-btn:hover {
+    background: #ccc;
   }
   
   .continue-btn {
-    background-color: #4CAF50;
+    background: #4CAF50;
     color: white;
+  }
+  
+  .continue-btn:hover {
+    background: #45a049;
   }
   
