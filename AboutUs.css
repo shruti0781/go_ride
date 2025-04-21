@@ -1,37 +1,62 @@
-@media (max-width: 768px) {
-  .container {
-    padding: 20px;
-    margin: 20px;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  li,
-  p {
-    font-size: 1rem;
-  }
+/* Regular inputs and textarea styling */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fafafa; /* Light background for inputs */
 }
 
-.button {
-  display: inline-block;
-  background: #2980b9;
-  color: #fff;
-  padding: 12px 25px;
-  border-radius: 25px;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: background 0.3s ease, transform 0.2s ease;
-  margin-top: 15px;
-  text-align: center;
+/* Focus state (for inputs and textarea) */
+input:focus,
+textarea:focus {
+  border-color: #2980b9;
+  outline: none;
+  box-shadow: 0 0 8px rgba(41, 128, 185, 0.3);
+  background-color: #f0f8ff; /* Light blue background on focus */
 }
 
-.button:hover {
-  background: #3498db;
-  transform: scale(1.05);
+/* Placeholder text style */
+input::placeholder,
+textarea::placeholder {
+  color: #7f8c8d; /* Lighter color for placeholder */
+  font-style: italic;
+}
+
+/* Disabled input and textarea */
+input:disabled,
+textarea:disabled {
+  background-color: #e1e1e1; /* Greyed out background for disabled */
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Error state styling (if an error is present) */
+input.error,
+textarea.error {
+  border-color: #e74c3c; /* Red border for error state */
+  background-color: #f9ebeb; /* Light red background */
+}
+
+input.error:focus,
+textarea.error:focus {
+  box-shadow: 0 0 8px rgba(231, 76, 60, 0.3);
+}
+
+/* Valid input state (green border on success) */
+input.valid,
+textarea.valid {
+  border-color: #2ecc71; /* Green border for valid input */
+  background-color: #d4edda; /* Light green background */
+}
+
+input.valid:focus,
+textarea.valid:focus {
+  box-shadow: 0 0 8px rgba(46, 204, 113, 0.3);
 }
