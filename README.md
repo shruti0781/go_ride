@@ -42,10 +42,10 @@
 </p>
 
 ### 🚀 No More Waiting & Losing a Bus!  
-GoRide is a smart bus navigation system designed to help students and commuters track buses in real time, ensuring a smooth and hassle-free travel experience.
+GoRide is a smart bus navigation system designed to help people book and track buses in real time, ensuring a smooth and hassle-free travel experience.
 
-- Real-time Bus Tracking using Leaflet.js for interactive maps.
-- Student Authentication to allow secure access and personalized tracking.
+- Real-time Bus Tracking using Leaflet.js for interactive maps to track locations.
+- Authentication to allow secure access and personalized tracking.
 - Live Route Management to provide accurate arrival times and navigation.
 
 Stay on track, save time, and never miss your bus again!
@@ -63,7 +63,7 @@ This section contains a list any major frameworks/libraries used in the project.
 ## 💡 Key Features  
 
 ### 🏙️ Bus Route Management  
-✔ Easily **search** and **manage** bus routes within the city.  
+✔ Easily **search** and **manage** bus routes within the routes.  
 ✔ View **real-time** bus locations and estimated arrival times.  
 
 ### 🗺️ Navigation  
