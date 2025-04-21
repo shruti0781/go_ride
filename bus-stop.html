@@ -3,54 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bus Stop Information</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Bus Stop Info Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #005792;
+        }
+        .bus-stop {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+        .submit-btn {
+            width: 100%;
+            background-color: #0073e6;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .submit-btn:hover {
+            background-color: #005bb5;
+        }
+    </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>Bus Stop Information</h1>
+        <h1>Bus Stop Information Form</h1>
 
-        <!-- Bus Stop Block -->
         <div class="bus-stop">
-            <h2>Bus Stop 1</h2>
-            <label>Bus Stop Name:
-                <input type="text" class="input-field" placeholder="Enter bus stop name" required>
-            </label>
+            <h2>Bus Stop #1</h2>
 
-            <label>Location:
-                <input type="text" class="input-field" placeholder="Enter location" required>
-            </label>
+            <label for="stop-name">Bus Stop Name:</label>
+            <input type="text" id="stop-name" placeholder="Enter bus stop name" required>
 
-            <label>Bus Stop Code:
-                <input type="text" class="input-field" placeholder="E.g., BS123" required>
-            </label>
+            <label for="stop-location">Location:</label>
+            <input type="text" id="stop-location" placeholder="Enter location" required>
 
-            <label>Bus Routes:
-                <input type="text" class="input-field" placeholder="E.g., 12, 24A, 33">
-            </label>
+            <label for="stop-code">Bus Stop Code:</label>
+            <input type="text" id="stop-code" placeholder="E.g., BS001" required>
 
-            <label>Bus Type:
-                <select class="input-field" required>
-                    <option value="">Select Bus Type</option>
-                    <option value="ac">AC</option>
-                    <option value="non-ac">Non-AC</option>
-                    <option value="electric">Electric</option>
-                </select>
-            </label>
+            <label for="routes">Bus Routes:</label>
+            <input type="text" id="routes" placeholder="E.g., 101, 203B, 14A">
 
-            <label>Additional Notes:
-                <textarea class="input-field" placeholder="Enter any additional information..."></textarea>
-            </label>
+            <label for="type">Bus Type:</label>
+            <select id="type" required>
+                <option value="">Select Bus Type</option>
+                <option value="ac">AC</option>
+                <option value="non-ac">Non-AC</option>
+                <option value="electric">Electric</option>
+                <option value="mini">Mini Bus</option>
+            </select>
+
+            <label for="notes">Additional Notes:</label>
+            <textarea id="notes" rows="3" placeholder="Any extra information..."></textarea>
         </div>
 
-        <!-- You can copy the above .bus-stop block to add more stops -->
+        <!-- More bus stops can be added here -->
 
-        <!-- Submit -->
-        <div class="form-submit">
-            <button type="submit" class="submit-btn">Submit Information</button>
-        </div>
+        <button class="submit-btn" type="submit">Submit Bus Stop Info</button>
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
