@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Tracker - Feedback</title>
+  <link rel="stylesheet" href="bus-feedback.css">
+</head>
+<body>
+
+  <div class="feedback-container">
+    <h2>Bus Tracker Feedback</h2>
+
+    <form id="feedbackForm">
+      <label for="feedbackType">Feedback Type:</label>
+      <select id="feedbackType" required>
+        <option value="" disabled selected>Select type</option>
+        <option value="appIssue">App Issue</option>
+        <option value="busTiming">Bus Timing</option>
+        <option value="driverBehavior">Driver Behavior</option>
+        <option value="featureRequest">Feature Request</option>
+        <option value="other">Other</option>
+      </select>
+
+     <label for="routeNumber">Bus Route (Optional):</label>
+<input type="text" id="routeNumber" placeholder="e.g. Route 45A">
+
+<label for="location">Location (Optional):</label>
+<input type="text" id="location" placeholder="e.g. Main Street Stop">
+
+<label for="feedbackText">Your Feedback:</label>
+<textarea id="feedbackText" rows="5" required></textarea>
+
+
+     
+
+      <label for="urgency">Urgency:</label>
+      <select id="urgency" required>
+        <option value="low">Low</option>
+        <option value="normal">Normal</option>
+        <option value="urgent">Urgent</option>
+      </select>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      const type = document.getElementById("feedbackType").value;
+      const route = document.getElementById("routeNumber").value;
+      const text = document.getElementById("feedbackText").value;
+      const urgency = document.getElementById("urgency").value;
+
+      console.log("Feedback Type:", type);
+      console.log("Route:", route);
+      console.log("Feedback:", text);
+      console.log("Urgency:", urgency);
+
+      alert("Thanks for your feedback! We appreciate your input.");
+      
+      this.reset(); 
+    });
+  </script>
+
+</body>
+</html>
