@@ -1,68 +1,76 @@
-/* Reset and base styles */
-body {
+/* Basic Reset and Theme */
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f4f8;
-    color: #333;
-}
-
-.container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #0066cc;
-}
-
-.bus-stop {
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #f9fbfd;
-    border: 1px solid #dce3ec;
-    border-radius: 8px;
-}
-
-label {
-    display: block;
-    margin: 12px 0 5px;
-    font-weight: bold;
-}
-
-.input-field {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
+    padding: 0;
     box-sizing: border-box;
 }
 
-.input-field:focus {
-    border-color: #3399ff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(51, 153, 255, 0.5);
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    color: #333;
+    padding: 40px;
 }
 
+/* Main Container */
+.container {
+    background-color: #fff;
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #1a73e8;
+}
+
+/* Each Bus Stop Section */
+.bus-stop {
+    background-color: #f1f9ff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid #1a73e8;
+    border-radius: 8px;
+}
+
+/* Labels & Inputs */
+.input-field {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus {
+    border-color: #1a73e8;
+    outline: none;
+    box-shadow: 0 0 6px rgba(26, 115, 232, 0.3);
+}
+
+/* Submit Button */
 .submit-btn {
     display: block;
-    margin: 20px auto 0;
-    padding: 12px 25px;
-    font-size: 16px;
-    background-color: #0066cc;
-    color: #ffffff;
+    margin: 0 auto;
+    padding: 12px 30px;
+    background-color: #1a73e8;
+    color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 .submit-btn:hover {
-    background-color: #0052a3;
+    background-color: #1669c1;
 }
