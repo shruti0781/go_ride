@@ -2,14 +2,14 @@ body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background-image: url("https://www.shutterstock.com/image-vector/big-intercity-bus-traveling-on-600nw-2352032303.jpg");
-  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   padding-top: 60px;
-  height: 100vh;
   position: relative;
 }
 
@@ -17,17 +17,24 @@ body::before {
   content: "";
   position: absolute;
   inset: 0;
-  /* Darkness level */
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 0;
 }
 
 .booking-card {
-  background: white;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   width: 900px;
   max-width: 95%;
+  padding: 24px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 80px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+}
+
+.translucent-card {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
 }
 
 .trip-type {
@@ -35,10 +42,6 @@ body::before {
   gap: 16px;
   margin-bottom: 20px;
   font-size: 0.95rem;
-}
-
-.trip-type input {
-  margin-right: 5px;
 }
 
 .booking-fields {
@@ -58,13 +61,21 @@ body::before {
 .field label {
   font-weight: 600;
   margin-bottom: 6px;
+  color: white;
 }
 
 .field input {
   padding: 8px 10px;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 6px;
   font-size: 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  outline: none;
+}
+
+.field input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .swap {
@@ -72,7 +83,7 @@ body::before {
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  color: #007bff;
+  color: #ffffff;
   padding: 0 8px;
 }
 
@@ -85,14 +96,14 @@ body::before {
 .search-btn {
   padding: 12px 40px;
   font-size: 1.1rem;
-  background: #007bff;
+  background: linear-gradient(to right, #FA4B37, #DF2771);
   border: none;
   color: white;
-  border-radius: 8px;
+  border-radius: 30px;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
 .search-btn:hover {
-  background: #0056b3;
+  opacity: 0.9;
 }
