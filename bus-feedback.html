@@ -3,42 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bus Feedback Form</title>
-    <link rel="stylesheet" href="style.css"> <!-- Optional: Link your CSS file -->
+    <title>Bus Service Feedback</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            padding: 20px;
+            background: #e6f2ff;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
         }
-        .container {
-            max-width: 600px;
-            background-color: #fff;
-            margin: auto;
+        .feedback-container {
+            max-width: 700px;
+            background: #fff;
+            margin: 50px auto;
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        h1 {
+        h2 {
             text-align: center;
-            color: #333;
+            color: #004080;
+            margin-bottom: 30px;
         }
         label {
-            display: block;
+            font-weight: 600;
             margin-top: 15px;
-            font-weight: bold;
+            display: block;
+            color: #333;
         }
-        input, select, textarea {
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
             width: 100%;
             padding: 10px;
-            margin-top: 5px;
+            margin-top: 6px;
             border: 1px solid #ccc;
-            border-radius: 8px;
+            border-radius: 6px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 6px;
         }
         .submit-btn {
-            margin-top: 20px;
+            margin-top: 25px;
             width: 100%;
-            background-color: #2e8b57;
+            background-color: #0073e6;
             color: white;
             font-size: 16px;
             padding: 12px;
@@ -47,38 +60,46 @@
             cursor: pointer;
         }
         .submit-btn:hover {
-            background-color: #246b45;
+            background-color: #005bb5;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Bus Feedback Form</h1>
+
+    <div class="feedback-container">
+        <h2>Bus Service Feedback</h2>
         <form action="#" method="post">
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <label for="fullname">Name:</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Your full name" required>
 
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your email" required>
 
-            <label for="busNumber">Bus Number:</label>
-            <input type="text" id="busNumber" name="busNumber" placeholder="Enter bus number" required>
+            <label for="bus-id">Bus ID or Route Number:</label>
+            <input type="text" id="bus-id" name="bus-id" placeholder="E.g. 102A, Route 45" required>
 
-            <label for="rating">Rating:</label>
-            <select id="rating" name="rating" required>
-                <option value="">Select rating</option>
-                <option value="5">Excellent (5)</option>
-                <option value="4">Good (4)</option>
-                <option value="3">Average (3)</option>
-                <option value="2">Poor (2)</option>
-                <option value="1">Very Poor (1)</option>
+            <label for="feedback-type">Feedback Type:</label>
+            <select id="feedback-type" name="feedback-type">
+                <option value="general">General Feedback</option>
+                <option value="complaint">Complaint</option>
+                <option value="suggestion">Suggestion</option>
+                <option value="praise">Praise</option>
             </select>
 
-            <label for="message">Feedback:</label>
+            <label>Service Rating:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="rating" value="Excellent" required> Excellent</label>
+                <label><input type="radio" name="rating" value="Good"> Good</label>
+                <label><input type="radio" name="rating" value="Fair"> Fair</label>
+                <label><input type="radio" name="rating" value="Poor"> Poor</label>
+            </div>
+
+            <label for="message">Your Feedback:</label>
             <textarea id="message" name="message" rows="5" placeholder="Write your feedback here..." required></textarea>
 
             <button type="submit" class="submit-btn">Submit Feedback</button>
         </form>
     </div>
+
 </body>
 </html>
