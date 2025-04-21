@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bus Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="progress-bar">
+      <div class="step active"> <span>Travel Date</span> </div>
+      <div class="step"><span>Available Buses</span></div>
+      <div class="step"><span>Book Seat</span></div>
+      <div class="step"><span>Details</span></div>
+      <div class="step"><span>Payment</span></div>
+      <div class="step"><span>Ticket</span></div>
+    </div>
+
+    <form class="booking-form" onsubmit="return handleContinue()">
+      <label>From</label>
+      <input type="text" placeholder="From" required>
+
+      <label>To</label>
+      <input type="text" placeholder="To" required>
+
+      <label>Date of travel</label>
+      <input type="date" required>
+
+      <div class="button-group">
+        <button type="button" class="back-btn">BACK</button>
+        <button type="submit" class="continue-btn">CONTINUE</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
