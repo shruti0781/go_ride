@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>code crafter - Subscribe</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fa;
+      color: #333;
+    }
+
+    header {
+      background-color: #004d99;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #004d99;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+
+    .subscribe-section {
+      background-color: #e6f0ff;
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 2px solid #004d99;
+    }
+
+    .subscribe-section h2 {
+      color: #004d99;
+      margin-bottom: 10px;
+    }
+
+    .subscribe-section p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .subscribe-form {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .subscribe-form input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .subscribe-form button {
+      padding: 10px 20px;
+      background-color: #004d99;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .subscribe-form button:hover {
+      background-color: #003366;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bus Booking System</h1>
+  </header>
+
+  <section class="subscribe-section">
+    <h2>Get the Latest Updates</h2>
+    <p>Stay informed about new routes, offers, and features. Enter your email below:</p>
+    <form class="subscribe-form">
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Bus Booking System. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
