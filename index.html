@@ -1,65 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<link rel="shortcut icon" type="png" href="images/icon/favicon.png">
-	<title>Login SignUp</title>
-	<link rel="stylesheet" type="text/css" href="loginStyle.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-			<!-- Login Form -->
-  <!-- It will redirect to the Home Page after submitting the form -->
-  <script>
-  $(document).ready(function(){
-    $("form").submit(function(){
-      alert("Great Job !");
-    });
-  });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="png" href="images/icon/favicon.png">
+    <title>Login SignUp</title>
+    <link rel="stylesheet" type="text/css" href="loginStyles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-		<div class="form-box">
-			<div class="button-box">
-				<div id="btn"></div>
-				<button type="button" class="toggle-btn" id="log" onclick="" style="color: #fff;">Log In</button>
-				<button type="button" class="toggle-btn" id="reg" onclick="register()">Register</button>
-			</div>
-			<div class="social-icons">
-				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiXN9xSEe8unzPBEQOeAKXd9Q55efGHGB9BA&s">
-				<img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg">
-				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI-h-e2hgz8mwGfCt4gvj4IgMG_wAUolVM6w&s">
-			</div>
-			
-			<form id="login" class="input-group" action="index.html">
-				<div class="inp">
-					<img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png"><input type="text" id="email" class="input-field" placeholder="Username or Phone Number" style="width: 88%; border:none;" required="required">
-				</div>
-				<div class="inp">
-					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVFEX2ePoQb6Q4CPCGCC6-M9usiR4e-iVgLQ&s"><input type="password" id="password" class="input-field" placeholder="Password" style="width: 88%; border: none;" required="required">
-				</div>
-				<input type="checkbox" class="check-box">Remember Password
-				<button type="submit" class="submit-btn">Log In</button>
-			</form>
+    <div class="form-box">
+        <div class="button-box">
+            <div id="btn"></div>
+            <button type="button" class="toggle-btn" id="log" onclick="login()" style="color: white">Log In</button>
+            <button type="button" class="toggle-btn" id="reg" onclick="register()" style="color: white">Register</button>
+        </div>
 
+        <div class="social-icons">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiXN9xSEe8unzPBEQOeAKXd9Q55efGHGB9BA&s">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI-h-e2hgz8mwGfCt4gvj4IgMG_wAUolVM6w&s">
+        </div>
 
-			<div class="other" id="other">
-				<div class="instead">
-					<h3>or</h3>
-				</div>
-				<button class="connect" onclick="google()">
-					<img src="images/icon/google.png"><span>Sign in with Google</span>
-				</button>
-			</div>
-			
-			<!-- Registration Form -->
-			<form id="register" class="input-group">
-				<input type="text" class="input-field" placeholder="Full Name" required="required">
-				<input type="email" class="input-field" placeholder="Email Address" required="required">
-				<input type="password" class="input-field" placeholder="Create Password" name="psame" required="required">
-				<input type="password" class="input-field" placeholder="Confirm Password" name="psame" required="required">
-				<input type="checkbox" class="check-box" id="chkAgree" onclick="goFurther()">I agree to the Terms & Conditions
-				<button type="submit" id="btnSubmit" class="submit-btn reg-btn">Register</button>
-			</form>
-		</div>
-		<script type="text/javascript" src="script.js"></script>
+        <!-- Login Form -->
+        <form id="login" class="input-group" action="index.html">
+            <div class="inp">
+                <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png">
+                <input type="text" id="email" class="input-field" placeholder="Username or Phone Number" style="width: 88%; border:none;" required="required">
+            </div>
+            <div class="inp">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVFEX2ePoQb6Q4CPCGCC6-M9usiR4e-iVgLQ&s">
+                <input type="password" id="password" class="input-field" placeholder="Password" style="width: 88%; border: none;" required="required">
+            </div>
+            <input type="checkbox" class="check-box"> Remember Password
+            <button type="submit" class="submit-btn">Log In</button>
+        </form>
+
+        <div class="other" id="other">
+            <div class="instead">
+               
+            </div>
+        </div>
+
+        <!-- Registration Form -->
+        <form id="register" class="input-group" style="display: none;">
+            <input type="text" class="input-field" placeholder="Full Name" required="required">
+            <input type="email" class="input-field" placeholder="Email Address" required="required">
+            <input type="password" class="input-field" placeholder="Create Password" name="password1" required="required">
+            <input type="password" class="input-field" placeholder="Confirm Password" name="password2" required="required">
+            <input type="checkbox" class="check-box" id="chkAgree" onclick="goFurther()"> I agree to the Terms & Conditions
+            <button type="submit" id="btnSubmit" class="submit-btn reg-btn" disabled>Register</button>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
