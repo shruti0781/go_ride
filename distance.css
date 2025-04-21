@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url("https://www.shutterstock.com/image-vector/big-intercity-bus-traveling-on-600nw-2352032303.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 60px;
+  height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Darkness level */
+  z-index: 0;
+}
+
+.booking-card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 900px;
+  max-width: 95%;
+}
+
+.trip-type {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.trip-type input {
+  margin-right: 5px;
+}
+
+.booking-fields {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 140px;
+}
+
+.field label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.field input {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.swap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #007bff;
+  padding: 0 8px;
+}
+
+.search-btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.search-btn {
+  padding: 12px 40px;
+  font-size: 1.1rem;
+  background: #007bff;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.search-btn:hover {
+  background: #0056b3;
+}
