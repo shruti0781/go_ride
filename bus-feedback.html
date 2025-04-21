@@ -1,105 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bus Service Feedback</title>
-    <style>
-        body {
-            background: #e6f2ff;
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .feedback-container {
-            max-width: 700px;
-            background: #fff;
-            margin: 50px auto;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        h2 {
-            text-align: center;
-            color: #004080;
-            margin-bottom: 30px;
-        }
-        label {
-            font-weight: 600;
-            margin-top: 15px;
-            display: block;
-            color: #333;
-        }
-        input[type="text"],
-        input[type="email"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 6px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
-        textarea {
-            resize: vertical;
-        }
-        .radio-group {
-            display: flex;
-            gap: 15px;
-            margin-top: 6px;
-        }
-        .submit-btn {
-            margin-top: 25px;
-            width: 100%;
-            background-color: #0073e6;
-            color: white;
-            font-size: 16px;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        .submit-btn:hover {
-            background-color: #005bb5;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Tracker - Feedback</title>
+  <link rel="stylesheet" href="bus-feedback.css">
 </head>
 <body>
 
-    <div class="feedback-container">
-        <h2>Bus Service Feedback</h2>
-        <form action="#" method="post">
-            <label for="fullname">Name:</label>
-            <input type="text" id="fullname" name="fullname" placeholder="Your full name" required>
+  <div class="feedback-container">
+    <h2>Bus Tracker Feedback</h2>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Your email" required>
+    <form id="feedbackForm">
+      <label for="feedbackType">Feedback Type:</label>
+      <select id="feedbackType" required>
+        <option value="" disabled selected>Select type</option>
+        <option value="appIssue">App Issue</option>
+        <option value="busTiming">Bus Timing</option>
+        <option value="driverBehavior">Driver Behavior</option>
+        <option value="featureRequest">Feature Request</option>
+        <option value="other">Other</option>
+      </select>
 
-            <label for="bus-id">Bus ID or Route Number:</label>
-            <input type="text" id="bus-id" name="bus-id" placeholder="E.g. 102A, Route 45" required>
+     <label for="routeNumber">Bus Route (Optional):</label>
+<input type="text" id="routeNumber" placeholder="e.g. Route 45A">
 
-            <label for="feedback-type">Feedback Type:</label>
-            <select id="feedback-type" name="feedback-type">
-                <option value="general">General Feedback</option>
-                <option value="complaint">Complaint</option>
-                <option value="suggestion">Suggestion</option>
-                <option value="praise">Praise</option>
-            </select>
+<label for="location">Location (Optional):</label>
+<input type="text" id="location" placeholder="e.g. Main Street Stop">
 
-            <label>Service Rating:</label>
-            <div class="radio-group">
-                <label><input type="radio" name="rating" value="Excellent" required> Excellent</label>
-                <label><input type="radio" name="rating" value="Good"> Good</label>
-                <label><input type="radio" name="rating" value="Fair"> Fair</label>
-                <label><input type="radio" name="rating" value="Poor"> Poor</label>
-            </div>
+<label for="feedbackText">Your Feedback:</label>
+<textarea id="feedbackText" rows="5" required></textarea>
 
-            <label for="message">Your Feedback:</label>
-            <textarea id="message" name="message" rows="5" placeholder="Write your feedback here..." required></textarea>
 
-            <button type="submit" class="submit-btn">Submit Feedback</button>
-        </form>
-    </div>
+     
+
+      <label for="urgency">Urgency:</label>
+      <select id="urgency" required>
+        <option value="low">Low</option>
+        <option value="normal">Normal</option>
+        <option value="urgent">Urgent</option>
+      </select>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </div>
+
+ <script>
+  document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    const type = document.getElementById("feedbackType").value;
+    const route = document.getElementById("routeNumber").value;
+    const location = document.getElementById("location").value;
+    const text = document.getElementById("feedbackText").value;
+    const urgency = document.getElementById("urgency").value;
+
+    console.log("Feedback Type:", type);
+    console.log("Route:", route);
+    console.log("Location:", location);
+    console.log("Feedback:", text);
+    console.log("Urgency:", urgency);
+
+    alert("Thanks for your feedback! We appreciate your input.");
+    
+    this.reset(); 
+  });
+</script>
+
 
 </body>
 </html>
