@@ -4,39 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bus Stop Information</title>
-    <link rel="stylesheet" type="text/css" href="style.css"> <!-- External CSS file for styling -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>Bus Stop Information</h1>
 
-        <!-- Bus Stop 1 -->
+        <!-- Bus Stop Block -->
         <div class="bus-stop">
-            <h2>Bus Stop: <input type="text" class="input-field" placeholder="Enter bus stop name" required="required"></h2>
-            <p><strong>Location:</strong> <input type="text" class="input-field" placeholder="Enter bus stop location" required="required"></p>
-            <p><strong>Bus Routes:</strong> <input type="text" class="input-field" placeholder="Enter bus routes" required="required"></p>
+            <h2>Bus Stop 1</h2>
+            <label>Bus Stop Name:
+                <input type="text" class="input-field" placeholder="Enter bus stop name" required>
+            </label>
+
+            <label>Location:
+                <input type="text" class="input-field" placeholder="Enter location" required>
+            </label>
+
+            <label>Bus Stop Code:
+                <input type="text" class="input-field" placeholder="E.g., BS123" required>
+            </label>
+
+            <label>Bus Routes:
+                <input type="text" class="input-field" placeholder="E.g., 12, 24A, 33">
+            </label>
+
+            <label>Bus Type:
+                <select class="input-field" required>
+                    <option value="">Select Bus Type</option>
+                    <option value="ac">AC</option>
+                    <option value="non-ac">Non-AC</option>
+                    <option value="electric">Electric</option>
+                </select>
+            </label>
+
+            <label>Additional Notes:
+                <textarea class="input-field" placeholder="Enter any additional information..."></textarea>
+            </label>
         </div>
 
-        <!-- Bus Stop 2 -->
-        <div class="bus-stop">
-            <h2>Bus Stop: <input type="text" class="input-field" placeholder="Enter bus stop name" required="required"></h2>
-            <p><strong>Location:</strong> <input type="text" class="input-field" placeholder="Enter bus stop location" required="required"></p>
-            <p><strong>Bus Routes:</strong> <input type="text" class="input-field" placeholder="Enter bus routes" required="required"></p>
-        </div>
+        <!-- You can copy the above .bus-stop block to add more stops -->
 
-        <!-- Bus Stop 3 -->
-        <div class="bus-stop">
-            <h2>Bus Stop: <input type="text" class="input-field" placeholder="Enter bus stop name" required="required"></h2>
-            <p><strong>Location:</strong> <input type="text" class="input-field" placeholder="Enter bus stop location" required="required"></p>
-            <p><strong>Bus Routes:</strong> <input type="text" class="input-field" placeholder="Enter bus routes" required="required"></p>
-        </div>
-
-        <!-- Submit Button for User Information -->
+        <!-- Submit -->
         <div class="form-submit">
             <button type="submit" class="submit-btn">Submit Information</button>
         </div>
     </div>
 
-    <script src="script.js"></script> <!-- External JS file for additional functionality -->
+    <script src="script.js"></script>
 </body>
 </html>
