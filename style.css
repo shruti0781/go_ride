@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    padding: 40px;
+  }
+  
+  .container {
+    background: #fff;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  .progress-bar::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #d3d3d3;
+    z-index: 0;
+  }
+  
+  .step {
+    z-index: 1;
+    text-align: center;
+    width: 16%;
+    position: relative;
+  }
+  
+  .step::before {
+    content: "";
+    display: block;
+    margin: 0 auto 10px;
+    width: 30px;
+    height: 30px;
+    background: #d3d3d3;
+    border-radius: 50%;
+  }
+  
+  .step.active::before {
+    background: #4CAF50;
+  }
+  
+  .step span {
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+    color: #555;
+  }
+  
+  .booking-form label {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .booking-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  
+  .back-btn, .continue-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .back-btn {
+    background-color: #e0e0e0;
+  }
+  
+  .continue-btn {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
