@@ -33,7 +33,7 @@ body {
 	height: 500px;
 	position: relative;
 	margin: 0px;
-	background: #ffffff; /* 👈 solid white background */
+	background: #f0f0f0;
 	padding: 5px;
 	border-radius: 15px;
 	overflow: hidden;
@@ -99,19 +99,14 @@ body {
 	width: 20px;
 	padding-right: 10px;
 }
-.input-field
-{
-	color: white !important;
-	width: 100%;
-	padding: 10px 0;
-	margin: 5px 0;
-	border-left: 0;
-	border-right: 0;
-	border-top: 0;
-	border-bottom: 1px solid rgba(0,0,0,0.4);
-	outline: none;
+.input-field {
+	color: #000 !important;
 	background: transparent;
-	color: rgba(0,0,0);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+::placeholder {
+	color: rgba(50, 50, 50, 0.5) !important;
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 	color: rgba(255, 255, 255, 0.7) !important;
