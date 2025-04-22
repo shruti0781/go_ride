@@ -33,12 +33,13 @@ body {
 	height: 500px;
 	position: relative;
 	margin: 0px;
-	background: #f0f0f0;
+	background: #f0f0f0; /* 👈 greyish background */
 	padding: 5px;
 	border-radius: 15px;
 	overflow: hidden;
 	box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.3);
 }
+
 .button-box
 {
 	width: 220px;
