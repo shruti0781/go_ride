@@ -3,61 +3,75 @@ input[type="text"],
 input[type="email"],
 textarea {
   width: 100%;
-  padding: 14px 16px;
-  margin-top: 12px;
-  border: 1px solid #dcdcdc;
-  border-radius: 10px;
+  padding: 12px 14px;
+  margin-top: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
-  background-color: #ffffff;
-  transition: border 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Focused state */
+/* Focused state with animated border */
 input:focus,
 textarea:focus {
-  border-color: #6c5ce7;
-  background-color: #f5f0ff;
-  box-shadow: 0 0 6px rgba(108, 92, 231, 0.25);
+  border-color: #3498db;
+  background-color: #eef7ff;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
   outline: none;
 }
 
 /* Placeholder styling */
 input::placeholder,
 textarea::placeholder {
-  color: #b0b0b0;
-  font-style: normal;
+  color: #888;
+  font-style: italic;
 }
 
 /* Disabled fields */
 input:disabled,
 textarea:disabled {
-  background-color: #f2f2f2;
-  border-color: #e0e0e0;
-  color: #999;
+  background-color: #f4f4f4;
+  border-color: #d1d1d1;
+  color: #aaa;
   cursor: not-allowed;
 }
 
-/* Error state */
+/* Error state with shaking effect */
 input.error,
 textarea.error {
-  border-color: #ff6b6b;
-  background-color: #fff5f5;
+  border-color: #e74c3c;
+  background-color: #ffefef;
 }
 
 input.error:focus,
 textarea.error:focus {
-  box-shadow: 0 0 6px rgba(255, 107, 107, 0.25);
+  box-shadow: 0 0 8px rgba(231, 76, 60, 0.3);
+  animation: shake 0.3s ease-in-out;
 }
 
-/* Valid state */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+}
+
+/* Valid state with smooth glow */
 input.valid,
 textarea.valid {
-  border-color: #00b894;
-  background-color: #eafff6;
+  border-color: #27ae60;
+  background-color: #e6fff2;
 }
 
 input.valid:focus,
 textarea.valid:focus {
-  box-shadow: 0 0 6px rgba(0, 184, 148, 0.25);
+  box-shadow: 0 0 8px rgba(39, 174, 96, 0.3);
+}
+
+/* Hover effect */
+input:hover,
+textarea:hover {
+  background-color: #f9f9f9;
 }
