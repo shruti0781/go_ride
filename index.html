@@ -122,10 +122,24 @@ nav a:hover {
   text-shadow: 2px 2px 4px rgba(255, 94, 77, 0.3);
 }
 
+    .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.2); /* 0.2 opacity ka black overlay */
+  z-index: 1;
+}
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+
 
   </style>
 </head>
 <body>
+  <div class="overlay"></div>
+
   <header>
     <div class="logo">
       <img src="favicon.png" alt="" height="50">
