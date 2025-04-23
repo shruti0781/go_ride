@@ -2,74 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Select your seat</title>
+  <link rel="stylesheet" href="seatstyle.css" />
 </head>
 <body>
  
+  <div class="container">
+    <div class="title">🚌 Select Your Seat</div>
+
+    <div class="legend">
+      <div><span class="dot available-dot"></span> Available</div>
+      <div><span class="dot selected-dot"></span> Selected</div>
+      <div><span class="dot reserved-dot"></span> Reserved</div>
+    </div>
+
+    <div class="seat-map" id="seatMap">
+      <!-- Seats will be added dynamically -->
+    </div>
+
+    <button onclick="confirmSeats()">Confirm Booking</button>
+  </div>
+
+  <script src="seat.js"></script>
+
+
   
-
-
-  <h1>Select Your Seat</h1>
-
-  <!-- Legend -->
-  <p>
-    🟩 Available &nbsp;&nbsp;
-    🟪 Selected &nbsp;&nbsp;
-    ⬛ Reserved
-  </p>
-
-  <!-- Seat Grid (Example: 5 rows x 6 columns) -->
-  <table border="1" cellspacing="10" cellpadding="10">
-    <tr>
-      <td>🟩</td>
-      <td>⬛</td>
-      <td>🟩</td>
-      <td>🟪</td>
-      <td>🟩</td>
-      <td>⬛</td>
-    </tr>
-    <tr>
-      <td>🟩</td>
-      <td>🟩</td>
-      <td>⬛</td>
-      <td>🟪</td>
-      <td>🟩</td>
-      <td>🟩</td>
-    </tr>
-    <tr>
-      <td>⬛</td>
-      <td>🟩</td>
-      <td>🟩</td>
-      <td>🟩</td>
-      <td>⬛</td>
-      <td>🟩</td>
-    </tr>
-    <tr>
-      <td>🟪</td>
-      <td>⬛</td>
-      <td>🟩</td>
-      <td>🟪</td>
-      <td>🟩</td>
-      <td>⬛</td>
-    </tr>
-    <tr>
-      <td>🟩</td>
-      <td>🟩</td>
-      <td>⬛</td>
-      <td>🟩</td>
-      <td>🟩</td>
-      <td>⬛</td>
-    </tr>
-  </table>
-   <br>
-  <button onclick="confirmBooking()">Confirm Booking</button>
-
-  <script>
-    function confirmBooking() {
-      alert("Your booking has been confirmed!");
-    }
-  </script>
-
 </body>
 </html>
 
