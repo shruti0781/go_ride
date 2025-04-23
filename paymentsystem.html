@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bus Booking Payment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #f0592c;
+    }
+
+    .section {
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    .payment-methods {
+      display: flex;
+      gap: 15px;
+    }
+
+    .payment-methods input {
+      margin-right: 5px;
+    }
+
+    .btn {
+      background-color: #f0592c;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #e64a19;
+    }
+
+    .trip-summary {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-left: 4px solid #f0592c;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .trip-summary p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Bus Booking Payment</h2>
+
+  <div class="section">
+    <label>Passenger Name</label>
+    <input type="text" placeholder="Enter your name" required>
+
+    <label>Email</label>
+    <input type="email" placeholder="Enter your email" required>
+
+    <label>Phone Number</label>
+    <input type="tel" placeholder="Enter phone number" required>
+  </div>
+
+  
+
+  <div class="section">
+    <h3>Payment Method</h3>
+    <div class="payment-methods">
+      <label><input type="radio" name="payment" checked> Credit/Debit Card</label>
+      <label><input type="radio" name="payment"> UPI</label>
+    </div>
+
+    <label>Card/UPI Number</label>
+    <input type="text" placeholder="Enter card or UPI ID" required>
+
+    <label>Expiry (MM/YY)</label>
+    <input type="text" placeholder="MM/YY" required>
+
+    <label>CVV</label>
+    <input type="password" placeholder="123" required>
+  </div>
+
+  <button class="btn">Pay</button>
+</div>
+
+</body>
+</html>
