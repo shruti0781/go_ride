@@ -1,92 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bus Stop Info Form</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f0f8ff;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #005792;
-        }
-        .bus-stop {
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-        label {
-            display: block;
-            margin-top: 12px;
-            font-weight: bold;
-            color: #333;
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 14px;
-        }
-        /* Custom Dropdown Arrow */
-        select {
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-            background-repeat: no-repeat;
-            background-position: right 10px center;
-            background-size: 16px 16px;
-            padding-right: 35px;
-        }
-        .submit-btn {
-            width: 100%;
-            background-color: #0073e6;
-            color: white;
-            padding: 12px;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        .submit-btn:hover {
-            background-color: #005bb5;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bus Stop Info Form</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #005792;
+    }
+    .bus-stop {
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+      color: #333;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .submit-btn {
+      width: 100%;
+      background-color: #0073e6;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .submit-btn:hover {
+      background-color: #005bb5;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Bus Stop Information Form</h1>
+  <div class="container">
+    <h1>Bus Stop Information Form</h1>
 
-        <div class="bus-stop">
-            <h2>Bus Stop #1</h2>
+    <div class="bus-stop">
+      <h2>Bus Stop #1</h2>
 
-            <label for="stop-name">Bus Stop Name:</label>
-            <input type="text" id="stop-name" placeholder="Enter bus stop name" required>
+      <label for="stop-name">Bus Stop Name:</label>
+      <input type="text" id="stop-name" placeholder="Enter bus stop name" required>
 
-            <label for="stop-location">Location:</label>
-            <input type="text" id="stop-location" placeholder="Enter location" required>
+      <label for="stop-location">Location:</label>
+      <input type="text" id="stop-location" placeholder="Enter location" required>
 
-            <label for="stop-code">Bus Stop Code:</label>
-            <input type="text" id="stop-code" placeholder="E.g., BS001" required>
+      <label for="stop-code">Bus Stop Code:</label>
+      <input type="text" id="stop-code" placeholder="E.g., BS001" required>
 
-            <label for="routes">Bus Routes:</label>
-            <input type="text" id="routes" placeholder="E.g.,
+      <label for="routes">Bus Routes:</label>
+      <input type="text" id="routes" placeholder="E.g., 101, 203B, 14A">
+
+      <label for="landmark">Nearest Landmark:</label>
+      <input type="text" id="landmark" placeholder="E.g., Near Main Market, Opposite Hospital">
+
+      <label for="type">Bus Type:</label>
+      <select id="type" required>
+        <option value="">Select Bus Type</option>
+        <option value="ac">AC</option>
+        <option value="non-ac">Non-AC</option>
+        <option value="electric">Electric</option>
+        <option value="mini">Mini Bus</option>
+      </select>
+
+      <label for="notes">Additional Notes:</label>
+      <textarea id="notes" rows="3" placeholder="Any extra information..."></textarea>
+    </div>
+
+    <button class="submit-btn" type="submit">Submit Bus Stop Info</button>
+  </div>
+
+</body>
+</html>
