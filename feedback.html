@@ -1,10 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bus Tracker - Feedback</title>
-  <link rel="stylesheet" href="bus-feedback.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .feedback-container {
+      background-color: #fff;
+      padding: 25px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #0077cc;
+      margin-bottom: 20px;
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    form select,
+    form input[type="text"],
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    form textarea {
+      resize: vertical;
+    }
+
+    button[type="submit"] {
+      margin-top: 20px;
+      width: 100%;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #005fa3;
+    }
+  </style>
 </head>
 <body>
 
@@ -12,8 +70,9 @@
     <h2>Bus Tracker Feedback</h2>
 
     <form id="feedbackForm">
+      
       <label for="feedbackType">Feedback Type:</label>
-      <select id="feedbackType" required>
+      <select id="feedbackType" name="feedbackType" required>
         <option value="" disabled selected>Select type</option>
         <option value="appIssue">App Issue</option>
         <option value="busTiming">Bus Timing</option>
@@ -22,20 +81,18 @@
         <option value="other">Other</option>
       </select>
 
-     <label for="routeNumber">Bus Route (Optional):</label>
-<input type="text" id="routeNumber" placeholder="e.g. Route 45A">
+      <label for="routeNumber">Bus Route (Optional):</label>
+      <input type="text" id="routeNumber" name="routeNumber" placeholder="e.g. Route 45A">
 
-<label for="location">Location (Optional):</label>
-<input type="text" id="location" placeholder="e.g. Main Street Stop">
+      <label for="location">Location (Optional):</label>
+      <input type="text" id="location" name="location" placeholder="e.g. Main Street Stop">
 
-<label for="feedbackText">Your Feedback:</label>
-<textarea id="feedbackText" rows="5" required></textarea>
-
-
-     
+      <label for="feedbackText">Your Feedback:</label>
+      <textarea id="feedbackText" name="feedbackText" rows="5" placeholder="Type your feedback here..." required></textarea>
 
       <label for="urgency">Urgency:</label>
-      <select id="urgency" required>
+      <select id="urgency" name="urgency" required>
+        <option value="" disabled selected>Select urgency</option>
         <option value="low">Low</option>
         <option value="normal">Normal</option>
         <option value="urgent">Urgent</option>
@@ -48,20 +105,21 @@
   <script>
     document.getElementById("feedbackForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      
+
       const type = document.getElementById("feedbackType").value;
       const route = document.getElementById("routeNumber").value;
+      const location = document.getElementById("location").value;
       const text = document.getElementById("feedbackText").value;
       const urgency = document.getElementById("urgency").value;
 
       console.log("Feedback Type:", type);
       console.log("Route:", route);
+      console.log("Location:", location);
       console.log("Feedback:", text);
       console.log("Urgency:", urgency);
 
       alert("Thanks for your feedback! We appreciate your input.");
-      
-      this.reset(); 
+      this.reset();
     });
   </script>
 
