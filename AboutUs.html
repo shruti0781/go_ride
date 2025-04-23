@@ -9,38 +9,56 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: url('https://png.pngtree.com/thumb_back/fh260/background/20200804/pngtree-sunset-bus-silhouette-illustration-image_382782.jpg');
+      background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRULcW9dNmFrPJny_el7afVcNlckPqEuIOYtw&s'); /* Replace with a valid direct image URL */
       background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      color: #111;
-      font-weight: 600;
+      color: #fff;
     }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      padding: 60px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .container {
       max-width: 900px;
-      margin: 50px auto;
       background: rgba(255, 255, 255, 0.95);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      color: #222;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
+
     h1, h2 {
-      color: #000;
+      color: #111;
       font-weight: 700;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
+
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+
     ul {
       padding-left: 20px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
+
     li {
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      font-size: 1rem;
     }
+
     a {
       color: #d35400;
       text-decoration: none;
       font-weight: 700;
     }
+
     a:hover {
       color: #b33e00;
     }
@@ -48,20 +66,21 @@
 </head>
 <body>
 
-  <div class="container">
-    <h1>About Us - Code Crafters</h1>
-    <p>We create smart transit solutions using GPS and cloud technology for real-time bus tracking, efficient commuting, and seamless bus booking.</p>
-    
-    <ul>
-      <li>Real-time bus location updates using advanced GPS and cloud technology.</li>
-      <li>Accurate route tracking and estimated arrival times.</li>
-      <li>Instant delay alerts to keep you informed about your journey.</li>
-      <li>Smart and user-friendly bus booking system for hassle-free commuting.</li>
-      <li>Quick booking for seats, allowing users to reserve a spot in advance.</li>
-      <li>Supports schools, universities, and public transportation networks for easy travel planning.</li>
-      <li>Improves daily commutes with reliable and up-to-date transit data.</li>
-    </ul>
+  <div class="overlay">
+    <div class="container">
+      <h1>About Us - Code Crafters</h1>
+      <p>We create smart transit solutions using GPS and cloud technology for real-time bus tracking, efficient commuting, and seamless bus booking.</p>
 
+      <ul>
+        <li>Real-time bus location updates using advanced GPS and cloud technology.</li>
+        <li>Accurate route tracking and estimated arrival times.</li>
+        <li>Instant delay alerts to keep you informed about your journey.</li>
+        <li>Smart and user-friendly bus booking system for hassle-free commuting.</li>
+        <li>Quick booking for seats, allowing users to reserve a spot in advance.</li>
+        <li>Supports schools, universities, and public transportation networks for easy travel planning.</li>
+        <li>Improves daily commutes with reliable and up-to-date transit data.</li>
+      </ul>
+    </div>
   </div>
 
 </body>
