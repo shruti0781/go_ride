@@ -83,6 +83,51 @@
       cursor: pointer;
       box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
     }
+    nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding-bottom: 2px;
+}
+
+nav a:hover {
+  color: #f0592c; 
+  border-bottom: 2px solid #f0592c;
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.5s;
+}
+
+.delay-2 {
+  animation-delay: 1s;
+}
+
+.delay-3 {
+  animation-delay: 1.5s;
+}
+
+.highlight-text {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(255, 94, 77, 0.3); /* Light orange tint */
+}
+
   </style>
 </head>
 <body>
@@ -100,11 +145,11 @@
     <button class="login-btn">Login</button>
   </header>
 
-  <div class="content">
-  <h1 style="font-size: 24px; font-weight: 800; margin-bottom: 5px;">Welcome To</h1>
-  <h2 style="font-size: 50px; font-weight: 800;">GoRide</h2>
-  <p style="margin-top: 10px; font-size: 14px;">Fast. Reliable. Wherever you need to go.</p>
-  <button class="book-btn" style="margin-top: 20px;">BOOK NOW</button>
+<div class="content">
+  <h1 class="fade" style="font-size: 24px; font-weight: 800; margin-bottom: 5px;">Welcome To</h1>
+<h2 class="fade delay-1 highlight-text" style="font-size: 50px; font-weight: 800;">GoRide</h2>
+  <p class="fade delay-2" style="margin-top: 10px; font-size: 14px;">Fast. Reliable. Wherever you need to go.</p>
+  <a href="booking.html" class="book-btn fade delay-3" style="margin-top: 20px; display: inline-block; text-align: center;">BOOK NOW</a>
 </div>
 
 </body>
