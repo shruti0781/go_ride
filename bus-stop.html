@@ -44,6 +44,17 @@
             border: 1px solid #ccc;
             font-size: 14px;
         }
+        /* Custom Dropdown Arrow */
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 16px 16px;
+            padding-right: 35px;
+        }
         .submit-btn {
             width: 100%;
             background-color: #0073e6;
@@ -78,29 +89,4 @@
             <input type="text" id="stop-code" placeholder="E.g., BS001" required>
 
             <label for="routes">Bus Routes:</label>
-            <input type="text" id="routes" placeholder="E.g., 101, 203B, 14A">
-              <div class="form-group">
-                <label for="landmark">Nearest Landmark:</label>
-                <input type="text" id="landmark" placeholder="E.g., Near Main Market, Opposite Hospital">
-            </div>
-
-            <label for="type">Bus Type:</label>
-            <select id="type" required>
-                <option value="">Select Bus Type</option>
-                <option value="ac">AC</option>
-                <option value="non-ac">Non-AC</option>
-                <option value="electric">Electric</option>
-                <option value="mini">Mini Bus</option>
-            </select>
-
-            <label for="notes">Additional Notes:</label>
-            <textarea id="notes" rows="3" placeholder="Any extra information..."></textarea>
-        </div>
-
-        <!-- More bus stops can be added here -->
-
-        <button class="submit-btn" type="submit">Submit Bus Stop Info</button>
-    </div>
-
-</body>
-</html>
+            <input type="text" id="routes" placeholder="E.g.,
