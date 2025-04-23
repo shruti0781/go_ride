@@ -1,0 +1,127 @@
+:root {
+  --green: #22c55e;
+  --purple: #8b5cf6;
+  --gray: #e5e7eb;
+  --dark: #111827;
+  --blue: #3b82f6;
+  --black: #000;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #e0f7fa, #e8f5e9);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px;
+}
+
+.container {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 420px;
+}
+
+.title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: var(--dark);
+}
+
+.legend {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.legend div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #444;
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.available-dot { background: var(--green); }
+.selected-dot { background: var(--purple); }
+.reserved-dot { background: #4b5563; }
+
+.seat-map {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.seat {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+  font-size: 14px;
+}
+
+.seat.available {
+  background: var(--green);
+}
+
+.seat.available:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.seat.selected {
+  background: var(--purple);
+}
+
+.seat.reserved {
+  background: #4b5563;
+  cursor: not-allowed;
+}
+
+.aisle {
+  grid-column: span 4;
+  height: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 500;
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #2563eb;
+}
+
+@media (max-width: 480px) {
+  .seat {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+  }
+}
