@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bus Booking Cards</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 30px;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .bus-card {
+      display: flex;
+      gap: 20px;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .bus-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .bus-logo img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+
+    .bus-details {
+      flex: 1;
+    }
+
+    .bus-details h2 {
+      font-size: 20px;
+      margin: 0;
+      color: #222;
+    }
+
+    .bus-details span {
+      font-size: 14px;
+      color: #777;
+    }
+
+    .info-grid {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    .info-grid div {
+      display: flex;
+      align-items: center;
+      color: #444;
+    }
+
+    .info-grid div strong {
+      color: #888;
+      margin-right: 5px;
+    }
+
+    .green {
+      color: #2e7d32;
+      font-weight: bold;
+    }
+
+    .actions {
+      margin-top: 12px;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .book-btn {
+      padding: 8px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .book-btn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .view-gallery {
+      color: #e91e63;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .view-gallery:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Available Bus Rides</h1>
+
+  <div class="cards-container">
+    <!-- Card 1 -->
+    <div class="bus-card">
+      <div class="bus-logo">
+        <img src="https://i.pinimg.com/736x/7e/f2/4d/7ef24db3928b30fd17586d85d5c1e912.jpg" alt="Bus Logo">
+      </div>
+      <div class="bus-details">
+        <h2>CTU <span>(ROADWAYS)</span></h2>
+        <div class="info-grid">
+          <div><strong>🕓</strong> 20:30hr</div>
+          <div><strong>🛣️</strong> CHANDIGARH - DELHI</div>
+          <div><strong>🪑</strong> <span class="green">1 seats left</span></div>
+          <div><strong>💵</strong> <span class="green">1000</span></div>
+        </div>
+        <div class="actions">
+          <button class="book-btn">Book Seats</button>
+          <a href="#" class="view-gallery">View Gallery</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bus-card">
+      <div class="bus-logo">
+        <img src="https://i.pinimg.com/736x/7e/f2/4d/7ef24db3928b30fd17586d85d5c1e912.jpg" alt="Bus Logo">
+      </div>
+      <div class="bus-details">
+        <h2>PRTC <span>(Express Shuttle)</span></h2>
+        <div class="info-grid">
+          <div><strong>🕓</strong> 18:00hr</div>
+          <div><strong>🛣️</strong> CHANDIGARH - LUDHIANA</div>
+          <div><strong>🪑</strong> <span class="green">5 seats left</span></div>
+          <div><strong>💵</strong> <span class="green">400</span></div>
+        </div>
+        <div class="actions">
+          <button class="book-btn">Book Seats</button>
+          <a href="#" class="view-gallery">View Gallery</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bus-card">
+      <div class="bus-logo">
+        <img src="https://i.pinimg.com/736x/7e/f2/4d/7ef24db3928b30fd17586d85d5c1e912.jpg" alt="Bus Logo">
+      </div>
+      <div class="bus-details">
+        <h2>HRTC <span>(Highway Coach)</span></h2>
+        <div class="info-grid">
+          <div><strong>🕓</strong> 22:00hr</div>
+          <div><strong>🛣️</strong> SHIMLA - SOLAN</div>
+          <div><strong>🪑</strong> <span class="green">12 seats left</span></div>
+          <div><strong>💵</strong> <span class="green">550</span></div>
+        </div>
+        <div class="actions">
+          <button class="book-btn">Book Seats</button>
+          <a href="#" class="view-gallery">View Gallery</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
