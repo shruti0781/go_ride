@@ -47,18 +47,19 @@ body {
 
 #btn
 {
+	position: absolute;
 	top: 0;
 	left: 0;
-	position: absolute;
 	width: 110px;
 	height: 100%;
 	background: linear-gradient(to right, #FA4B37, #DF2771);
 	border-radius: 30px;
 	transition: 0.5s;
+	z-index: -1;
 }
 .social-icons
 {
-	margin: 30px auto;
+	margin: 20px 0;
 	text-align: center;
 }
 .social-icons img
@@ -66,140 +67,39 @@ body {
 	width: 30px;
 	margin: 0 7px;
 	cursor: pointer;
-	opacity: 0.85;
 }
 
 .input-group
 {
-	top: 180px;
-	position: absolute;
-	width: 280px;
-	transition: .5s;
-	font-size: 13px;
-	color: #010101;
+	display: none;
+	flex-direction: column;
+	gap: 15px;
 }
-.inp {
-	border-bottom: 1px solid rgba(0,0,0,0.4);
-	justify-content: center;
-}
-.inp img{
-	width: 20px;
-	padding-right: 10px;
+.input-group.active {
+	display: flex;
 }
 .input-field {
-	color: #000 !important;
+	padding: 10px;
+	border: none;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 	background: transparent;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+	color: white;
+	outline: none;
 }
-
 ::placeholder {
-	color: rgba(50, 50, 50, 0.5) !important;
-}
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 	color: rgba(255, 255, 255, 0.7) !important;
-	/*opacity: 1;  Firefox */
 }
-#register {
-  
- display: block;
-  z-index: 10;
-  background: white;
-  	left: 450px;
-}
-#login {
-  z-index: 5;
-}
-
 .submit-btn
 {
-	  color: white !important;
-	width: 85%;
-	padding: 10px 30px;
-	cursor: pointer;
-	display: block;
-	margin: auto;
+	padding: 10px;
 	background: linear-gradient(to right, #FA4B37, #DF2771);
-	color: #fff;
-	border: 0;
-	outline: none;
+	color: white;
+	border: none;
 	border-radius: 30px;
-}
-
-.reg-btn {
-	background: lightgray;
+	cursor: pointer;
 }
 .check-box
 {
-	cursor: pointer;
-	margin: 30px 10px 30px 0;
+	margin: 10px 0;
 }
 
-.instead {
-	margin-top: 10px;
-}
-.instead h3 {
-    overflow: hidden;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.8) !important;
-}
-.instead h3:before,
-.instead h3:after {
-    background-color: rgba(0,0,0,0.5);
-    content: "";
-    display: inline-block;
-    height: 1px;
-    position: relative;
-    vertical-align: middle;
-    width: 50%;
-}
-.instead h3:before {
-    right: 0.5em;
-    margin-left: -50%;
-}
-.instead h3:after {
-    left: 0.5em;
-    margin-right: -50%;
-}
-span
-{
-	 color: white !important;
-	font-size: 12px;
-}
-
-#login
-{
-	left: 50px;
-}
-
-
-.other {
-	display: grid;
-	justify-content: center;
-	margin-top: 250px;
-}
-
-
-.connect {
-	display: flex;
-	margin: 10px;
-	padding: 0px 30px;
-	align-items: center;
-	text-align: center;
-	justify-content: center;
-	border: 1px solid lightgray;
-	cursor: pointer;
-	outline: none;
-	/*border-radius: 10px;*/
-	background: #fff3;
-}
-.connect:hover {
-	background: #fff8;
-}
-.connect img {
-	padding: 5px;
-	width: 25px;
-}
-.connect span {
-	padding: 10px;
-	font-size: 15px;
-}
