@@ -1,71 +1,49 @@
-/* Base button styling */
+/* Core button */
 button {
-  padding: 12px 24px;
+  padding: 12px 20px;
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
-  border: none;
-  border-radius: 10px;
+  border: 1.5px solid rgba(52, 152, 219, 0.6);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  color: #3498db;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  background-color: #3498db;
-  color: #fff;
+  transition: all 0.3s ease;
   font-weight: 500;
-  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.2);
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.1);
 }
 
-/* Hover state */
+/* Hover */
 button:hover {
-  background-color: #2980b9;
-  box-shadow: 0 6px 15px rgba(41, 128, 185, 0.3);
+  background: rgba(52, 152, 219, 0.1);
+  box-shadow: 0 6px 14px rgba(52, 152, 219, 0.2);
+  color: #2980b9;
+  border-color: #2980b9;
 }
 
-/* Focus state */
+/* Focus */
 button:focus {
   outline: none;
-  box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
 }
 
-/* Disabled button */
+/* Disabled */
 button:disabled {
-  background-color: #ccc;
-  color: #777;
+  opacity: 0.5;
   cursor: not-allowed;
   box-shadow: none;
 }
 
-/* Success style */
-button.success {
-  background-color: #27ae60;
-  box-shadow: 0 4px 10px rgba(39, 174, 96, 0.2);
+/* Full-width variant */
+button.full-width {
+  width: 100%;
+  display: block;
 }
 
-button.success:hover {
-  background-color: #219150;
-}
-
-/* Error style */
-button.error {
-  background-color: #e74c3c;
-  box-shadow: 0 4px 10px rgba(231, 76, 60, 0.2);
-}
-
-button.error:hover {
-  background-color: #c0392b;
-}
-
-/* Secondary button */
-button.secondary {
-  background-color: transparent;
-  border: 2px solid #3498db;
-  color: #3498db;
-}
-
-button.secondary:hover {
-  background-color: #eef7ff;
-}
-
-/* Button with icon (optional class) */
-button.icon-btn {
+/* Icon spacing (if needed) */
+button.with-icon {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -74,7 +52,7 @@ button.icon-btn {
 /* Responsive tweak */
 @media (max-width: 768px) {
   button {
-    padding: 10px 20px;
+    padding: 10px 16px;
     font-size: 0.95rem;
   }
 }
