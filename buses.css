@@ -3,12 +3,14 @@
   }
   
   body {
-    margin: 0;
-    padding: 30px;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f0f4f8;
-  }
-  
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow-y: auto;
+}
   h1 {
     text-align: center;
     margin-bottom: 30px;
