@@ -1,72 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bus Tracker - Feedback</title>
-  <link rel="stylesheet" href="bus-feedback.css">
+  <link rel="stylesheet" href="bus-feedback.css" />
 </head>
 <body>
 
   <div class="feedback-container">
-    <h2>Feedback</h2>
+    <h2>Bus Tracker Feedback</h2>
 
     <form id="feedbackForm">
-      <label for="feedbackType">Feedback Type:</label>
-      <select id="feedbackType" required>
-        <option value="" disabled selected>Select type</option>
-        <option value="appIssue">App Issue</option>
-        <option value="busTiming">Bus Timing</option>
-        <option value="driverBehavior">Driver Behavior</option>
-        <option value="featureRequest">Feature Request</option>
-        <option value="other">Other</option>
-      </select>
+      <div>
+        <label for="feedbackType">Feedback Type:</label>
+        <select id="feedbackType" name="feedbackType" required>
+          <option value="" disabled selected>Select type</option>
+          <option value="appIssue">App Issue</option>
+          <option value="busTiming">Bus Timing</option>
+          <option value="driverBehavior">Driver Behavior</option>
+          <option value="featureRequest">Feature Request</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
 
-     <label for="routeNumber">Bus Route (Optional):</label>
-<input type="text" id="routeNumber" placeholder="e.g. Route 45A">
+      <div>
+        <label for="routeNumber">Bus Route (Optional):</label>
+        <input type="text" id="routeNumber" name="routeNumber" placeholder="e.g. Route 45A"/>
+      </div>
 
-<label for="location">Location (Optional):</label>
-<input type="text" id="location" placeholder="e.g. Main Street Stop">
+      <div>
+        <label for="location">Location (Optional):</label>
+        <input type="text" id="location" name="location" placeholder="e.g. Main Street Stop"/>
+      </div>
 
-<label for="feedbackText">Your Feedback:</label>
-<textarea id="feedbackText" rows="5" required></textarea>
+      <div>
+        <label for="feedbackText">Your Feedback:</label>
+        <textarea id="feedbackText" name="feedbackText" rows="5" required placeholder="Please describe your feedback..."></textarea>
+      </div>
 
-
-     
-
-      <label for="urgency">Urgency:</label>
-      <select id="urgency" required>
-        <option value="low">Low</option>
-        <option value="normal">Normal</option>
-        <option value="urgent">Urgent</option>
-      </select>
+      <div>
+        <label for="urgency">Urgency:</label>
+        <select id="urgency" name="urgency" required>
+          <option value="low">Low</option>
+          <option value="normal">Normal</option>
+          <option value="urgent">Urgent</option>
+        </select>
+      </div>
 
       <button type="submit">Submit Feedback</button>
     </form>
   </div>
 
- <script>
-  document.getElementById("feedbackForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    
-    const type = document.getElementById("feedbackType").value;
-    const route = document.getElementById("routeNumber").value;
-    const location = document.getElementById("location").value;
-    const text = document.getElementById("feedbackText").value;
-    const urgency = document.getElementById("urgency").value;
+  <script>
+    document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+      e.preventDefault();
 
-    console.log("Feedback Type:", type);
-    console.log("Route:", route);
-    console.log("Location:", location);
-    console.log("Feedback:", text);
-    console.log("Urgency:", urgency);
+      const feedback = {
+        type: document.getElementById("feedbackType").value,
+        route: document.getElementById("routeNumber").value,
+        location: document.getElementById("location").value,
+        text: document.getElementById("feedbackText").value,
+        urgency: document.getElementById("urgency").value
+      };
 
-    alert("Thanks for your feedback! We appreciate your input.");
-    
-    this.reset(); 
-  });
-</script>
+      console.log("Feedback Submitted:", feedback);
 
+      // Example: you can later replace this with a POST request
+      /*
+      fetch('/submit-feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(feedback)
+      }).then(response => {
+        if (response.ok) {
+          alert("Thanks for your feedback!");
+        }
+      });
+      */
+
+      alert("Thanks for your feedback! We appreciate your input.");
+      this.reset();
+    });
+  </script>
 
 </body>
 </html>
