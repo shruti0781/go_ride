@@ -2,121 +2,164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bus Booking Cards</title>
+  <title>Available Bus Rides</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      padding: 30px;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f0f4f8;
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      z-index: -1;
+    }
+
+    .container {
+      background: white;
+      width: 90%;
+      max-width: 600px;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(10px);
+    }
+
+    .progress-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .progress-bar::before {
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: 30px;
+      right: 30px;
+      height: 4px;
+      background: #dcdcdc;
+      z-index: 0;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      z-index: 1;
+    }
+
+    .step .circle {
+      background: #dcdcdc;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .step.active .circle {
+      background: #4CAF50;
+    }
+
+    .step span {
+      font-size: 12px;
       color: #333;
+      margin-top: 8px;
     }
 
-    .cards-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-      gap: 25px;
-      max-width: 1200px;
-      margin: auto;
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .bus-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
     .bus-card {
-      display: flex;
-      gap: 20px;
-      background: #ffffff;
+      background: #f9f9f9;
       padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .bus-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
-    .bus-logo img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
+    .bus-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
     }
 
-    .bus-details {
-      flex: 1;
-    }
-
-    .bus-details h2 {
-      font-size: 20px;
-      margin: 0;
-      color: #222;
-    }
-
-    .bus-details span {
-      font-size: 14px;
+    .bus-card span {
+      font-size: 12px;
+      font-weight: 400;
       color: #777;
     }
 
-    .info-grid {
-      margin-top: 10px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
+    .bus-card p {
       font-size: 14px;
+      margin: 5px 0;
     }
 
-    .info-grid div {
+    .card-buttons {
+      margin-top: 10px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      color: #444;
-    }
-
-    .info-grid div strong {
-      color: #888;
-      margin-right: 5px;
-    }
-
-    .green {
-      color: #2e7d32;
-      font-weight: bold;
-    }
-
-    .actions {
-      margin-top: 12px;
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      flex-wrap: wrap;
     }
 
     .book-btn {
-      padding: 8px 20px;
-      background-color: #4caf50;
-      color: #fff;
+      background: #4CAF50;
       border: none;
+      color: white;
+      padding: 8px 16px;
       border-radius: 20px;
+      font-weight: 600;
       cursor: pointer;
-      font-size: 14px;
-      transition: background 0.3s;
+      transition: background 0.3s ease;
     }
 
-    .book-btn:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
+    .book-btn:hover {
+      background: #45a049;
     }
 
     .view-gallery {
-      color: #e91e63;
+      font-size: 12px;
+      color: #007BFF;
       text-decoration: none;
-      font-size: 14px;
     }
 
     .view-gallery:hover {
@@ -125,70 +168,61 @@
   </style>
 </head>
 <body>
+  <div class="background"></div>
+  <div class="container">
+    <div class="progress-bar">
+      <div class="step"><div class="circle">1</div><span>Travel Date</span></div>
+      <div class="step active"><div class="circle">2</div><span>Available Buses</span></div>
+      <div class="step"><div class="circle">3</div><span>Book Seat</span></div>
+      <div class="step"><div class="circle">4</div><span>Details</span></div>
+      <div class="step"><div class="circle">5</div><span>Payment</span></div>
+      <div class="step"><div class="circle">6</div><span>Ticket</span></div>
+    </div>
 
-  <h1>Available Bus Rides</h1>
-
-  <div class="cards-container">
-    <!-- Card 1 -->
-    <div class="bus-card">
-      <div class="bus-logo">
-        <img src="https://i.pinimg.com/736x/7e/f2/4d/7ef24db3928b30fd17586d85d5c1e912.jpg" alt="Bus Logo">
-      </div>
-      <div class="bus-details">
-        <h2>CTU <span>(ROADWAYS)</span></h2>
-        <div class="info-grid">
-          <div><strong>🕓</strong> 20:30hr</div>
-          <div><strong>🛣️</strong> CHANDIGARH - DELHI</div>
-          <div><strong>🪑</strong> <span class="green">1 seats left</span></div>
-          <div><strong>💵</strong> <span class="green">1000</span></div>
-        </div>
-        <div class="actions">
-          <button class="book-btn">Book Seats</button>
+    <h2 class="section-title">Available Bus Rides</h2>
+    <div class="bus-cards">
+      <div class="bus-card">
+        <h3>CTU <span>(ROADWAYS)</span></h3>
+        <p><strong>Time:</strong> 20:30hr</p>
+        <p><strong>Route:</strong> CHANDIGARH - DELHI</p>
+        <p><strong>Seats Left:</strong> 1 seat left</p>
+        <p><strong>Fare:</strong> ₹1000</p>
+        <div class="card-buttons">
+          <button class="book-btn" onclick="bookSeat('CTU')">Book Seats</button>
           <a href="#" class="view-gallery">View Gallery</a>
         </div>
       </div>
-    </div>
 
-    <!-- Card 2 -->
-    <div class="bus-card">
-      <div class="bus-logo">
-        <img src="https://i.pinimg.com/736x/7e/f2/4d/7ef24db3928b30fd17586d85d5c1e912.jpg" alt="Bus Logo">
-      </div>
-      <div class="bus-details">
-        <h2>PRTC <span>(Express Shuttle)</span></h2>
-        <div class="info-grid">
-          <div><strong>🕓</strong> 18:00hr</div>
-          <div><strong>🛣️</strong> CHANDIGARH - LUDHIANA</div>
-          <div><strong>🪑</strong> <span class="green">5 seats left</span></div>
-          <div><strong>💵</strong> <span class="green">400</span></div>
-        </div>
-        <div class="actions">
-          <button class="book-btn">Book Seats</button>
+      <div class="bus-card">
+        <h3>PRTC <span>(Express Shuttle)</span></h3>
+        <p><strong>Time:</strong> 18:00hr</p>
+        <p><strong>Route:</strong> CHANDIGARH - LUDHIANA</p>
+        <p><strong>Seats Left:</strong> 5 seats left</p>
+        <p><strong>Fare:</strong> ₹400</p>
+        <div class="card-buttons">
+          <button class="book-btn" onclick="bookSeat('PRTC')">Book Seats</button>
           <a href="#" class="view-gallery">View Gallery</a>
         </div>
       </div>
-    </div>
 
-    <!-- Card 3 -->
-    <div class="bus-card">
-      <div class="bus-logo">
-        <img src="https://i.pinimg.com/736x/7e/f2/4d/7ef24db3928b30fd17586d85d5c1e912.jpg" alt="Bus Logo">
-      </div>
-      <div class="bus-details">
-        <h2>HRTC <span>(Highway Coach)</span></h2>
-        <div class="info-grid">
-          <div><strong>🕓</strong> 22:00hr</div>
-          <div><strong>🛣️</strong> SHIMLA - SOLAN</div>
-          <div><strong>🪑</strong> <span class="green">12 seats left</span></div>
-          <div><strong>💵</strong> <span class="green">550</span></div>
-        </div>
-        <div class="actions">
-          <button class="book-btn">Book Seats</button>
+      <div class="bus-card">
+        <h3>HRTC <span>(Highway Coach)</span></h3>
+        <p><strong>Time:</strong> 22:00hr</p>
+        <p><strong>Route:</strong> SHIMLA - SOLAN</p>
+        <p><strong>Seats Left:</strong> 12 seats left</p>
+        <p><strong>Fare:</strong> ₹550</p>
+        <div class="card-buttons">
+          <button class="book-btn" onclick="bookSeat('HRTC')">Book Seats</button>
           <a href="#" class="view-gallery">View Gallery</a>
         </div>
       </div>
     </div>
   </div>
 
+  <script>
+    function bookSeat(busName) {
+      alert(`You selected ${busName} bus. Proceeding to booking...`);
+    }
+  </script>
 </body>
 </html>
