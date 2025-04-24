@@ -3,13 +3,7 @@
 	padding: 0;
 	font-family: sans-serif;
 }
-.hidden {
-  display: none !important;
-}
 
-.toogle-btn.reg-btn {
-    color: white; /* Set the text color to white */
-}
 body {
 	background-image:url("https://media.istockphoto.com/id/1127743344/vector/tourist-bus.jpg?s=612x612&w=0&k=20&c=WGtPHPukLZwGBbDirk_Th6qkU7xdBgHoNsnUWoqnG3k=");
 	background-size: cover;
@@ -20,24 +14,16 @@ body {
 	height: 100vh;
 	padding-right: 5%;
 }
-.logo {
-	display: flex;
-	justify-content: center;
-}
-.logo img {
-	width: 100px;
-}
+
 .form-box {
-	color: #000;
 	width: 380px;
-	height: 500px;
-	position: relative;
-	margin: 0px;
-	background: #f0f0f0; /* 👈 greyish background */
-	padding: 5px;
+	background: rgba(255,255,255,0.2);
+	padding: 20px;
 	border-radius: 15px;
+	position: relative;
 	overflow: hidden;
 	box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.3);
+	color: white;
 }
 
 .button-box
@@ -54,9 +40,9 @@ body {
 	padding: 10px 30px;
 	cursor: pointer;
 	background: transparent;
-	position: relative;
-	border: 0;
+	border: none;
 	outline: none;
+	color:white;
 }
 
 #btn
