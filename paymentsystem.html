@@ -182,6 +182,49 @@ label {
     `;
 
     container.appendChild(otpSection);
+    
+    document.getElementById('verifyOtpBtn').addEventListener('click', function () {
+      const enteredOtp = document.getElementById('otpInput').value;
+      if (enteredOtp === generatedOtp) {
+        feedback.style.display = 'block';
+        otpSection.remove();
+      } else {
+        alert("Incorrect OTP. Please try again.");
+      }
+    });
+
+    setupResendButton(); 
+  });
+
+  function setupResendButton() {
+    const resendBtn = document.getElementById('resendBtn');
+    const countdown = document.getElementById('countdown');
+    let timer = 30;
+
+    resendBtn.disabled = true;
+    countdown.textContent = `You can resend OTP in ${timer} seconds`;
+
+    const interval = setInterval(() => {
+      timer--;
+      countdown.textContent = `You can resend OTP in ${timer} seconds`;
+
+      if (timer === 0) {
+        clearInterval(interval);
+        resendBtn.disabled = false;
+        countdown.textContent = '';
+      }
+    }, 1000);
+
+    resendBtn.addEventListener('click', () => {
+      generatedOtp = "1234"; 
+      alert("OTP resent!");
+      setupResendButton(); 
+    });
+  }
+</script>
+
+</body>
+</html>
 
 
    
