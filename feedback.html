@@ -3,213 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bus Tracker - Feedback</title>
+  <title>Bus Stop Info Form</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f2f5;
+      background-color: #e6f0f8; /* Light bluish-gray background */
+      margin: 0;
       padding: 20px;
     }
 
-    .feedback-container {
-      background-color: #ffffff;
-      padding: 30px;
-      max-width: 700px;
+    .container {
+      max-width: 800px;
       margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      background-color: #005792; /* Deep blue background */
+      color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .bus-stop {
+      border: 1px solid #cde0f7;
+      padding: 20px;
+      margin-bottom: 25px;
       border-radius: 10px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      background-color: #f0f8ff; /* Soft blue form background */
     }
 
     h2 {
-      text-align: center;
-      color: #0077cc;
-      margin-bottom: 25px;
+      color: #004a75;
+      margin-bottom: 20px;
     }
 
     label {
       display: block;
-      margin-top: 15px;
-      font-weight: 600;
+      margin-top: 12px;
+      font-weight: bold;
+      color: #333;
     }
 
     input, select, textarea {
       width: 100%;
       padding: 10px;
-      margin-top: 6px;
-      border: 1px solid #ccc;
+      margin-top: 5px;
       border-radius: 6px;
-      box-sizing: border-box;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      background-color: #ffffff;
     }
 
-    textarea {
-      resize: vertical;
-    }
-
-    .rating {
-      display: flex;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .rating input[type="radio"] {
-      display: none;
-    }
-
-    .rating label {
-      font-size: 22px;
-      cursor: pointer;
-    }
-
-    .rating input:checked + label {
-      color: #ff9800;
-    }
-
-    .char-count {
-      text-align: right;
-      font-size: 12px;
-      color: gray;
-    }
-
-    button[type="submit"] {
-      margin-top: 25px;
+    .submit-btn {
       width: 100%;
-      background-color: #0077cc;
+      background-color: #0073e6;
       color: white;
-      border: none;
       padding: 14px;
       font-size: 16px;
-      border-radius: 6px;
+      border: none;
+      border-radius: 10px;
       cursor: pointer;
-      font-weight: bold;
-    }
-
-    button[type="submit"]:hover {
-      background-color: #005fa3;
-    }
-
-    .success-message {
-      text-align: center;
-      color: green;
-      font-weight: bold;
-      display: none;
       margin-top: 20px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #005bb5;
+      transform: scale(1.03);
     }
   </style>
 </head>
 <body>
 
-  <div class="feedback-container">
-    <h2>Bus Tracker Feedback Form</h2>
+  <div class="container">
+    <h1>Bus Stop Information Form</h1>
 
-    <form id="feedbackForm" enctype="multipart/form-data">
-      <label for="name">Your Name:</label>
-      <input type="text" id="name" name="name" placeholder="Full name" required>
+    <div class="bus-stop">
+      <h2>Bus Stop #1</h2>
 
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" placeholder="example@email.com" required>
+      <label for="stop-name">Bus Stop Name:</label>
+      <input type="text" id="stop-name" placeholder="Enter bus stop name" required>
 
-      <label for="phone">Phone Number (optional):</label>
-      <input type="tel" id="phone" name="phone" placeholder="1234567890">
+      <label for="stop-location">Location:</label>
+      <input type="text" id="stop-location" placeholder="Enter location" required>
 
-      <label for="feedbackType">Feedback Type:</label>
-      <select id="feedbackType" name="feedbackType" required>
-        <option value="" disabled selected>Select type</option>
-        <option value="appIssue">App Issue</option>
-        <option value="busTiming">Bus Timing</option>
-        <option value="driverBehavior">Driver Behavior</option>
-        <option value="featureRequest">Feature Request</option>
-        <option value="other">Other</option>
+      <label for="stop-code">Bus Stop Code:</label>
+      <input type="text" id="stop-code" placeholder="E.g., BS001" required>
+
+      <label for="routes">Bus Routes:</label>
+      <input type="text" id="routes" placeholder="E.g., 101, 203B, 14A">
+
+      <label for="landmark">Nearest Landmark:</label>
+      <input type="text" id="landmark" placeholder="E.g., Near Main Market, Opposite Hospital">
+
+      <label for="type">Bus Type:</label>
+      <select id="type" required>
+        <option value="">Select Bus Type</option>
+        <option value="ac">AC</option>
+        <option value="non-ac">Non-AC</option>
+        <option value="electric">Electric</option>
+        <option value="mini">Mini Bus</option>
       </select>
 
-      <label for="routeNumber">Bus Route:</label>
-      <input type="text" id="routeNumber" name="routeNumber" placeholder="e.g. Route 45A">
-
-      <label for="location">Location:</label>
-      <input type="text" id="location" name="location" placeholder="e.g. Main Street Stop">
-
-      <label for="screenshot">Attach Screenshot (optional):</label>
-      <input type="file" id="screenshot" name="screenshot" accept="image/*">
-
-      <label for="feedbackText">Your Feedback:</label>
-      <textarea id="feedbackText" name="feedbackText" rows="5" maxlength="500" placeholder="Type your feedback here..." required></textarea>
-      <div class="char-count" id="charCount">0 / 500</div>
-
-      <label for="urgency">Urgency Level:</label>
-      <select id="urgency" name="urgency" required>
-        <option value="" disabled selected>Select urgency</option>
-        <option value="low">Low</option>
-        <option value="normal">Normal</option>
-        <option value="urgent">Urgent</option>
+      <label for="operating-hours">Operating Hours:</label>
+      <select id="operating-hours" required>
+        <option value="">Select Operating Hours</option>
+        <option value="24-hours">24 Hours</option>
+        <option value="morning">Morning (6 AM - 12 PM)</option>
+        <option value="afternoon">Afternoon (12 PM - 6 PM)</option>
+        <option value="evening">Evening (6 PM - 12 AM)</option>
       </select>
 
-      <label>Rate Your Experience:</label>
-      <div class="rating">
-        <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
-        <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
-        <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
-        <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
-        <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
-      </div>
+      <label for="peak-hours">Peak Hours:</label>
+      <select id="peak-hours" required>
+        <option value="">Select Peak Hours</option>
+        <option value="morning-peak">Morning Peak (7 AM - 9 AM)</option>
+        <option value="evening-peak">Evening Peak (5 PM - 7 PM)</option>
+        <option value="no-peak">No Peak</option>
+      </select>
 
-      <label>
-        <input type="checkbox" id="consent" required>
-        I consent to the collection and use of my data for service improvement.
-      </label>
+      <label for="notes">Additional Notes:</label>
+      <textarea id="notes" rows="3" placeholder="Any extra information..."></textarea>
+    </div>
 
-      <button type="submit">Submit Feedback</button>
-    </form>
-
-    <div class="success-message" id="successMsg">Thank you! Your feedback has been submitted.</div>
+    <button class="submit-btn" type="submit">Submit Bus Stop Info</button>
   </div>
-
-  <script>
-    const feedbackText = document.getElementById("feedbackText");
-    const charCount = document.getElementById("charCount");
-
-    feedbackText.addEventListener("input", function () {
-      charCount.textContent = ${feedbackText.value.length} / 500;
-    });
-
-    document.getElementById("feedbackForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const timestamp = new Date().toLocaleString();
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const phone = document.getElementById("phone").value;
-      const type = document.getElementById("feedbackType").value;
-      const route = document.getElementById("routeNumber").value;
-      const location = document.getElementById("location").value;
-      const feedback = feedbackText.value;
-      const urgency = document.getElementById("urgency").value;
-      const consent = document.getElementById("consent").checked;
-      const rating = document.querySelector('input[name="rating"]:checked')?.value || "Not Rated";
-
-      if (!consent) {
-        alert("Please provide consent to proceed.");
-        return;
-      }
-
-      console.log("Timestamp:", timestamp);
-      console.log("Name:", name);
-      console.log("Email:", email);
-      console.log("Phone:", phone);
-      console.log("Feedback Type:", type);
-      console.log("Route:", route);
-      console.log("Location:", location);
-      console.log("Feedback:", feedback);
-      console.log("Urgency:", urgency);
-      console.log("Rating:", rating);
-
-      document.getElementById("successMsg").style.display = "block";
-
-      setTimeout(() => {
-        document.getElementById("successMsg").style.display = "none";
-        document.getElementById("feedbackForm").reset();
-        charCount.textContent = "0 / 500";
-      }, 4000);
-    });
-  </script>
 
 </body>
 </html>
