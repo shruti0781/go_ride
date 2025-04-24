@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GoRide</title>
   <style>
     * {
@@ -12,7 +12,7 @@
       font-family: Arial, sans-serif;
     }
     body {
-      background-image: url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzfGVufDB8fDB8fHww"); 
+      background-image: url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzfGVufDB8fDB8fHww");
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -22,119 +22,117 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
+      padding: 8px 20px;
       background: black;
       color: white;
     }
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-      color: white;
+    .logo-container {
       display: flex;
       align-items: center;
+      gap: 10px;
     }
     nav {
+      flex-grow: 1;
       display: flex;
-      gap: 20px;
+      justify-content: center;
+      gap: 30px;
     }
     nav a {
       text-decoration: none;
       color: white;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f0592c;
     }
     .login-btn {
       background-color: #f0592c;
       border: none;
-      padding: 10px 20px;
+      padding: 8px 18px;
       color: white;
       font-weight: bold;
       border-radius: 20px;
       cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+    }
+    .login-btn:hover {
+      background-color: #d94f22;
     }
     .content {
-  position: absolute;
-  top: 50%;
-  right: 5%;
-  transform: translateY(-50%);
-  text-align: right;
-  color: white;
-  padding: 20px;
-  width: 90%;
-  max-width: 500px;
-}
-
+      position: absolute;
+      top: 50%;
+      right: 10%; /* moved slightly left */
+      transform: translateY(-50%);
+      text-align: right;
+      color: white;
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+    }
     .content h1 {
-      font-size: 80px;
+      font-size: 56px; /* Increased */
+      font-weight: 800;
+      margin-right: -20px; /* move to the right */
+    }
+    .content h2 {
+      font-size: 72px;
       font-weight: 800;
     }
     .content p {
-      margin-top: 10px;
-      font-size: 16px;
+      margin-top: 20px;
+      font-size: 20px;
       color: white;
+      margin-right: -20px; /* move to the right */
     }
     .book-btn {
-      margin-top: 20px;
+      margin-top: 40px;
       background-color: #f0592c;
       color: white;
       font-weight: bold;
-      padding: 12px 25px;
+      padding: 15px 30px;
       border: none;
-      border-radius: 5px;
+      border-radius: 15px;
       cursor: pointer;
+      font-size: 18px;
       box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 90px; /* move left under "GoRide" */
     }
-    nav a {
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
-  padding-bottom: 2px;
-}
+    .book-btn:hover {
+      background-color: #d94f22;
+    }
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade {
+      opacity: 0;
+      animation: fadeInUp 1s ease-out forwards;
+    }
+    .delay-1 { animation-delay: 0.5s; }
+    .delay-2 { animation-delay: 1s; }
+    .delay-3 { animation-delay: 1.5s; }
 
-nav a:hover {
-  color: #f0592c; 
-  border-bottom: 2px solid #f0592c;
-}
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade {
-  opacity: 0;
-  animation: fadeInUp 1s ease-out forwards;
-}
-
-.delay-1 {
-  animation-delay: 0.5s;
-}
-
-.delay-2 {
-  animation-delay: 1s;
-}
-
-.delay-3 {
-  animation-delay: 1.5s;
-}
-
-.highlight-text {
-  color: white;
-  text-shadow: 2px 2px 4px rgba(255, 94, 77, 0.3); /* Light orange tint */
-}
-
+    .highlight-text {
+      color: white;
+      text-shadow: 2px 2px 4px rgba(255, 94, 77, 0.3);
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="images/logo.png" alt="Logo"  height="100" width="100">
-      <img src="favicon.png" alt="" height="50">
-      <span style="margin-left: 10px;"></span>
+    <div class="logo-container">
+      <img src="images/logo.png" alt="Logo" height="60" width="60" />
     </div>
     <nav>
       <a href="#">Home</a>
@@ -142,15 +140,14 @@ nav a:hover {
       <a href="bus-feedback.html">Feedback</a>
       <a href="#">Help</a>
     </nav>
-<a href="login.html" class="login-btn">Login</a>
+    <a href="login.html" class="login-btn">Login</a>
   </header>
 
-<div class="content">
-  <h1 class="fade" style="font-size: 24px; font-weight: 800; margin-bottom: 5px;">Welcome To</h1>
-<h2 class="fade delay-1 highlight-text" style="font-size: 50px; font-weight: 800;">GoRide</h2>
-  <p class="fade delay-2" style="margin-top: 10px; font-size: 14px;">Fast. Reliable. Wherever you need to go.</p>
-  <a href="booking.html" class="book-btn fade delay-3" style="margin-top: 20px; display: inline-block; text-align: center;">BOOK NOW</a>
-</div>
-
+  <div class="content">
+    <h1 class="fade">Welcome To</h1>
+    <h2 class="fade delay-1 highlight-text">GoRide</h2>
+    <p class="fade delay-2">Fast. Reliable. Wherever you need to go.</p>
+    <a href="booking.html" class="book-btn fade delay-3">BOOK NOW</a>
+  </div>
 </body>
 </html>
