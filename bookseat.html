@@ -31,31 +31,27 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             margin-top: 30px;
+            justify-items: center;
         }
 
-        .seat {
-            width: 60px;
-            height: 60px;
-            background: #34a853;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .seat.selected {
-            background: #2196f3;
-            transform: scale(1.1);
-        }
-
-        .seat.booked {
-            background: #e0e0e0;
-            cursor: not-allowed;
-        }
+       .seat {
+  transition: all 0.2s cubic-bezier(.4,2.08,.55,.44);
+  box-shadow: 0 2px 8px rgba(52,168,83,0.08);
+  border: 2px solid transparent;
+}
+.seat:hover:not(.booked):not(.selected) {
+  background: #43e669;
+  border: 2px solid #34a853;
+  transform: scale(1.08);
+}
+.seat.selected {
+  box-shadow: 0 4px 16px rgba(33,150,243,0.15);
+  border: 2px solid #2196f3;
+}
+.seat.booked {
+  color: #bbb;
+  text-decoration: line-through;
+}
 
         .booking-summary {
             margin-top: 40px;
