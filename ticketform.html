@@ -1,0 +1,71 @@
+<!-- form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bus Ticket Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f3f6;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      width: 400px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    input, button {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Enter Ticket Info</h2>
+    <input type="text" id="passengerName" placeholder="Passenger Name" />
+    <input type="text" id="from" placeholder="From" />
+    <input type="text" id="to" placeholder="To" />
+    <input type="text" id="date" placeholder="Date (e.g., 28 Apr 2025)" />
+    <input type="text" id="time" placeholder="Time (e.g., 06:00 PM)" />
+    <input type="text" id="seat" placeholder="Seat No." />
+    <input type="text" id="busNo" placeholder="Bus No." />
+    <input type="text" id="fare" placeholder="Fare (e.g., ₹1000)" />
+    <button onclick="openTicket()">Generate Ticket</button>
+  </div>
+
+  <script>
+    function openTicket() {
+      const data = {
+        passenger: document.getElementById("passengerName").value,
+        from: document.getElementById("from").value,
+        to: document.getElementById("to").value,
+        date: document.getElementById("date").value,
+        time: document.getElementById("time").value,
+        seat: document.getElementById("seat").value,
+        bus: document.getElementById("busNo").value,
+        fare: document.getElementById("fare").value,
+      };
+
+      const query = new URLSearchParams(data).toString();
+      window.open("ticket.html?" + query, "_blank");
+    }
+  </script>
+</body>
+</html>
