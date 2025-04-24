@@ -2,72 +2,56 @@ button {
   padding: 14px 28px;
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  border: none;
-  border-radius: 12px;
-  background-color: #2563eb; /* Tailwind blue-600 vibe */
-  color: #fff;
+  font-weight: 500;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   cursor: pointer;
-  transition: all 0.25s ease-in-out;
-  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.3);
-  letter-spacing: 0.3px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Hover state */
+/* Hover: glow and brightness */
 button:hover {
-  background-color: #1d4ed8;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
 }
 
-/* Active/click state */
+/* Clicked/active */
 button:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+  transform: scale(0.97);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Focus state */
+/* Focus ring */
 button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
 }
 
 /* Disabled */
 button:disabled {
-  background-color: #cbd5e1;
-  color: #777;
-  box-shadow: none;
+  opacity: 0.5;
   cursor: not-allowed;
-}
-
-/* Secondary variant */
-button.secondary {
-  background-color: #f3f4f6;
-  color: #1f2937;
   box-shadow: none;
-  border: 1.5px solid #d1d5db;
 }
 
-button.secondary:hover {
-  background-color: #e5e7eb;
-  color: #111827;
+/* Optional: light text glow */
+button.glow-text {
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
 }
 
-/* Danger variant */
-button.danger {
-  background-color: #ef4444;
-  color: #fff;
+/* Optional: gradient background */
+button.gradient {
+  background: linear-gradient(to right, #3b82f6, #9333ea);
+  border: none;
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.4);
 }
 
-button.danger:hover {
-  background-color: #dc2626;
-  box-shadow: 0 6px 14px rgba(239, 68, 68, 0.3);
-}
-
-/* Responsive tweak */
-@media (max-width: 768px) {
-  button {
-    padding: 12px 20px;
-    font-size: 0.95rem;
-  }
+button.gradient:hover {
+  background: linear-gradient(to right, #2563eb, #7e22ce);
 }
