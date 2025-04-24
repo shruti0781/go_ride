@@ -3,14 +3,15 @@ input[type="text"],
 input[type="email"],
 textarea {
   width: 100%;
-  padding: 12px 14px;
-  margin-top: 10px;
+  padding: 12px 16px;
+  margin-top: 12px;
   border: 2px solid #ccc;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
   background-color: #fff;
   transition: all 0.3s ease-in-out;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
 }
 
 /* Focused state with animated border */
@@ -18,7 +19,7 @@ input:focus,
 textarea:focus {
   border-color: #3498db;
   background-color: #eef7ff;
-  box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.4);
   outline: none;
 }
 
@@ -47,15 +48,16 @@ textarea.error {
 
 input.error:focus,
 textarea.error:focus {
-  box-shadow: 0 0 8px rgba(231, 76, 60, 0.3);
+  box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
   animation: shake 0.3s ease-in-out;
 }
 
+/* Shaking animation for error */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-3px); }
-  50% { transform: translateX(3px); }
-  75% { transform: translateX(-3px); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
 }
 
 /* Valid state with smooth glow */
@@ -67,11 +69,21 @@ textarea.valid {
 
 input.valid:focus,
 textarea.valid:focus {
-  box-shadow: 0 0 8px rgba(39, 174, 96, 0.3);
+  box-shadow: 0 0 10px rgba(39, 174, 96, 0.4);
 }
 
 /* Hover effect */
 input:hover,
 textarea:hover {
   background-color: #f9f9f9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
 }
