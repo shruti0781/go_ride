@@ -172,6 +172,17 @@ label {
     const otpSection = document.createElement('div');
     otpSection.classList.add('section');
     otpSection.id = 'otpSection';
+     otpSection.innerHTML = `
+      <h3>OTP Verification</h3>
+      <p>OTP sent to your mobile/email.</p>
+      <input type="text" id="otpInput" placeholder="Enter OTP" />
+      <button id="verifyOtpBtn" class="btn" style="margin-top: 10px;">Verify OTP</button>
+      <button id="resendBtn" class="btn" style="margin-top: 10px;">Resend OTP</button>
+      <p id="countdown" style="color: #555; margin-top: 8px;"></p>
+    `;
+
+    container.appendChild(otpSection);
+
 
    
 
