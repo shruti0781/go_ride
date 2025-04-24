@@ -78,14 +78,14 @@ This section contains a list any major frameworks/libraries used in the project.
 ### 🗺️ Roadmap
 
 ```mermaid
-graph TD
+flowchart TB
   A[Home Page: index.html] --> B[Login Page: login.html]
   B --> C[Booking Page: booking.html]
   C --> D[Bus List: buses.html]
   D --> E[Seat Selection: bookseat.html]
   E --> F[Ticket Page: ticket.html]
   F --> G[Payment Page: paymentsystem.html]
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## 👩‍💻 Team Members  
 [![Contributors](https://contrib.rocks/image?repo=shruti0781/go_ride)](https://github.com/shruti0781/go_ride/graphs/contributors)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
