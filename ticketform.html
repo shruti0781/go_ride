@@ -19,25 +19,53 @@
     }
 
     .form-container {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 16px;
       width: 400px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 20px 40 px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1s ease;
+    }
+     h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #007bff;
     }
 
-    input, button {
+    input {
       width: 100%;
-      margin-bottom: 10px;
-      padding: 10px;
-      border-radius: 6px;
+      margin-bottom: 12px;
+      padding: 12px;
+      border-radius: 8px;
       border: 1px solid #ccc;
+      font-size: 16px;
     }
 
     button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
       background-color: #007bff;
       color: white;
+      font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
