@@ -4,15 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Route Planner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
-    header { background: #3498db; color: white; text-align: center; padding: 20px; }
-    .container { width: 80%; margin: 20px auto; }
-    input, select { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; }
-    button { background: #3498db; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
-    button:hover { background: #2980b9; }
-    .results { margin-top: 20px; }
-    .route-item { background: #fff; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #3498db;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    .container {
+      width: 80%;
+      margin: 20px auto;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .form-container input, .form-container select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .form-container button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .form-container button:hover {
+      background-color: #2980b9;
+    }
+    .results-container {
+      margin-top: 30px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .route-item {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    .route-item:last-child {
+      border-bottom: none;
+    }
+    .route-item strong {
+      font-size: 1.2rem;
+    }
   </style>
 </head>
 <body>
@@ -22,40 +78,103 @@
 </header>
 
 <div class="container">
-  <form id="route-form">
-    <input type="text" id="departure" placeholder="Departure" required>
-    <input type="text" id="destination" placeholder="Destination" required>
-    <input type="date" id="date" required>
-    <input type="time" id="time" required>
-    <button type="submit">Find Routes</button>
-  </form>
+  <!-- Route Planner Form -->
+  <div class="form-container">
+    <h2>Find Your Route</h2>
+    <form id="route-planner-form">
+      <label for="departure">Departure Location</label>
+      <input type="text" id="departure" placeholder="Enter departure location" required>
 
-  <div class="results" id="results" style="display:none;">
+      <label for="destination">Destination Location</label>
+      <input type="text" id="destination" placeholder="Enter destination location" required>
+
+      <label for="date">Travel Date</label>
+      <input type="date" id="date" required>
+
+      <label for="time">Preferred Departure Time</label>
+      <input type="time" id="time" required>
+
+      <button type="submit">Find Routes</button>
+    </form>
+  </div>
+
+  <!-- Route Results -->
+  <div class="results-container" id="results-container" style="display: none;">
     <h2>Available Routes</h2>
-    <div id="routes-list"></div>
+    <div id="route-results">
+      <!-- Dynamic route results will go here -->
+    </div>
   </div>
 </div>
 
 <script>
+  // Simulating route data for demo purposes
   const routeData = [
-    { bus: "101", departure: "Main St", destination: "Central Park", time: "9:00 AM", seats: 10 },
-    { bus: "102", departure: "Main St", destination: "Central Park", time: "10:00 AM", seats: 5 }
+    {
+      busNumber: "101",
+      departure: "Main Street",
+      destination: "Central Park",
+      time: "9:00 AM",
+      availableSeats: 15,
+      duration: "30 mins",
+    },
+    {
+      busNumber: "102",
+      departure: "Main Street",
+      destination: "Central Park",
+      time: "10:00 AM",
+      availableSeats: 5,
+      duration: "30 mins",
+    },
+    {
+      busNumber: "103",
+      departure: "Broadway St.",
+      destination: "Central Park",
+      time: "9:30 AM",
+      availableSeats: 10,
+      duration: "25 mins",
+    },
   ];
 
-  document.getElementById('route-form').addEventListener('submit', function(e) {
+  // Event listener for route planner form submission
+  document.getElementById("route-planner-form").addEventListener("submit", function(e) {
     e.preventDefault();
-    const departure = document.getElementById('departure').value.toLowerCase();
-    const destination = document.getElementById('destination').value.toLowerCase();
-    const filteredRoutes = routeData.filter(route =>
-      route.departure.toLowerCase().includes(departure) && route.destination.toLowerCase().includes(destination)
+    
+    const departure = document.getElementById("departure").value;
+    const destination = document.getElementById("destination").value;
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+
+    // Filtering route data based on search input
+    const filteredRoutes = routeData.filter(route => 
+      route.departure.toLowerCase().includes(departure.toLowerCase()) && 
+      route.destination.toLowerCase().includes(destination.toLowerCase())
     );
+
+    // Displaying results
+    const resultsContainer = document.getElementById("results-container");
+    const routeResults = document.getElementById("route-results");
     
-    const routesList = document.getElementById('routes-list');
-    routesList.innerHTML = filteredRoutes.length ? 
-      filteredRoutes.map(route => `<div class="route-item"><strong>Bus ${route.bus}</strong><br>Departs: ${route.time}<br>Seats Available: ${route.seats}</div>`).join('') :
-      "<p>No routes found.</p>";
-    
-    document.getElementById('results').style.display = "block";
+    routeResults.innerHTML = ""; // Clear previous results
+
+    if (filteredRoutes.length > 0) {
+      filteredRoutes.forEach(route => {
+        const routeItem = document.createElement("div");
+        routeItem.classList.add("route-item");
+        routeItem.innerHTML = `
+          <strong>Bus ${route.busNumber}</strong><br>
+          <strong>Departure:</strong> ${route.departure} at ${route.time}<br>
+          <strong>Destination:</strong> ${route.destination}<br>
+          <strong>Duration:</strong> ${route.duration}<br>
+          <strong>Available Seats:</strong> ${route.availableSeats}<br>
+        `;
+        routeResults.appendChild(routeItem);
+      });
+    } else {
+      routeResults.innerHTML = "<p>No routes found for your search.</p>";
+    }
+
+    resultsContainer.style.display = "block"; // Show the results section
   });
 </script>
 
