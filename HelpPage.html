@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GoRide Help Page</title>
+  <title>GoRide Help Center</title>
   <style>
     body {
       margin: 0;
@@ -11,10 +11,9 @@
       background: url("58271781-5497-4015-81fd-4622e78da2ae.png") no-repeat center center fixed;
       background-size: cover;
       color: #fff;
-      padding: 0;
     }
     .overlay {
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(0, 0, 0, 0.75);
       min-height: 100vh;
       padding: 40px 20px;
     }
@@ -27,30 +26,39 @@
       color: #ff5722;
       text-align: center;
     }
-    p.subheading {
-      text-align: center;
-      font-size: 1.1rem;
+    .subheading, .faq p {
       color: #ccc;
+      text-align: center;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      margin: 20px 0;
+      font-size: 1rem;
     }
     .faq {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 12px;
-      margin: 20px 0;
-      padding: 20px;
-      transition: transform 0.2s;
+      margin: 10px 0;
+      padding: 15px 20px;
       backdrop-filter: blur(6px);
-    }
-    .faq:hover {
-      transform: translateY(-3px);
+      cursor: pointer;
     }
     .faq h2 {
       color: #ffa726;
+      margin: 0;
     }
-    .contact {
+    .faq-content {
+      display: none;
+      padding-top: 10px;
+    }
+    .contact, .feedback {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 30px;
     }
-    .contact button {
+    button {
       background-color: #ff5722;
       color: white;
       border: none;
@@ -58,37 +66,64 @@
       border-radius: 30px;
       font-size: 1rem;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background 0.3s;
     }
-    .contact button:hover {
+    button:hover {
       background-color: #e64a19;
+    }
+    .ad-placeholder {
+      background: rgba(255,255,255,0.1);
+      border: 2px dashed #ff5722;
+      padding: 15px;
+      margin-top: 40px;
+      text-align: center;
+      border-radius: 10px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <div class="overlay">
     <div class="container">
-      <h1>Need Help with GoRide?</h1>
-      <p class="subheading">We've got answers to your frequently asked questions.</p>
+      <h1>Welcome to GoRide Help Center</h1>
+      <p class="subheading">Search your query or explore FAQs below.</p>
+      <input type="text" placeholder="Search Help Topics..."/>
 
-      <div class="faq">
+      <div class="faq" onclick="toggleFAQ(this)">
         <h2>How do I book a bus ticket?</h2>
-        <p>Simply search for your destination, select your preferred bus, choose your seat, and proceed to payment.</p>
+        <div class="faq-content">Search your destination, select a bus, choose a seat, and pay securely.</div>
       </div>
-
-      <div class="faq">
+      <div class="faq" onclick="toggleFAQ(this)">
         <h2>Can I cancel or reschedule a ticket?</h2>
-        <p>Yes, go to 'My Bookings' and select the ticket you want to cancel or reschedule. Make sure to check our cancellation policy.</p>
+        <div class="faq-content">Yes. Visit 'My Bookings' and choose an option. Check our policy before proceeding.</div>
       </div>
-
-      <div class="faq">
+      <div class="faq" onclick="toggleFAQ(this)">
         <h2>Is there a customer support number?</h2>
-        <p>Yes, you can contact our 24/7 support team via the 'Contact Us' section in the app.</p>
+        <div class="faq-content">Yes. Contact us via the 'Contact Us' section in our app for 24/7 support.</div>
       </div>
 
       <div class="contact">
-        <p>Still have questions? We're here to help.</p>
+        <p>Need more help? Our team is ready to assist you.</p>
         <button>Contact Support</button>
       </div>
+
+      <div class="feedback">
+        <p>How helpful was this page?</p>
+        <button>Helpful</button>
+        <button>Not Helpful</button>
+      </div>
+
+      <div class="ad-placeholder">
+         Thank you for visting GoRide Helpline page
+      </div>
     </div>
-  </div
+  </div>
+
+  <script>
+    function toggleFAQ(faq) {
+      const content = faq.querySelector('.faq-content');
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
