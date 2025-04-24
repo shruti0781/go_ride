@@ -92,6 +92,23 @@
         <option value="mini">Mini Bus</option>
       </select>
 
+      <label for="operating-hours">Operating Hours:</label>
+      <select id="operating-hours" required>
+        <option value="">Select Operating Hours</option>
+        <option value="24-hours">24 Hours</option>
+        <option value="morning">Morning (6 AM - 12 PM)</option>
+        <option value="afternoon">Afternoon (12 PM - 6 PM)</option>
+        <option value="evening">Evening (6 PM - 12 AM)</option>
+      </select>
+
+      <label for="peak-hours">Peak Hours:</label>
+      <select id="peak-hours" required>
+        <option value="">Select Peak Hours</option>
+        <option value="morning-peak">Morning Peak (7 AM - 9 AM)</option>
+        <option value="evening-peak">Evening Peak (5 PM - 7 PM)</option>
+        <option value="no-peak">No Peak</option>
+      </select>
+
       <label for="notes">Additional Notes:</label>
       <textarea id="notes" rows="3" placeholder="Any extra information..."></textarea>
     </div>
