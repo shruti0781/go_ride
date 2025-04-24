@@ -12,8 +12,10 @@ body {
 }
 
 .ticket {
+  display: flex;
+  flex-direction: row;
   background: #fff;
-  width: 400px;
+  width: 800px;
   border-radius: 16px;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -26,14 +28,21 @@ body {
   padding: 20px;
   text-align: center;
 }
-
+.ticket-left, .ticket-right {
+  flex: 1;
+  padding: 20px;
+}
+.ticket-header {
+  background: #007bff;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  text-align: center;
+}
 .ticket-header h1 {
   margin: 0;
-  font-size: 24px;
-}
-
-.ticket-body {
-  padding: 20px;
+  font-size: 22px;
 }
 
 .ticket-section {
