@@ -145,12 +145,15 @@ label {
 
  
 </div>
-  <script>
-  document.querySelector('.btn').addEventListener('click', function(e) {
+ <script>
+  const payButton = document.querySelector('.btn');
+  const container = document.querySelector('.container');
+
+  payButton.addEventListener('click', function(e) {
     e.preventDefault();
-    document.getElementById('feedback').style.display = 'block';
-  });
-</script>
+
+   
+   
 
 </body>
 </html>
