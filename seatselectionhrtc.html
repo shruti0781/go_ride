@@ -210,6 +210,15 @@
 
   <button class="book-btn">Continue</button>
 </div>
+  <script>
+  const seats = document.querySelectorAll('.seat.available');
+  seats.forEach(seat => {
+    seat.addEventListener('click', () => {
+      seats.forEach(s => s.classList.remove('selected'));
+      seat.classList.add('selected');
+    });
+  });
+</script>
 
 
 
