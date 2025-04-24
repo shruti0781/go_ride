@@ -14,13 +14,16 @@ body {
   justify-content: center;
   align-items: flex-start;
   padding: 50px;
+  min-height: 100vh;
 }
 
 .container {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 30px 40px;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 420px;
 }
@@ -44,7 +47,7 @@ body {
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  color: #444;
+  color: #333;
 }
 
 .dot {
@@ -74,8 +77,9 @@ body {
   font-weight: bold;
   color: #fff;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.3s;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
   font-size: 14px;
+  user-select: none;
 }
 
 .seat.available {
@@ -84,7 +88,7 @@ body {
 
 .seat.available:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .seat.selected {
@@ -94,6 +98,7 @@ body {
 .seat.reserved {
   background: #4b5563;
   cursor: not-allowed;
+  text-decoration: line-through;
 }
 
 .aisle {
@@ -119,9 +124,17 @@ button:hover {
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+
   .seat {
     width: 40px;
     height: 40px;
     font-size: 12px;
+  }
+
+  .title {
+    font-size: 22px;
   }
 }
