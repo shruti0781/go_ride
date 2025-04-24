@@ -1,173 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Available Bus Rides</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
-
-    html, body {
-      height: 100%;  /* Ensure the body and HTML take up the full height */
-      margin: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100%;
-      background: #f5f5f5;
-      overflow-y: auto;  /* Enable vertical scrolling */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #acb6e5);
       padding: 20px;
+      overflow-y: scroll;
     }
 
-    .background {
-      position: fixed; /* Change to fixed position */
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
-      z-index: -1;  /* Keep background behind content */
-    }
-
-    .container {
-      background: white;
-      width: 90%;
-      max-width: 600px;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-      backdrop-filter: blur(10px);
-      margin-top: 20px;
-      overflow: visible;
-      flex-grow: 1;  /* Allow the container to grow and take available space */
-    }
-
-    .progress-bar {
+    .progress-container {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-      position: relative;
+      margin: 30px auto 50px;
+      max-width: 900px;
     }
 
-    .progress-bar::before {
-      content: "";
-      position: absolute;
-      top: 25px;
-      left: 30px;
-      right: 30px;
-      height: 4px;
-      background: #dcdcdc;
-      z-index: 0;
-    }
-
-    .step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex: 1;
-      z-index: 1;
-    }
-
-    .step .circle {
-      background: #dcdcdc;
-      color: #fff;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-
-    .step.active .circle {
-      background: #4CAF50;
-    }
-
-    .step span {
-      font-size: 12px;
-      color: #333;
-      margin-top: 8px;
-    }
-
-    .section-title {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 20px;
+    .progress-step {
       text-align: center;
+      flex: 1;
+      position: relative;
+      color: #444;
     }
 
-    .bus-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    .progress-step::before {
+      content: attr(data-step);
+      display: inline-block;
+      background-color: #ddd;
+      color: white;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 50%;
+      margin-bottom: 5px;
+    }
+
+    .progress-step.done::before {
+      background-color: #4CAF50;
+    }
+
+    .progress-line {
+      position: absolute;
+      height: 4px;
+      background-color: #ddd;
+      top: 13px;
+      left: 50%;
+      width: 100%;
+      z-index: -1;
+    }
+
+    .progress-step.done + .progress-step .progress-line {
+      background-color: #ddd;
+    }
+
+    .progress-step.done .progress-line {
+      background-color: #4CAF50;
+    }
+
+    .progress-step:last-child .progress-line {
+      display: none;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
     }
 
     .bus-card {
-      background: #f9f9f9;
-      padding: 20px;
+      background-color: #f9f9f9;
       border-radius: 15px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .bus-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      padding: 20px;
+      margin: 20px auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
     }
 
     .bus-card h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .bus-card span {
-      font-size: 12px;
-      font-weight: 400;
-      color: #777;
+      font-size: 20px;
+      margin-bottom: 10px;
     }
 
     .bus-card p {
-      font-size: 14px;
       margin: 5px 0;
-    }
-
-    .card-buttons {
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      font-size: 16px;
     }
 
     .book-btn {
-      background: #4CAF50;
-      border: none;
+      background-color: #4CAF50;
       color: white;
-      padding: 8px 16px;
+      border: none;
+      padding: 10px 20px;
       border-radius: 20px;
-      font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s ease;
+      font-weight: bold;
+      margin-top: 10px;
     }
 
     .book-btn:hover {
-      background: #45a049;
+      background-color: #45a049;
     }
 
     .view-gallery {
-      font-size: 12px;
-      color: #007BFF;
+      float: right;
+      margin-top: 10px;
+      color: #007bff;
       text-decoration: none;
+      font-size: 14px;
     }
 
     .view-gallery:hover {
@@ -176,61 +123,65 @@
   </style>
 </head>
 <body>
-  <div class="background"></div>
-  <div class="container">
-    <div class="progress-bar">
-      <div class="step"><div class="circle">1</div><span>Travel Date</span></div>
-      <div class="step active"><div class="circle">2</div><span>Available Buses</span></div>
-      <div class="step"><div class="circle">3</div><span>Book Seat</span></div>
-      <div class="step"><div class="circle">4</div><span>Details</span></div>
-      <div class="step"><div class="circle">5</div><span>Payment</span></div>
-      <div class="step"><div class="circle">6</div><span>Ticket</span></div>
+
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div class="progress-step done" data-step="1">
+      <div>Travel Date</div>
+      <div class="progress-line"></div>
     </div>
-
-    <h2 class="section-title">Available Bus Rides</h2>
-    <div class="bus-cards">
-      <div class="bus-card">
-        <h3>CTU <span>(ROADWAYS)</span></h3>
-        <p><strong>Time:</strong> 20:30hr</p>
-        <p><strong>Route:</strong> CHANDIGARH - DELHI</p>
-        <p><strong>Seats Left:</strong> 1 seat left</p>
-        <p><strong>Fare:</strong> ₹1000</p>
-        <div class="card-buttons">
-          <button class="book-btn" onclick="bookSeat('CTU')">Book Seats</button>
-          <a href="#" class="view-gallery">View Gallery</a>
-        </div>
-      </div>
-
-      <div class="bus-card">
-        <h3>PRTC <span>(Express Shuttle)</span></h3>
-        <p><strong>Time:</strong> 18:00hr</p>
-        <p><strong>Route:</strong> CHANDIGARH - LUDHIANA</p>
-        <p><strong>Seats Left:</strong> 5 seats left</p>
-        <p><strong>Fare:</strong> ₹400</p>
-        <div class="card-buttons">
-          <button class="book-btn" onclick="bookSeat('PRTC')">Book Seats</button>
-          <a href="#" class="view-gallery">View Gallery</a>
-        </div>
-      </div>
-
-      <div class="bus-card">
-        <h3>HRTC <span>(Highway Coach)</span></h3>
-        <p><strong>Time:</strong> 22:00hr</p>
-        <p><strong>Route:</strong> SHIMLA - SOLAN</p>
-        <p><strong>Seats Left:</strong> 12 seats left</p>
-        <p><strong>Fare:</strong> ₹550</p>
-        <div class="card-buttons">
-          <button class="book-btn" onclick="bookSeat('HRTC')">Book Seats</button>
-          <a href="#" class="view-gallery">View Gallery</a>
-        </div>
-      </div>
+    <div class="progress-step" data-step="2">
+      <div>Available Buses</div>
+      <div class="progress-line"></div>
+    </div>
+    <div class="progress-step" data-step="3">
+      <div>Book Seat</div>
+      <div class="progress-line"></div>
+    </div>
+    <div class="progress-step" data-step="4">
+      <div>Details</div>
+      <div class="progress-line"></div>
+    </div>
+    <div class="progress-step" data-step="5">
+      <div>Payment</div>
+      <div class="progress-line"></div>
+    </div>
+    <div class="progress-step" data-step="6">
+      <div>Ticket</div>
     </div>
   </div>
 
-  <script>
-    function bookSeat(busName) {
-      alert(`You selected ${busName} bus. Proceeding to booking...`);
-    }
-  </script>
+  <h2>Available Bus Rides</h2>
+
+  <div class="bus-card">
+    <h3>CTU <span style="color: gray; font-weight: normal;">(ROADWAYS)</span></h3>
+    <p><strong>Time:</strong> 20:30hr</p>
+    <p><strong>Route:</strong> CHANDIGARH - DELHI</p>
+    <p><strong>Seats Left:</strong> 1 seat left</p>
+    <p><strong>Fare:</strong> ₹1000</p>
+    <button class="book-btn">Book Seats</button>
+    <a href="#" class="view-gallery">View Gallery</a>
+  </div>
+
+  <div class="bus-card">
+    <h3>PRTC <span style="color: gray; font-weight: normal;">(Express Shuttle)</span></h3>
+    <p><strong>Time:</strong> 18:00hr</p>
+    <p><strong>Route:</strong> CHANDIGARH - LUDHIANA</p>
+    <p><strong>Seats Left:</strong> 5 seats left</p>
+    <p><strong>Fare:</strong> ₹400</p>
+    <button class="book-btn">Book Seats</button>
+    <a href="#" class="view-gallery">View Gallery</a>
+  </div>
+
+  <div class="bus-card">
+    <h3>HRTC <span style="color: gray; font-weight: normal;">(Highway Coach)</span></h3>
+    <p><strong>Time:</strong> 22:00hr</p>
+    <p><strong>Route:</strong> SHIMLA - SOLAN</p>
+    <p><strong>Seats Left:</strong> 12 seats left</p>
+    <p><strong>Fare:</strong> ₹550</p>
+    <button class="book-btn">Book Seats</button>
+    <a href="#" class="view-gallery">View Gallery</a>
+  </div>
+
 </body>
 </html>
