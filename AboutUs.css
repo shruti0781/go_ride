@@ -1,58 +1,73 @@
-/* Core button */
 button {
-  padding: 12px 20px;
+  padding: 14px 28px;
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
-  border: 1.5px solid rgba(52, 152, 219, 0.6);
+  font-weight: 600;
+  border: none;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.25);
-  color: #3498db;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background-color: #2563eb; /* Tailwind blue-600 vibe */
+  color: #fff;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.1);
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.3);
+  letter-spacing: 0.3px;
 }
 
-/* Hover */
+/* Hover state */
 button:hover {
-  background: rgba(52, 152, 219, 0.1);
-  box-shadow: 0 6px 14px rgba(52, 152, 219, 0.2);
-  color: #2980b9;
-  border-color: #2980b9;
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
 }
 
-/* Focus */
+/* Active/click state */
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+}
+
+/* Focus state */
 button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.4);
 }
 
 /* Disabled */
 button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  background-color: #cbd5e1;
+  color: #777;
   box-shadow: none;
+  cursor: not-allowed;
 }
 
-/* Full-width variant */
-button.full-width {
-  width: 100%;
-  display: block;
+/* Secondary variant */
+button.secondary {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  box-shadow: none;
+  border: 1.5px solid #d1d5db;
 }
 
-/* Icon spacing (if needed) */
-button.with-icon {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+button.secondary:hover {
+  background-color: #e5e7eb;
+  color: #111827;
+}
+
+/* Danger variant */
+button.danger {
+  background-color: #ef4444;
+  color: #fff;
+}
+
+button.danger:hover {
+  background-color: #dc2626;
+  box-shadow: 0 6px 14px rgba(239, 68, 68, 0.3);
 }
 
 /* Responsive tweak */
 @media (max-width: 768px) {
   button {
-    padding: 10px 16px;
+    padding: 12px 20px;
     font-size: 0.95rem;
   }
 }
