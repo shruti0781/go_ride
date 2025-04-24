@@ -9,15 +9,15 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzfGVufDB8fDB8fHww');
+      background: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzfGVufDB8fDB8fHww') no-repeat center center fixed;
       background-size: cover;
       color: #f5f5f5;
     }
 
     .overlay {
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.7);
       min-height: 100vh;
-      padding: 60px 20px;
+      padding: 80px 20px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -25,40 +25,67 @@
 
     .container {
       max-width: 900px;
-      color: #f5f5f5;
-      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
       border-radius: 16px;
+      padding: 50px 40px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
     }
 
-    h1, h2 {
-      color: #ffffff;
+    h1 {
+      font-size: 2.5rem;
       font-weight: 700;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 40px;
       margin-bottom: 20px;
+      color: #f9c74f;
     }
 
     p {
       font-size: 1.1rem;
-      margin-bottom: 25px;
+      line-height: 1.8;
+      color: #eeeeee;
     }
 
     ul {
       padding-left: 20px;
-      line-height: 1.7;
+      margin-top: 10px;
     }
 
     li {
       margin-bottom: 12px;
       font-size: 1rem;
+      color: #dddddd;
+    }
+
+    .highlight {
+      color: #f39c12;
+      font-weight: 600;
     }
 
     a {
       color: #f39c12;
       text-decoration: none;
-      font-weight: 700;
     }
 
     a:hover {
       color: #e67e22;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
@@ -66,18 +93,36 @@
 
   <div class="overlay">
     <div class="container">
-      <h1>About Us - Code Crafters</h1>
-      <p>We create smart transit solutions using GPS and cloud technology for real-time bus tracking, efficient commuting, and seamless bus booking.</p>
+      <h1>About Code Crafters</h1>
+      <p>
+        At <span class="highlight">Code Crafters</span>, we’re transforming how people experience public transportation.
+        By blending cutting-edge technology with real-world transit needs, we provide seamless, real-time solutions
+        that make commuting smarter, safer, and more convenient.
+      </p>
 
+      <h2>🚍 What We Do</h2>
       <ul>
-        <li>Real-time bus location updates using advanced GPS and cloud technology.</li>
-        <li>Accurate route tracking and estimated arrival times.</li>
-        <li>Instant delay alerts to keep you informed about your journey.</li>
-        <li>Smart and user-friendly bus booking system for hassle-free commuting.</li>
-        <li>Quick booking for seats, allowing users to reserve a spot in advance.</li>
-        <li>Supports schools, universities, and public transportation networks for easy travel planning.</li>
-        <li>Improves daily commutes with reliable and up-to-date transit data.</li>
+        <li><strong>Real-Time Tracking</strong> — Get instant updates on bus locations with GPS and cloud integration.</li>
+        <li><strong>Smart Booking</strong> — Book your seats in advance with a smooth, intuitive interface.</li>
+        <li><strong>Route Monitoring</strong> — Access accurate ETAs and avoid long waits at stops.</li>
+        <li><strong>Delay Alerts</strong> — Stay notified of any schedule changes on your route.</li>
       </ul>
+
+      <h2>🎯 Who We Serve</h2>
+      <p>
+        Whether you’re part of a <span class="highlight">school system</span>, a <span class="highlight">university campus</span>,
+        or a <span class="highlight">public transport authority</span>, our platform is built to optimize your fleet and enhance rider experience.
+      </p>
+
+      <h2>🌐 Our Vision</h2>
+      <p>
+        We're committed to building a future where technology makes travel simpler and cities smarter.
+        With every line of code, we aim to connect people more efficiently and sustainably.
+      </p>
+
+      <p style="margin-top: 40px; text-align: center;">
+        <a href="mailto:support@codecrafters.com">Contact Us</a> to learn more or request a demo.
+      </p>
     </div>
   </div>
 
