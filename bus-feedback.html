@@ -1,35 +1,37 @@
-/* Reset + universal styles */
+/* Reset */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f9fafb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #f0f2f5;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
 }
 
-/* Container styling */
+/* Main container */
 .feedback-container {
   background-color: #ffffff;
-  padding: 30px 40px;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  width: 100%;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   max-width: 600px;
+  width: 100%;
 }
 
+/* Heading */
 .feedback-container h2 {
-  font-size: 24px;
-  color: #1f2937;
-  margin-bottom: 24px;
   text-align: center;
+  margin-bottom: 30px;
+  font-size: 22px;
+  color: #1a202c;
+  font-weight: 600;
 }
 
 /* Form layout */
@@ -37,80 +39,77 @@ form > div {
   margin-bottom: 20px;
 }
 
-/* Labels */
+/* Label */
 label {
   display: block;
-  margin-bottom: 8px;
   font-weight: 500;
-  color: #374151;
+  color: #333;
+  margin-bottom: 6px;
 }
 
-/* Inputs, selects, textarea styling */
+/* Inputs, selects, textarea */
 input[type="text"],
 textarea,
 select {
   width: 100%;
-  padding: 12px 16px;
-  border: 2px solid #e5e7eb;
-  border-radius: 10px;
-  background-color: #ffffff;
-  font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  font-family: 'Inter', sans-serif;
+  padding: 12px 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #fafafa;
+  transition: all 0.25s ease;
 }
 
-/* Focus effects */
 input:focus,
 textarea:focus,
 select:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  border-color: #3b82f6;
+  background-color: #fff;
   outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 /* Placeholder styling */
 ::placeholder {
-  color: #9ca3af;
-  font-style: italic;
+  color: #999;
 }
 
-/* Button styling */
+/* Button */
 button[type="submit"] {
-  background-color: #2563eb;
+  background-color: #3b82f6;
   color: #fff;
-  padding: 14px 24px;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
+  padding: 12px 24px;
+  font-size: 15px;
   font-weight: 600;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background 0.25s ease;
   width: 100%;
 }
 
 button[type="submit"]:hover {
-  background-color: #1d4ed8;
-  transform: translateY(-2px);
+  background-color: #2563eb;
 }
 
 button[type="submit"]:active {
-  background-color: #1e40af;
-  transform: translateY(0);
+  background-color: #1d4ed8;
 }
 
 button:disabled {
-  background-color: #cbd5e1;
+  background-color: #d1d5db;
   color: #888;
   cursor: not-allowed;
 }
 
-/* Responsive tweak */
-@media (max-width: 480px) {
+/* Responsive adjustments */
+@media (max-width: 500px) {
   .feedback-container {
-    padding: 24px;
+    padding: 28px 20px;
   }
 
   button[type="submit"] {
     font-size: 0.95rem;
+    padding: 10px 20px;
   }
 }
