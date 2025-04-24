@@ -6,74 +6,65 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* Switched to a more modern font */
-    background: #f4f7fb; /* Lighter, softer background */
+    font-family: 'Poppins', sans-serif;
+    background: #f4f7fb;
     color: #333;
     padding: 40px;
 }
 
-/* Container */
-.container {
-    max-width: 900px;
+/* Feedback Container */
+.feedback-container {
+    max-width: 700px;
     margin: auto;
     background: #ffffff;
     padding: 40px;
-    border-radius: 20px; /* More rounded edges for a modern feel */
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
+    border-radius: 20px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* Heading */
-h1 {
+.feedback-container h2 {
     text-align: center;
-    color: #1f3a5f; /* Darker blue for the heading */
+    color: #1f3a5f;
     margin-bottom: 30px;
-    font-size: 2.4rem; /* Slightly larger for emphasis */
-    font-weight: 600; /* Bolder text for stronger visual impact */
+    font-size: 2.2rem;
+    font-weight: 600;
 }
 
-/* Bus Stop Section */
-.bus-stop {
-    background: #f9fafd; /* Lighter background for the section */
-    border-left: 6px solid #4e88d1; /* Soft blue accent */
-    padding: 25px 30px;
-    border-radius: 12px; /* Rounded corners */
-    margin-bottom: 35px; /* More space between sections */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Subtle shadow */
-}
-
-/* Labels and Inputs */
+/* Labels */
 label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-weight: 600;
-    color: #2c3e50; /* Darker color for better contrast */
+    color: #2c3e50;
     font-size: 1rem;
 }
 
-.input-field,
+/* Inputs, Selects, Textareas */
+input[type="text"],
 textarea,
 select {
     width: 100%;
-    padding: 12px 15px; /* Slightly larger padding for comfort */
-    margin-bottom: 25px; /* More spacing between inputs */
+    padding: 12px 15px;
+    margin-bottom: 25px;
     border: 1px solid #ddd;
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 10px;
     background-color: #fff;
     font-size: 16px;
     transition: all 0.3s ease;
 }
 
-.input-field:focus,
+input[type="text"]:focus,
 textarea:focus,
 select:focus {
-    border-color: #4e88d1; /* Soft blue focus color */
-    background-color: #f2f8ff; /* Light background for focus */
+    border-color: #4e88d1;
+    background-color: #f2f8ff;
     outline: none;
 }
 
 /* Submit Button */
-.submit-btn {
-    background-color: #4e88d1; /* Soft blue for the button */
+button[type="submit"] {
+    background-color: #4e88d1;
     color: #fff;
     font-weight: bold;
     padding: 14px 22px;
@@ -86,12 +77,12 @@ select:focus {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.submit-btn:hover {
-    background-color: #357ab7; /* Slightly darker blue on hover */
-    transform: scale(1.05); /* Subtle zoom effect on hover */
+button[type="submit"]:hover {
+    background-color: #357ab7;
+    transform: scale(1.05);
 }
 
-.submit-btn:active {
-    background-color: #2c6f98; /* Darker blue when clicked */
-    transform: scale(1.02); /* Slight shrink on click */
+button[type="submit"]:active {
+    background-color: #2c6f98;
+    transform: scale(1.02);
 }
