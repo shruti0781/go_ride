@@ -9,17 +9,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-    <div class="form-box">
-        <div class="button-box">
-            <div id="btn"></div>
-            <button type="button" class="toggle-btn" id="log" onclick="login()" style="color: white">Log In</button>
-            <button type="button" class="toggle-btn" id="reg" onclick="register()" style="color: white">Register</button>
+    <div class="form-container">
+        <div class="button-toggle">
+            <div id="slider"></div>
+            <button onclick="showLogin()" id="loginToggle">Login</button>
+            <button onclick="showRegister()" id="registerToggle">Register</button>
         </div>
 
         <div class="social-icons">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiXN9xSEe8unzPBEQOeAKXd9Q55efGHGB9BA&s">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI-h-e2hgz8mwGfCt4gvj4IgMG_wAUolVM6w&s">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Facebook">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384014.png" alt="Twitter"> 
         </div>
 
         <!-- Login Form -->
@@ -44,12 +44,13 @@
 
         <!-- Registration Form -->
         <form id="register" class="input-group" style="display: none;">
-            <input type="text" class="input-field" placeholder="Full Name" required="required">
-            <input type="email" class="input-field" placeholder="Email Address" required="required">
-            <input type="password" class="input-field" placeholder="Create Password" name="password1" required="required">
-            <input type="password" class="input-field" placeholder="Confirm Password" name="password2" required="required">
-            <input type="checkbox" class="check-box" id="chkAgree" onclick="goFurther()"> I agree to the Terms & Conditions
-            <button type="submit" id="btnSubmit" class="submit-btn reg-btn" disabled>Register</button>
+            <input type="text" placeholder="Full Name" required="required">
+            <input type="email" placeholder="Email Address" required="required">
+            <input type="password" placeholder="Create Password" name="password1" required="required">
+            <input type="password" placeholder="Confirm Password" name="password2" required="required">
+            <label>
+            <input type="checkbox" id="termsCheckbox" onclick="goFurther()"> I agree to the Terms & Conditions
+            <button type="submit" id="registerBTn" disabled>Register</button>
         </form>
     </div>
 
