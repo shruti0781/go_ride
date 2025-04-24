@@ -89,7 +89,7 @@
 
   <div class="contact-container">
     <h2>Contact Us</h2>
-    <form id="contactForm">
+    <form id="contactForm" novalidate>
       <label for="name">Full Name:</label>
       <input type="text" id="name" name="name" placeholder="Your full name" required>
 
@@ -101,7 +101,7 @@
 
       <label for="subject">Subject:</label>
       <select id="subject" name="subject" required>
-        <option value="" disabled selected>Select a subject</option>
+        <option value="" disabled hidden selected>Select a subject</option>
         <option value="support">Customer Support</option>
         <option value="partnership">Partnership</option>
         <option value="media">Media Inquiry</option>
@@ -118,12 +118,13 @@
   <script>
     document.getElementById("contactForm").addEventListener("submit", function(e) {
       e.preventDefault();
+      const form = this;
 
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const phone = document.getElementById("phone").value;
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
       const subject = document.getElementById("subject").value;
-      const message = document.getElementById("message").value;
+      const message = document.getElementById("message").value.trim();
 
       console.log("Name:", name);
       console.log("Email:", email);
@@ -132,7 +133,7 @@
       console.log("Message:", message);
 
       alert("Thank you for contacting us! We'll respond as soon as possible.");
-      this.reset();
+      form.reset();
     });
   </script>
 
