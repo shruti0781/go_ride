@@ -163,6 +163,17 @@ label {
 
   payButton.addEventListener('click', function(e) {
     e.preventDefault();
+    
+    if (!validateForm()) return;
+
+    payButton.style.display = 'none';
+    feedback.style.display = 'none';
+
+    const otpSection = document.createElement('div');
+    otpSection.classList.add('section');
+    otpSection.id = 'otpSection';
+
+   
 
    
 
