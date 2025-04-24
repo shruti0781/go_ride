@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GoRide Help Center</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,12 +16,12 @@
       color: #fff;
     }
     .overlay {
-      background-color: rgba(0, 0, 0, 0.75);
+      background-color: rgba(0, 0, 0, 0.8);
       min-height: 100vh;
       padding: 40px 20px;
     }
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
       padding: 20px;
     }
@@ -26,59 +29,110 @@
       color: #ff5722;
       text-align: center;
     }
-    .subheading, .faq p {
-      color: #ccc;
+    p.subheading {
       text-align: center;
+      color: #ccc;
     }
     input[type="text"] {
       width: 100%;
-      padding: 10px;
-      border-radius: 10px;
+      padding: 12px;
+      border-radius: 8px;
       border: none;
-      margin: 20px 0;
       font-size: 1rem;
+      margin: 20px 0;
     }
     .faq {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      margin: 10px 0;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      margin: 15px 0;
       padding: 15px 20px;
-      backdrop-filter: blur(6px);
       cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background 0.3s;
+    }
+    .faq:hover {
+      background: rgba(255, 255, 255, 0.15);
     }
     .faq h2 {
-      color: #ffa726;
       margin: 0;
+      color: #ffa726;
     }
     .faq-content {
       display: none;
       padding-top: 10px;
+      color: #ddd;
     }
-    .contact, .feedback {
+    .contact-form {
+      margin-top: 40px;
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .contact-form h3 {
+      color: #ffab40;
       text-align: center;
-      margin-top: 30px;
     }
-    button {
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+    }
+    .contact-form button {
+      display: block;
+      margin: auto;
       background-color: #ff5722;
       color: white;
-      border: none;
       padding: 10px 20px;
       border-radius: 30px;
+      border: none;
+      cursor: pointer;
       font-size: 1rem;
+      margin-top: 10px;
+    }
+    .feedback {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .feedback button {
+      margin: 0 10px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 20px;
+      background-color: #ff5722;
+      color: #fff;
       cursor: pointer;
       transition: background 0.3s;
     }
-    button:hover {
+    .feedback button:hover {
       background-color: #e64a19;
     }
-    .ad-placeholder {
-      background: rgba(255,255,255,0.1);
+    .ad-section {
+      background: rgba(255,255,255,0.08);
       border: 2px dashed #ff5722;
-      padding: 15px;
-      margin-top: 40px;
       text-align: center;
-      border-radius: 10px;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 40px;
+    }
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      color: #aaa;
       font-size: 0.9rem;
+    }
+    .footer-links {
+      margin: 20px 0;
+    }
+    .footer-links a {
+      color: #ffa726;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -86,43 +140,66 @@
   <div class="overlay">
     <div class="container">
       <h1>Welcome to GoRide Help Center</h1>
-      <p class="subheading">Search your query or explore FAQs below.</p>
-      <input type="text" placeholder="Search Help Topics..."/>
+      <p class="subheading">Search your issue or explore answers below.</p>
 
+      <input type="text" placeholder="Search Help Topics...">
+
+      <!-- FAQ Section -->
       <div class="faq" onclick="toggleFAQ(this)">
         <h2>How do I book a bus ticket?</h2>
-        <div class="faq-content">Search your destination, select a bus, choose a seat, and pay securely.</div>
+        <div class="faq-content">Search your destination, choose a bus, select your seat, and pay securely.</div>
       </div>
       <div class="faq" onclick="toggleFAQ(this)">
         <h2>Can I cancel or reschedule a ticket?</h2>
-        <div class="faq-content">Yes. Visit 'My Bookings' and choose an option. Check our policy before proceeding.</div>
+        <div class="faq-content">Yes. Visit ‘My Bookings’ and select your ticket. Check our cancellation policy before proceeding.</div>
+      </div>
+      <div class="faq" onclick="toggleFAQ(this)">
+        <h2>How do I get a refund?</h2>
+        <div class="faq-content">Refunds are processed to the original payment method within 3-7 business days.</div>
       </div>
       <div class="faq" onclick="toggleFAQ(this)">
         <h2>Is there a customer support number?</h2>
-        <div class="faq-content">Yes. Contact us via the 'Contact Us' section in our app for 24/7 support.</div>
+        <div class="faq-content">Yes. Contact us anytime through the in-app support or call 1800-XXX-XXXX.</div>
       </div>
 
-      <div class="contact">
-        <p>Need more help? Our team is ready to assist you.</p>
-        <button>Contact Support</button>
-      </div>
-
+      <!-- Feedback -->
       <div class="feedback">
-        <p>How helpful was this page?</p>
-        <button>Helpful</button>
-        <button>Not Helpful</button>
+        <p>Was this page helpful?</p>
+        <button>Yes</button>
+        <button>No</button>
       </div>
 
-      <div class="ad-placeholder">
-         Thank you for visting GoRide Helpline page
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h3>Still need help? Contact Us</h3>
+        <input type="text" placeholder="Your Name" />
+        <input type="email" placeholder="Your Email" />
+        <textarea rows="4" placeholder="Describe your issue..."></textarea>
+        <button>Submit</button>
       </div>
+
+      <!-- Ad Section -->
+      <div class="ad-section">
+        Thank you for visiting GoRide help page
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Careers</a>
+          <a href="#">Feedback</a>
+        </div>
+        <p>&copy; 2025 GoRide. All rights reserved.</p>
+      </footer>
     </div>
   </div>
 
   <script>
-    function toggleFAQ(faq) {
-      const content = faq.querySelector('.faq-content');
-      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    function toggleFAQ(element) {
+      const content = element.querySelector(".faq-content");
+      content.style.display = content.style.display === "block" ? "none" : "block";
     }
   </script>
 </body>
