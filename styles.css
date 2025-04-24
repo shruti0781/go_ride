@@ -1,6 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  font-family: 'Poppins', sans-serif; /* Updated to a modern font */
+  background-color: #f0f4f8; /* Light background for a more refined look */
   margin: 0;
   padding: 0;
 }
@@ -8,16 +8,18 @@ body {
 .contact-container {
   max-width: 600px;
   margin: 60px auto;
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  border-radius: 12px; /* Rounded corners for a modern feel */
 }
 
 .contact-container h1 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px; /* Reduced space for a cleaner look */
   color: #333;
+  font-weight: 600; /* Slightly bolder for emphasis */
+  font-size: 2rem; /* Slightly larger for readability */
 }
 
 .contact-form {
@@ -27,31 +29,38 @@ body {
 
 .contact-form input,
 .contact-form textarea {
-  padding: 12px;
-  margin-bottom: 20px;
+  padding: 14px; /* Slightly more padding for comfortable typing */
+  margin-bottom: 18px; /* Reduced bottom margin for cleaner spacing */
   border: 1px solid #ddd;
-  border-radius: 6px;
+  border-radius: 8px; /* More rounded corners */
   font-size: 16px;
   width: 100%;
+  background-color: #f9f9f9; /* Light background for input fields */
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: #007BFF;
+  border-color: #3498db; /* A fresh blue color on focus */
 }
 
 .contact-form button {
-  padding: 14px;
-  background-color: #007BFF;
+  padding: 16px;
+  background-color: #3498db; /* Soft blue for the button */
   color: white;
   font-size: 16px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .contact-form button:hover {
-  background-color: #0056b3;
+  background-color: #2980b9; /* Darker blue on hover */
+  transform: translateY(-2px); /* Button "lifts" on hover */
+}
+
+.contact-form button:active {
+  background-color: #21618c; /* Even darker blue when the button is pressed */
+  transform: translateY(1px); /* Slight downward movement on active */
 }
