@@ -145,38 +145,73 @@ label {
 
  
 </div>
- <script>
+<script>
   const payButton = document.querySelector('.btn');
   const container = document.querySelector('.container');
+  const feedback = document.getElementById('feedback');
+
+  let generatedOtp = "1234"; 
 
   payButton.addEventListener('click', function(e) {
     e.preventDefault();
-     payButton.style.display = 'none';
+    payButton.style.display = 'none';
+    feedback.style.display = 'none';
 
-    const otpDiv = document.createElement('div');
-    otpDiv.classList.add('section');
-    otpDiv.innerHTML = `
+    const otpSection = document.createElement('div');
+    otpSection.classList.add('section');
+    otpSection.id = 'otpSection';
+
+    otpSection.innerHTML = `
       <h3>OTP Verification</h3>
-      <p>We’ve sent an OTP to your registered mobile/email.</p>
+      <p>OTP sent to your mobile/email.</p>
       <input type="text" id="otpInput" placeholder="Enter OTP" />
       <button id="verifyOtpBtn" class="btn" style="margin-top: 10px;">Verify OTP</button>
+      <button id="resendBtn" class="btn" style="margin-top: 10px; background-color: #f0592c;">Resend OTP</button>
+      <p id="countdown" style="color: #555; margin-top: 8px;"></p>
     `;
-    container.appendChild(otpDiv);
 
-    
-    const correctOtp = "1234";
+    container.appendChild(otpSection);
 
-    document.getElementById('verifyOtpBtn').addEventListener('click', function() {
+    document.getElementById('verifyOtpBtn').addEventListener('click', function () {
       const enteredOtp = document.getElementById('otpInput').value;
-      if (enteredOtp === correctOtp) {
-        document.getElementById('feedback').style.display = 'block';
-        otpDiv.remove();
+      if (enteredOtp === generatedOtp) {
+        feedback.style.display = 'block';
+        otpSection.remove();
       } else {
         alert("Incorrect OTP. Please try again.");
       }
     });
+
+    setupResendButton(); 
   });
+
+  function setupResendButton() {
+    const resendBtn = document.getElementById('resendBtn');
+    const countdown = document.getElementById('countdown');
+    let timer = 30;
+
+    resendBtn.disabled = true;
+    countdown.textContent = `You can resend OTP in ${timer} seconds`;
+
+    const interval = setInterval(() => {
+      timer--;
+      countdown.textContent = `You can resend OTP in ${timer} seconds`;
+
+      if (timer === 0) {
+        clearInterval(interval);
+        resendBtn.disabled = false;
+        countdown.textContent = '';
+      }
+    }, 1000);
+
+    resendBtn.addEventListener('click', () => {
+      generatedOtp = "1234"; 
+      alert("OTP resent!");
+      setupResendButton(); 
+    });
+  }
 </script>
+
 
 
    
