@@ -156,7 +156,28 @@ label {
     const otpDiv = document.createElement('div');
     otpDiv.classList.add('section');
     otpDiv.innerHTML = `
-     
+      <h3>OTP Verification</h3>
+      <p>We’ve sent an OTP to your registered mobile/email.</p>
+      <input type="text" id="otpInput" placeholder="Enter OTP" />
+      <button id="verifyOtpBtn" class="btn" style="margin-top: 10px;">Verify OTP</button>
+    `;
+    container.appendChild(otpDiv);
+
+    
+    const correctOtp = "1234";
+
+    document.getElementById('verifyOtpBtn').addEventListener('click', function() {
+      const enteredOtp = document.getElementById('otpInput').value;
+      if (enteredOtp === correctOtp) {
+        document.getElementById('feedback').style.display = 'block';
+        otpDiv.remove();
+      } else {
+        alert("Incorrect OTP. Please try again.");
+      }
+    });
+  });
+</script>
+
 
    
    
