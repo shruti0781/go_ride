@@ -146,77 +146,14 @@ label {
  
 </div>
 <script>
-  const payButton = document.querySelector('.btn');
-  const container = document.querySelector('.container');
-  const feedback = document.getElementById('feedback');
-
-  let generatedOtp = "1234"; 
-
-  payButton.addEventListener('click', function(e) {
-    e.preventDefault();
-    payButton.style.display = 'none';
-    feedback.style.display = 'none';
-
-    const otpSection = document.createElement('div');
-    otpSection.classList.add('section');
-    otpSection.id = 'otpSection';
-
-    otpSection.innerHTML = `
-      <h3>OTP Verification</h3>
-      <p>OTP sent to your mobile/email.</p>
-      <input type="text" id="otpInput" placeholder="Enter OTP" />
-      <button id="verifyOtpBtn" class="btn" style="margin-top: 10px;">Verify OTP</button>
-      <button id="resendBtn" class="btn" style="margin-top: 10px;">Resend OTP</button>
-
-      <p id="countdown" style="color: #555; margin-top: 8px;"></p>
-    `;
-
-    container.appendChild(otpSection);
-
-    document.getElementById('verifyOtpBtn').addEventListener('click', function () {
-      const enteredOtp = document.getElementById('otpInput').value;
-      if (enteredOtp === generatedOtp) {
-        feedback.style.display = 'block';
-        otpSection.remove();
-      } else {
-        alert("Incorrect OTP. Please try again.");
+ function validateForm() {
+    const inputs = document.querySelectorAll('input[required]');
+    for (let input of inputs) {
+      if (!input.value.trim()) {
+        alert(`Please fill in the ${input.placeholder}`);
+        return false;
       }
-    });
-
-    setupResendButton(); 
-  });
-
-  function setupResendButton() {
-    const resendBtn = document.getElementById('resendBtn');
-    const countdown = document.getElementById('countdown');
-    let timer = 30;
-
-    resendBtn.disabled = true;
-    countdown.textContent = `You can resend OTP in ${timer} seconds`;
-
-    const interval = setInterval(() => {
-      timer--;
-      countdown.textContent = `You can resend OTP in ${timer} seconds`;
-
-      if (timer === 0) {
-        clearInterval(interval);
-        resendBtn.disabled = false;
-        countdown.textContent = '';
-      }
-    }, 1000);
-
-    resendBtn.addEventListener('click', () => {
-      generatedOtp = "1234"; 
-      alert("OTP resent!");
-      setupResendButton(); 
-    });
+    }
+    return true;
   }
-</script>
 
-
-
-   
-   
-
-</body>
-</html>
