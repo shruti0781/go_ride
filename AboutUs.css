@@ -1,89 +1,80 @@
-/* Universal styling for inputs and textarea */
-input[type="text"],
-input[type="email"],
-textarea {
-  width: 100%;
-  padding: 12px 16px;
-  margin-top: 12px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
+/* Base button styling */
+button {
+  padding: 12px 24px;
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
-  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
   transition: all 0.3s ease-in-out;
-  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  background-color: #3498db;
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.2);
 }
 
-/* Focused state with animated border */
-input:focus,
-textarea:focus {
-  border-color: #3498db;
-  background-color: #eef7ff;
-  box-shadow: 0 0 10px rgba(52, 152, 219, 0.4);
+/* Hover state */
+button:hover {
+  background-color: #2980b9;
+  box-shadow: 0 6px 15px rgba(41, 128, 185, 0.3);
+}
+
+/* Focus state */
+button:focus {
   outline: none;
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
 }
 
-/* Placeholder styling */
-input::placeholder,
-textarea::placeholder {
-  color: #888;
-  font-style: italic;
-}
-
-/* Disabled fields */
-input:disabled,
-textarea:disabled {
-  background-color: #f4f4f4;
-  border-color: #d1d1d1;
-  color: #aaa;
+/* Disabled button */
+button:disabled {
+  background-color: #ccc;
+  color: #777;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
-/* Error state with shaking effect */
-input.error,
-textarea.error {
-  border-color: #e74c3c;
-  background-color: #ffefef;
+/* Success style */
+button.success {
+  background-color: #27ae60;
+  box-shadow: 0 4px 10px rgba(39, 174, 96, 0.2);
 }
 
-input.error:focus,
-textarea.error:focus {
-  box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
-  animation: shake 0.3s ease-in-out;
+button.success:hover {
+  background-color: #219150;
 }
 
-/* Shaking animation for error */
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-4px); }
-  50% { transform: translateX(4px); }
-  75% { transform: translateX(-4px); }
+/* Error style */
+button.error {
+  background-color: #e74c3c;
+  box-shadow: 0 4px 10px rgba(231, 76, 60, 0.2);
 }
 
-/* Valid state with smooth glow */
-input.valid,
-textarea.valid {
-  border-color: #27ae60;
-  background-color: #e6fff2;
+button.error:hover {
+  background-color: #c0392b;
 }
 
-input.valid:focus,
-textarea.valid:focus {
-  box-shadow: 0 0 10px rgba(39, 174, 96, 0.4);
+/* Secondary button */
+button.secondary {
+  background-color: transparent;
+  border: 2px solid #3498db;
+  color: #3498db;
 }
 
-/* Hover effect */
-input:hover,
-textarea:hover {
-  background-color: #f9f9f9;
+button.secondary:hover {
+  background-color: #eef7ff;
 }
 
-/* Responsive adjustments */
+/* Button with icon (optional class) */
+button.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Responsive tweak */
 @media (max-width: 768px) {
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    padding: 10px 14px;
-    font-size: 0.9rem;
+  button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
   }
 }
