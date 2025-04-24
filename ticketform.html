@@ -79,6 +79,15 @@
     <input type="text" id="time" placeholder="Time (e.g., 06:00 PM)" />
     <input type="text" id="seat" placeholder="Seat No." />
     <input type="text" id="busNo" placeholder="Bus No." />
+     <select id="busType">
+      <option value="">Select Bus Type</option>
+      <option value="AC">AC</option>
+      <option value="Non-AC">Non-AC</option>
+      <option value="Sleeper">Sleeper</option>
+      <option value="Seater">Seater</option>
+      <option value="Volvo">Volvo</option>
+      <option value="Mini Bus">Mini Bus</option>
+    </select>
     <input type="text" id="fare" placeholder="Fare (e.g., ₹1000)" />
     <button onclick="openTicket()">Generate Ticket</button>
   </div>
@@ -93,6 +102,7 @@
         time: document.getElementById("time").value,
         seat: document.getElementById("seat").value,
         bus: document.getElementById("busNo").value,
+        busType: document.getElementById("busType").value,
         fare: document.getElementById("fare").value,
       };
 
@@ -102,3 +112,5 @@
   </script>
 </body>
 </html>
+
+    
