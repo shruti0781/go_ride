@@ -16,24 +16,37 @@
       margin: auto;
       background-color: white;
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 16px;
+       box-shadow: 0 6px 24px rgba(52,168,83,0.13);
     }
+    input:focus, select:focus {
+  outline: none;
+  border: 1.5px solid #34a853;
+  box-shadow: 0 0 5px #34a85333;
+}
 
     h2 {
       text-align: center;
       color: #34a853;
     }
 
+
     .section {
       margin-bottom: 25px;
     }
+    h3 {
+  color: #34a853;
+  font-size: 1.15em;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+label {
+  font-size: 1.05em;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
 
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: 600;
-    }
+    
 
     input, select {
       width: 100%;
@@ -56,13 +69,17 @@
     .btn {
        background-color: #34a853;
       color: white;
-      padding: 12px;
+      padding: 14px;
       width: 100%;
-      font-size: 16px;
+      font-size: 18px;
       border: none;
-      border-radius: 5px;
+      border-radius: 24px;
+      font-weight: 700;
       cursor: pointer;
-    }
+      transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 6px rgba(52,168,83,0.10);
+}
+    
 background-color: #25913c;
     .btn:hover {
      
@@ -115,9 +132,18 @@ background-color: #25913c;
     <label>CVV</label>
     <input type="password" placeholder="123" required>
   </div>
+  <div id="feedback" style="display:none; color:#34a853; margin-bottom:12px;">Payment Successful!</div>
+<button class="btn">Pay</button>
 
-  <button class="btn">Pay</button>
+
+ 
 </div>
+  <script>
+  document.querySelector('.btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('feedback').style.display = 'block';
+  });
+</script>
 
 </body>
 </html>
