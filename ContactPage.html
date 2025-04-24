@@ -3,19 +3,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Contact Us - Bus Tracker</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #ffffff);
+      margin: 0;
+      padding: 0;
+    }
+
+    .contact-container {
+      background-color: #ffffff;
+      padding: 30px;
+      max-width: 650px;
+      margin: 50px auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .contact-container:hover {
+      transform: scale(1.01);
+    }
+
+    h2 {
+      text-align: center;
+      color: #0077cc;
+      margin-bottom: 25px;
+      font-size: 28px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      box-sizing: border-box;
+      transition: border 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #0077cc;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button[type="submit"] {
+      margin-top: 25px;
+      width: 100%;
+      background: linear-gradient(to right, #0077cc, #005fa3);
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background: linear-gradient(to right, #005fa3, #003e73);
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        padding: 20px;
+        margin: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
+
   <div class="contact-container">
-    <h1>Contact Us</h1>
-    <form class="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <input type="text" name="subject" placeholder="Subject" />
-      <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+      <label for="phone">Phone Number (Optional):</label>
+      <input type="tel" id="phone" name="phone" placeholder="+91-XXXXXXXXXX">
+
+      <label for="subject">Subject:</label>
+      <select id="subject" name="subject" required>
+        <option value="" disabled selected>Select a subject</option>
+        <option value="support">Customer Support</option>
+        <option value="partnership">Partnership</option>
+        <option value="media">Media Inquiry</option>
+        <option value="general">General Query</option>
+      </select>
+
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+
       <button type="submit">Send Message</button>
     </form>
   </div>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const subject = document.getElementById("subject").value;
+      const message = document.getElementById("message").value;
+
+      console.log("Name:", name);
+      console.log("Email:", email);
+      console.log("Phone:", phone);
+      console.log("Subject:", subject);
+      console.log("Message:", message);
+
+      alert("Thank you for contacting us! We'll respond as soon as possible.");
+      this.reset();
+    });
+  </script>
+
 </body>
 </html>
