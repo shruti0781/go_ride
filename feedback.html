@@ -6,71 +6,111 @@
   <title>Bus Tracker - Feedback</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
       padding: 20px;
     }
 
     .feedback-container {
-      background-color: #fff;
-      padding: 25px;
-      max-width: 600px;
+      background-color: #ffffff;
+      padding: 30px;
+      max-width: 700px;
       margin: auto;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
 
     h2 {
       text-align: center;
       color: #0077cc;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
-    form label {
+    label {
       display: block;
       margin-top: 15px;
-      font-weight: bold;
+      font-weight: 600;
     }
 
-    form select,
-    form input[type="text"],
-    form textarea {
+    input, select, textarea {
       width: 100%;
       padding: 10px;
       margin-top: 6px;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 6px;
       box-sizing: border-box;
     }
 
-    form textarea {
+    textarea {
       resize: vertical;
     }
 
+    .rating {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .rating input[type="radio"] {
+      display: none;
+    }
+
+    .rating label {
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .rating input:checked + label {
+      color: #ff9800;
+    }
+
+    .char-count {
+      text-align: right;
+      font-size: 12px;
+      color: gray;
+    }
+
     button[type="submit"] {
-      margin-top: 20px;
+      margin-top: 25px;
       width: 100%;
       background-color: #0077cc;
       color: white;
       border: none;
-      padding: 12px;
+      padding: 14px;
       font-size: 16px;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
+      font-weight: bold;
     }
 
     button[type="submit"]:hover {
       background-color: #005fa3;
+    }
+
+    .success-message {
+      text-align: center;
+      color: green;
+      font-weight: bold;
+      display: none;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
 
   <div class="feedback-container">
-    <h2>Bus Tracker Feedback</h2>
+    <h2>Bus Tracker Feedback Form</h2>
 
-    <form id="feedbackForm">
-      
+    <form id="feedbackForm" enctype="multipart/form-data">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" placeholder="Full name" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="example@email.com" required>
+
+      <label for="phone">Phone Number (optional):</label>
+      <input type="tel" id="phone" name="phone" placeholder="1234567890">
+
       <label for="feedbackType">Feedback Type:</label>
       <select id="feedbackType" name="feedbackType" required>
         <option value="" disabled selected>Select type</option>
@@ -81,16 +121,20 @@
         <option value="other">Other</option>
       </select>
 
-      <label for="routeNumber">Bus Route (Optional):</label>
+      <label for="routeNumber">Bus Route:</label>
       <input type="text" id="routeNumber" name="routeNumber" placeholder="e.g. Route 45A">
 
-      <label for="location">Location (Optional):</label>
+      <label for="location">Location:</label>
       <input type="text" id="location" name="location" placeholder="e.g. Main Street Stop">
 
-      <label for="feedbackText">Your Feedback:</label>
-      <textarea id="feedbackText" name="feedbackText" rows="5" placeholder="Type your feedback here..." required></textarea>
+      <label for="screenshot">Attach Screenshot (optional):</label>
+      <input type="file" id="screenshot" name="screenshot" accept="image/*">
 
-      <label for="urgency">Urgency:</label>
+      <label for="feedbackText">Your Feedback:</label>
+      <textarea id="feedbackText" name="feedbackText" rows="5" maxlength="500" placeholder="Type your feedback here..." required></textarea>
+      <div class="char-count" id="charCount">0 / 500</div>
+
+      <label for="urgency">Urgency Level:</label>
       <select id="urgency" name="urgency" required>
         <option value="" disabled selected>Select urgency</option>
         <option value="low">Low</option>
@@ -98,28 +142,72 @@
         <option value="urgent">Urgent</option>
       </select>
 
+      <label>Rate Your Experience:</label>
+      <div class="rating">
+        <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+        <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
+        <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
+        <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
+        <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+      </div>
+
+      <label>
+        <input type="checkbox" id="consent" required>
+        I consent to the collection and use of my data for service improvement.
+      </label>
+
       <button type="submit">Submit Feedback</button>
     </form>
+
+    <div class="success-message" id="successMsg">Thank you! Your feedback has been submitted.</div>
   </div>
 
   <script>
+    const feedbackText = document.getElementById("feedbackText");
+    const charCount = document.getElementById("charCount");
+
+    feedbackText.addEventListener("input", function () {
+      charCount.textContent = ${feedbackText.value.length} / 500;
+    });
+
     document.getElementById("feedbackForm").addEventListener("submit", function(e) {
       e.preventDefault();
 
+      const timestamp = new Date().toLocaleString();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
       const type = document.getElementById("feedbackType").value;
       const route = document.getElementById("routeNumber").value;
       const location = document.getElementById("location").value;
-      const text = document.getElementById("feedbackText").value;
+      const feedback = feedbackText.value;
       const urgency = document.getElementById("urgency").value;
+      const consent = document.getElementById("consent").checked;
+      const rating = document.querySelector('input[name="rating"]:checked')?.value || "Not Rated";
 
+      if (!consent) {
+        alert("Please provide consent to proceed.");
+        return;
+      }
+
+      console.log("Timestamp:", timestamp);
+      console.log("Name:", name);
+      console.log("Email:", email);
+      console.log("Phone:", phone);
       console.log("Feedback Type:", type);
       console.log("Route:", route);
       console.log("Location:", location);
-      console.log("Feedback:", text);
+      console.log("Feedback:", feedback);
       console.log("Urgency:", urgency);
+      console.log("Rating:", rating);
 
-      alert("Thanks for your feedback! We appreciate your input.");
-      this.reset();
+      document.getElementById("successMsg").style.display = "block";
+
+      setTimeout(() => {
+        document.getElementById("successMsg").style.display = "none";
+        document.getElementById("feedbackForm").reset();
+        charCount.textContent = "0 / 500";
+      }, 4000);
     });
   </script>
 
