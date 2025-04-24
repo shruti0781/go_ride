@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Seat</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .bus-card {
+      background-color: #f9f9f9;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+    }
+
+    .bus-card h3 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .bus-card p {
+      font-size: 16px;
+    }
+
+    .seat-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 60px);
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .seat {
+      width: 60px;
+      height: 60px;
+      background-color: #ddd;
+      border-radius: 8px;
+      line-height: 60px;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .seat:nth-child(5n) {
+      margin-right: 40px;
+    }
+
+    .seat.available:hover {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .seat.selected {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .seat.booked {
+      background-color: red;
+      color: white;
+      cursor: not-allowed;
+    }
+
+    .seat.waiting {
+      background-color: purple;
+      color: white;
+      cursor: not-allowed;
+    }
+
+    .legend {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 20px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .legend-color {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+    }
+
+    .available-color {
+      background-color: #4CAF50;
+    }
+
+    .booked-color {
+      background-color: red;
+    }
+
+    .waiting-color {
+      background-color: purple;
+    }
+
+    .book-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .book-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Select Your Seat</h2>
+
+<div class="bus-card">
+
+  <!-- Centered title and route -->
+  <div style="text-align: center;">
+    <h3>CTU <span style="color: gray; font-weight: normal;">(ROADWAYS)</span></h3>
+    <p style="margin-top: -10px;"><strong>Route:</strong> CHANDIGARH - DELHI</p>
+  </div>
+
+  <!-- Left-aligned Time and Fare -->
+  <div style="margin-top: 10px;">
+    <p><strong>Time:</strong> 20:30hr</p>
+    <p><strong>Fare:</strong> ₹1000</p>
+  </div>
+
+  <div class="seat-grid">
+    <!-- 30 seats with center aisle (represented by empty div) -->
+    <div class="seat available">1</div>
+    <div class="seat waiting">2</div>
+    <div></div>
+    <div class="seat booked">3</div>
+    <div class="seat available">4</div>
+
+    <div class="seat booked">5</div>
+    <div class="seat available">6</div>
+    <div></div>
+    <div class="seat waiting">7</div>
+    <div class="seat available">8</div>
+
+    <div class="seat available">9</div>
+    <div class="seat booked">10</div>
+    <div></div>
+    <div class="seat available">11</div>
+    <div class="seat waiting">12</div>
+
+    <div class="seat waiting">13</div>
+    <div class="seat available">14</div>
+    <div></div>
+    <div class="seat booked">15</div>
+    <div class="seat available">16</div>
+
+    <div class="seat booked">17</div>
+    <div class="seat waiting">18</div>
+    <div></div>
+    <div class="seat available">19</div>
+    <div class="seat available">20</div>
+
+    <div class="seat available">21</div>
+    <div class="seat available">22</div>
+    <div></div>
+    <div class="seat waiting">23</div>
+    <div class="seat booked">24</div>
+
+    <div class="seat waiting">25</div>
+    <div class="seat booked">26</div>
+    <div></div>
+    <div class="seat available">27</div>
+    <div class="seat available">28</div>
+
+    <div class="seat booked">29</div>
+    <div class="seat available">30</div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-color available-color"></div>Available</div>
+    <div class="legend-item"><div class="legend-color booked-color"></div>Booked</div>
+    <div class="legend-item"><div class="legend-color waiting-color"></div>Waiting</div>
+  </div>
+
+  <button class="book-btn">Continue</button>
+</div>
+
+<script>
+  const seats = document.querySelectorAll('.seat.available');
+  seats.forEach(seat => {
+    seat.addEventListener('click', () => {
+      seats.forEach(s => s.classList.remove('selected'));
+      seat.classList.add('selected');
+    });
+  });
+</script>
+
+</body>
+</html>
