@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PRTC Bus Seat Booking</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      padding: 20px;
+    }
+
+    .bus-card {
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 0 auto 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+    }
+
+    .bus-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .bus-info {
+      flex: 1;
+    }
+
+    .bus-title {
+      text-align: center;
+      flex: 1 1 100%;
+      margin-bottom: 10px;
+    }
+
+    .bus-title h3 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .bus-title span {
+      font-weight: normal;
+      color: gray;
+    }
+
+    .bus-title p {
+      margin: 5px 0 0;
+    }
+
+    .seat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 60px) 30px repeat(2, 60px);
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .seat {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      text-align: center;
+      line-height: 60px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .available {
+      background-color: #a5d6a7;
+    }
+
+    .booked {
+      background-color: #f44336;
+      color: white;
+      cursor: not-allowed;
+    }
+
+    .waiting {
+      background-color: #8e24aa;
+      color: white;
+    }
+
+    .seat:hover.available {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .legend {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .legend span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      margin: 0 8px;
+    }
+
+    .continue-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto 0;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .continue-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bus-card">
+    <div class="bus-title">
+      <h3>PRTC <span>(Express Shuttle)</span></h3>
+      <p><strong>Route:</strong> CHANDIGARH - LUDHIANA</p>
+    </div>
+    <div class="bus-header">
+      <div class="bus-info">
+        <p><strong>Time:</strong> 18:00hr</p>
+        <p><strong>Fare:</strong> ₹400</p>
+      </div>
+    </div>
+
+    <div class="seat-grid" id="seat-grid"></div>
+
+    <div class="legend">
+      <span style="background-color: #f44336;"></span> Booked
+      <span style="background-color: #8e24aa;"></span> Waiting
+      <span style="background-color: #a5d6a7;"></span> Available
+    </div>
+
+    <button class="continue-btn">Continue</button>
+  </div>
+
+  <script>
+    const grid = document.getElementById('seat-grid');
+    const totalSeats = 40;
+    const bookedSeats = new Set([2, 7, 14, 23]);
+    const waitingSeats = new Set([5, 17, 28]);
+
+    for (let i = 1; i <= totalSeats; i++) {
+      const seat = document.createElement('div');
+      seat.classList.add('seat');
+
+      if (bookedSeats.has(i)) {
+        seat.classList.add('booked');
+      } else if (waitingSeats.has(i)) {
+        seat.classList.add('waiting');
+      } else {
+        seat.classList.add('available');
+        seat.addEventListener('click', () => {
+          document.querySelectorAll('.seat.available').forEach(s => s.classList.remove('selected'));
+          seat.classList.add('selected');
+        });
+      }
+
+      seat.textContent = i;
+      grid.appendChild(seat);
+    }
+  </script>
+</body>
+</html>
