@@ -1,72 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Route Plan - Input</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      padding: 20px;
-      text-align: center;
-    }
-    .input-container {
-      margin-bottom: 20px;
-    }
-    input, button {
-      padding: 8px;
-      margin: 5px 0;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background-color: #4caf50;
-      color: white;
-      cursor: pointer;
-    }
-  </style>
+    <title>Bus Ticket Booking</title>
 </head>
 <body>
-  <h2>Enter Route Plan Details</h2>
-  
-  <div class="input-container">
-    <label>From: <input type="text" id="fromCity" placeholder="Enter departure city" required /></label>
-  </div>
-  <div class="input-container">
-    <label>To: <input type="text" id="toCity" placeholder="Enter destination city" required /></label>
-  </div>
-  <div class="input-container">
-    <label>Departure Time: <input type="datetime-local" id="departureTime" required /></label>
-  </div>
-  <div class="input-container">
-    <label>Seat Number: <input type="number" id="seatNumber" placeholder="Enter seat number" required /></label>
-  </div>
-  <div class="input-container">
-    <label>Passenger Name: <input type="text" id="passengerName" placeholder="Enter passenger name" required /></label>
-  </div>
-  <div class="input-container">
-    <button onclick="saveRoutePlan()">Submit Route Plan</button>
-  </div>
 
-  <script>
-    function saveRoutePlan() {
-      const fromCity = document.getElementById('fromCity').value;
-      const toCity = document.getElementById('toCity').value;
-      const departureTime = document.getElementById('departureTime').value;
-      const seatNumber = document.getElementById('seatNumber').value;
-      const passengerName = document.getElementById('passengerName').value;
+    <h2>Bus Ticket Booking</h2>
 
-      // Save data to localStorage
-      localStorage.setItem('fromCity', fromCity);
-      localStorage.setItem('toCity', toCity);
-      localStorage.setItem('departureTime', departureTime);
-      localStorage.setItem('seatNumber', seatNumber);
-      localStorage.setItem('passengerName', passengerName);
+    <form>
+        From: <input type="text" id="from"><br><br>
+        To: <input type="text" id="to"><br><br>
+        Travel Date: <input type="date" id="date"><br><br>
+        <button type="button" onclick="proceedBooking()">Continue</button>
+    </form>
 
-      // Redirect to the route plan page
-      window.location.href = "route-plan.html"; // Assuming the route plan page is route-plan.html
-    }
-  </script>
+    <h2>Booking Summary:</h2>
+    <p id="summary"></p>
+
+    <script>
+        function proceedBooking() {
+            var from = document.getElementById("from").value;
+            var to = document.getElementById("to").value;
+            var date = document.getElementById("date").value;
+            document.getElementById("summary").innerHTML = "You are booking a bus from " + from + " to " + to + " on " + date + ".";
+        }
+    </script>
+
 </body>
 </html>
