@@ -92,9 +92,12 @@ Project Link: [GoRide Repository] https://shruti0781.github.io/go_ride/
 ```mermaid
 flowchart TB
   A[Home Page: index.html] --> B[Login Page: login.html]
-  B --> C [Booking Page: booking.html]
-  C --> D [About Us Page : AboutUs.html]
-  D --> E [Bus List: buses.html]
-  E --> F [Seat Selection: bookseat.html]
-  F --> G[Ticket Page: ticket.html]
-  H --> I[Payment Page: paymentsystem.html]
+  B --> C[Booking Page: booking.html]
+  C --> D[Bus List: buses.html]
+  D --> E[Seat Selection: bookseat.html]
+  E --> F[Ticket Page: ticket.html]
+  E1 -->F1[Ticket Page of CTU: ticketCTU.html]
+  E2 -->F2[Ticket Page of HRTC: ticketHRTC.html]
+  E3 -->F3[Ticket Page of prtc: ticketprtc.html]
+  F --> G[Payment Page: paymentsystem.html]
+  G -->H[Bus-stop: bus-stop.html]
