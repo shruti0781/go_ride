@@ -134,6 +134,12 @@
     .book-btn:hover {
       background-color: #45a049;
     }
+
+    .selected-seats-info {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -141,7 +147,6 @@
 <h2>Select Your Seat</h2>
 
 <div class="bus-card">
-
   
   <div style="text-align: center;">
     <h3>HRTC <span style="color: gray; font-weight: normal;">(ROADWAYS)</span></h3>
@@ -155,7 +160,6 @@
   </div>
 
   <div class="seat-grid">
-   
     <div class="seat available">1</div>
     <div class="seat waiting">2</div>
     <div></div>
@@ -208,19 +212,44 @@
     <div class="legend-item"><div class="legend-color waiting-color"></div>Waiting</div>
   </div>
 
+  <div class="selected-seats-info" id="selected-seats-info">Selected Seats: None</div>
+
   <button class="book-btn">Continue</button>
 </div>
-  <script>
+
+<script>
   const seats = document.querySelectorAll('.seat.available');
+  const selectedSeatsInfo = document.getElementById('selected-seats-info');
+  const maxSelectable = 4;
+  let selectedSeats = new Set();
+
   seats.forEach(seat => {
     seat.addEventListener('click', () => {
-      seats.forEach(s => s.classList.remove('selected'));
-      seat.classList.add('selected');
+      const seatNumber = parseInt(seat.textContent);
+
+      if (selectedSeats.has(seatNumber)) {
+        seat.classList.remove('selected');
+        selectedSeats.delete(seatNumber);
+      } else {
+        if (selectedSeats.size >= maxSelectable) {
+          alert(`You can select up to ${maxSelectable} seats.`);
+          return;
+        }
+        seat.classList.add('selected');
+        selectedSeats.add(seatNumber);
+      }
+
+      updateSelectedSeatsInfo();
     });
   });
+
+  function updateSelectedSeatsInfo() {
+    const selectedSeatsArray = Array.from(selectedSeats).sort((a, b) => a - b);
+    selectedSeatsInfo.textContent = selectedSeatsArray.length
+      ? `Selected Seats: ${selectedSeatsArray.join(', ')}`
+      : 'Selected Seats: None';
+  }
 </script>
-
-
 
 </body>
 </html>
