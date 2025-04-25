@@ -1,52 +1,80 @@
-function updateTicket() {
-  const fromCity = document.getElementById("fromCity").value.trim().toUpperCase();
-  const toCity = document.getElementById("toCity").value.trim().toUpperCase();
-
-  if (fromCity && toCity) {
-    document.querySelector(".ticket").style.display = "flex"; // 👈 Show ticket
-
-    document.querySelectorAll(".location")[0].innerText = fromCity;
-    document.querySelectorAll(".location")[1].innerText = toCity;
-    document.querySelector(".boarding-info p").innerText = "Boarding: " + fromCity + " BUS STAND";
-
-    const ticket = document.getElementById("ticket");
-
-    // Optional: Background change by city
-    switch (fromCity) {
-      case "DELHI":
-        ticket.style.background = "linear-gradient(to right, #ff9a9e, #fad0c4)";
-        break;
-      case "CHANDIGARH":
-        ticket.style.background = "linear-gradient(to right, #a18cd1, #fbc2eb)";
-        break;
-      case "MUMBAI":
-        ticket.style.background = "linear-gradient(to right, #fbc2eb, #a6c1ee)";
-        break;
-      case "SHIMLA":
-        ticket.style.background = "linear-gradient(to right, #b2fefa, #0ed2f7)";
-        break;
-      default:
-        ticket.style.background = "#fff";
-    }
-  } else {
-    alert("Please enter both cities to generate your ticket.");
-  }
-}
-          <div class="detail"><label>DATE</label><div>30 April 2025</div></div>
-          <div class="detail"><label>TIME</label><div>6:00 PM</div></div>
-          <div class="detail"><label>SEAT NO.</label><div>34</div></div>
-          <div class="detail"><label>PASSENGER</label><div>VANSHIKA</div></div>
-          <div class="detail"><label>BUS NO.</label><div>23 HRTC</div></div>
-          <div class="detail"><label>FARE</label><div>550</div></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bus Ticket</title>
+  <link rel="stylesheet" href="ticketstyle.css"/>
+</head>
+<body>
+  <div class="ticket-wrapper">
+    <div class="ticket" id="ticket">
+      <div class="ticket-left">
+        <h2>BUS TICKET</h2>
+        <p>Ticket No: <span class="ticket-id">#BT785624</strong></p>
+        <div class="boarding-info">
+          <p>Boarding: SEC-17, CHD BUS STAND</p>
+          <p>Gate No: 4</p>
         </div>
-        <div class="footer">
-          <span>Enjoy your trip!</span>
-          <span>Issued: 24/4/2025</span>
+      </div>
+
+      <div class="ticket-right">
+        <div class="route">
+        <span class="location">CHANDIGARH</span>
+        <span class="arrow">→</span>
+        <span class="location">DELHI</span>
+      </div>
+      <div class="details">
+        <div class="detail">
+        <label>Date</label>
+          <div>28 Apr 2025</div>
         </div>
+          <div class="detail">
+          <label>Time</label>
+          <div>8:30 PM</div>
+        </div>
+         <div class="detail">
+          <label>SEAT NO.</label>
+          <div>34</div>
+        </div>
+        <div class="detail">
+          <label>PASSENGER</label>
+          <div>Vanshika</div>
+        </div> 
+        <div class="detail">
+          <label>BUS NO.</label>
+          <div>123</div>
+        </div>
+        <div class="detail">
+          <label>FARE</label>
+          <div>1000</div>
+        </div>
+      </div>
+      <div class="footer">
+        <span>Enjoy your trip!</span>
+        <span>Issued: 24/4/2025</span>
       </div>
     </div>
   </div>
+  <button id="downloadBtn" class="download-button">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+      </svg>
+      Download Ticket
+    </button>
+  </div>
 
-  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById("downloadBtn").addEventListener("click", () => {
+      const ticket = document.getElementById("ticket");
+      html2canvas(ticket).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "bus_ticket.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+    });
+  </script>
 </body>
 </html>
