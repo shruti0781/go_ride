@@ -1,37 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bus Ticket Generator</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+function updateTicket() {
+  const fromCity = document.getElementById("fromCity").value.trim().toUpperCase();
+  const toCity = document.getElementById("toCity").value.trim().toUpperCase();
 
-  <div class="city-input">
-    <label>From: <input type="text" id="fromCity" placeholder="Enter departure city" /></label>
-    <label>To: <input type="text" id="toCity" placeholder="Enter destination city" /></label>
-    <button onclick="updateTicket()">Update Ticket</button>
-  </div>
+  if (fromCity && toCity) {
+    document.querySelector(".ticket").style.display = "flex"; // 👈 Show ticket
 
-  <div class="ticket-wrapper">
-    <div class="ticket" id="ticket">
-      <div class="ticket-left">
-        <h2>BUS TICKET</h2>
-        <p>Ticket No: <span class="ticket-id">#BT659802</span></p>
-        <div class="boarding-info">
-          <p>Boarding: SHIMLA BUS STAND</p>
-          <p>Gate No: 4</p>
-        </div>
-      </div>
+    document.querySelectorAll(".location")[0].innerText = fromCity;
+    document.querySelectorAll(".location")[1].innerText = toCity;
+    document.querySelector(".boarding-info p").innerText = "Boarding: " + fromCity + " BUS STAND";
 
-      <div class="ticket-right">
-        <div class="route">
-          <span class="location">SHIMLA</span>
-          <span class="arrow">→</span>
-          <span class="location">SOLAN</span>
-        </div>
-        <div class="details">
+    const ticket = document.getElementById("ticket");
+
+    // Optional: Background change by city
+    switch (fromCity) {
+      case "DELHI":
+        ticket.style.background = "linear-gradient(to right, #ff9a9e, #fad0c4)";
+        break;
+      case "CHANDIGARH":
+        ticket.style.background = "linear-gradient(to right, #a18cd1, #fbc2eb)";
+        break;
+      case "MUMBAI":
+        ticket.style.background = "linear-gradient(to right, #fbc2eb, #a6c1ee)";
+        break;
+      case "SHIMLA":
+        ticket.style.background = "linear-gradient(to right, #b2fefa, #0ed2f7)";
+        break;
+      default:
+        ticket.style.background = "#fff";
+    }
+  } else {
+    alert("Please enter both cities to generate your ticket.");
+  }
+}
           <div class="detail"><label>DATE</label><div>30 April 2025</div></div>
           <div class="detail"><label>TIME</label><div>6:00 PM</div></div>
           <div class="detail"><label>SEAT NO.</label><div>34</div></div>
