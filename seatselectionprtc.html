@@ -53,7 +53,7 @@
 
     .seat-grid {
       display: grid;
-      grid-template-columns: repeat(2, 60px) 30px repeat(2, 60px);
+      grid-template-columns: 60px 60px 30px 60px 60px;
       gap: 10px;
       justify-content: center;
       margin-top: 20px;
@@ -67,6 +67,13 @@
       line-height: 60px;
       font-weight: bold;
       cursor: pointer;
+    }
+
+    .empty-space {
+      width: 30px;
+      height: 60px;
+      background: transparent;
+      pointer-events: none;
     }
 
     .available {
@@ -86,6 +93,11 @@
 
     .seat:hover.available {
       background-color: #4CAF50;
+      color: white;
+    }
+
+    .selected {
+      background-color: #0277bd !important;
       color: white;
     }
 
@@ -152,6 +164,7 @@
     const waitingSeats = new Set([5, 17, 28]);
 
     for (let i = 1; i <= totalSeats; i++) {
+      // Add two seats, then aisle, then two seats per row (i.e., 4 seats per row with aisle)
       const seat = document.createElement('div');
       seat.classList.add('seat');
 
@@ -168,6 +181,17 @@
       }
 
       seat.textContent = i;
+
+      // Determine position in grid
+      const positionInRow = (i - 1) % 4;
+
+      if (positionInRow === 2) {
+        // Add empty space for aisle
+        const spacer = document.createElement('div');
+        spacer.classList.add('empty-space');
+        grid.appendChild(spacer);
+      }
+
       grid.appendChild(seat);
     }
   </script>
