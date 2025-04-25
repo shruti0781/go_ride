@@ -75,7 +75,7 @@
           <div class="d-flex justify-content-between mb-2">
             <p class="text-muted">Subtotal</p>
             <p id="subtotal" class="fs-14 fw-bold">
-              <span class="fas fa-dollar-sign pe-1"></span>1450
+              <span class="fas fa-rupee-sign pe-1"></span>1450
             </p>
           </div>
 
@@ -87,14 +87,14 @@
           <div class="d-flex justify-content-between mb-2">
             <p class="text-muted">Promo code</p>
             <p id="promo" class="fs-14 fw-bold">
-              -<span class="fas fa-dollar-sign px-1"></span>100
+               -<span class="fas fa-rupee-sign px-1"></span>100
             </p>
           </div>
 
           <div class="d-flex justify-content-between mb-3">
             <p class="text-muted fw-bold">Total</p>
             <div class="d-flex align-text-top">
-              <span class="fas fa-dollar-sign mt-1 pe-1 fs-14"></span>
+                    <span class="fas fa-rupee-sign mt-1 pe-1 fs-14"></span>
               <span id="total" class="h4">1350</span>
             </div>
           </div>
@@ -149,9 +149,9 @@
     const promo = 100; // discount value
     const total = subtotal - promo;
 
-    document.getElementById("subtotal").textContent = `$${subtotal}`;
-    document.getElementById("promo").textContent = `-$${promo}`;
-    document.getElementById("total").textContent = `$${total}`;
+    document.getElementById("subtotal").textContent = `₹${subtotal}`;
+    document.getElementById("promo").textContent = `-₹${promo}`;
+    document.getElementById("total").textContent = `₹${total}`;
   });
 </script>
 
