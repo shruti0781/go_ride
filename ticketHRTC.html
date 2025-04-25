@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bus Ticket</title>
+  <link rel="stylesheet" href="ticketstyle.css"/>
+</head>
+<body>
+  <div class="ticket-wrapper">
+    <div class="ticket" id="ticket">
+      <div class="ticket-left">
+        <h2>BUS TICKET</h2>
+        <p>Ticket No: <span class="ticket-id">#BT785624</strong></p>
+        <div class="boarding-info">
+          <p>Boarding: Shimla Bus stand</p>
+          <p>Gate No: 4</p>
+        </div>
+      </div>
+
+      <div class="ticket-right">
+        <div class="route">
+        <span class="location">SHIMLA</span>
+        <span class="arrow">→</span>
+        <span class="location">SOLAN</span>
+      </div>
+      <div class="details">
+        <div class="detail">
+        <label>Date</label>
+          <div>28 Apr 2025</div>
+        </div>
+          <div class="detail">
+          <label>Time</label>
+          <div>22:00 PM</div>
+        </div>
+         <div class="detail">
+          <label>SEAT NO.</label>
+          <div>34</div>
+        </div>
+        <div class="detail">
+          <label>PASSENGER</label>
+          <div>Vanshika</div>
+        </div> 
+        <div class="detail">
+          <label>BUS NO.</label>
+          <div>123</div>
+        </div>
+        <div class="detail">
+          <label>FARE</label>
+          <div>550</div>
+        </div>
+      </div>
+      <div class="footer">
+        <span>Enjoy your trip!</span>
+        <span>Issued: 24/4/2025</span>
+      </div>
+    </div>
+  </div>
+  <button id="downloadBtn" class="download-button">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+      </svg>
+      Download Ticket
+    </button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById("downloadBtn").addEventListener("click", () => {
+      const ticket = document.getElementById("ticket");
+      html2canvas(ticket).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "bus_ticket.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      });
+    });
+  </script>
+</body>
+</html>
