@@ -7,13 +7,15 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #e0f7fa, #ffffff);
+      background: linear-gradient(135deg, #263238, #000000); /* UPDATED DARKER BACKGROUND */
       margin: 0;
       padding: 0;
+      color: #fff;
     }
 
     .contact-container {
       background-color: #ffffff;
+      color: #333;
       padding: 30px;
       max-width: 650px;
       margin: 50px auto;
@@ -83,13 +85,69 @@
         margin: 20px;
       }
     }
+
+    /* NEW: Chat Button */
+    .chat-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 0 10px #000;
+    }
+
+    /* NEW: Chat Box */
+    #chatBox {
+      display: none;
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 300px;
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px black;
+      z-index: 999;
+    }
+
+    /* NEW: Scroll to Top Button */
+    .top-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    /* NEW: Accessibility Tip */
+    .access-tip {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
   </style>
 </head>
 <body>
 
   <div class="contact-container">
     <h2>Contact Us</h2>
-    <form id="contactForm" novalidate>
+    <form id="contactForm">
       <label for="name">Full Name:</label>
       <input type="text" id="name" name="name" placeholder="Your full name" required>
 
@@ -101,7 +159,7 @@
 
       <label for="subject">Subject:</label>
       <select id="subject" name="subject" required>
-        <option value="" disabled hidden selected>Select a subject</option>
+        <option value="" disabled selected>Select a subject</option>
         <option value="support">Customer Support</option>
         <option value="partnership">Partnership</option>
         <option value="media">Media Inquiry</option>
@@ -115,16 +173,33 @@
     </form>
   </div>
 
+  <!-- NEW: Floating Chat Button -->
+  <button class="chat-btn" onclick="toggleChat()">💬</button>
+
+  <!-- NEW: Chat Box -->
+  <div id="chatBox">
+    <p><strong>Bus Tracker Assistant</strong></p>
+    <p>Hi! Need help with anything?</p>
+    <input type="text" placeholder="Type here..." style="width: 100%; padding: 8px; margin-top: 10px; border-radius: 6px; border: none;">
+  </div>
+
+  <!-- NEW: Scroll to Top Button -->
+  <button class="top-btn" onclick="scrollToTop()">⬆</button>
+
+  <!-- NEW: Accessibility Tip -->
+  <div class="access-tip">
+    Tip: Press <kbd>Tab</kbd> to move through fields and buttons.
+  </div>
+
   <script>
     document.getElementById("contactForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      const form = this;
 
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const phone = document.getElementById("phone").value.trim();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
       const subject = document.getElementById("subject").value;
-      const message = document.getElementById("message").value.trim();
+      const message = document.getElementById("message").value;
 
       console.log("Name:", name);
       console.log("Email:", email);
@@ -133,8 +208,19 @@
       console.log("Message:", message);
 
       alert("Thank you for contacting us! We'll respond as soon as possible.");
-      form.reset();
+      this.reset();
     });
+
+    // NEW: Toggle Chat Box
+    function toggleChat() {
+      const chat = document.getElementById("chatBox");
+      chat.style.display = chat.style.display === "block" ? "none" : "block";
+    }
+
+    // NEW: Scroll to top
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   </script>
 
 </body>
