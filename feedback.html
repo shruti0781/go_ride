@@ -1,139 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bus Stop Info Form</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #e6f0f8; /* Light bluish-gray background */
-      margin: 0;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.08);
-    }
-
-    h1 {
-      text-align: center;
-      background-color: #005792; /* Deep blue background */
-      color: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 30px;
-    }
-
-    .bus-stop {
-      border: 1px solid #cde0f7;
-      padding: 20px;
-      margin-bottom: 25px;
-      border-radius: 10px;
-      background-color: #f0f8ff; /* Soft blue form background */
-    }
-
-    h2 {
-      color: #004a75;
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      margin-top: 12px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-      background-color: #ffffff;
-    }
-
-    .submit-btn {
-      width: 100%;
-      background-color: #0073e6;
-      color: white;
-      padding: 14px;
-      font-size: 16px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-top: 20px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .submit-btn:hover {
-      background-color: #005bb5;
-      transform: scale(1.03);
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Tracker - Feedback</title>
+  <link rel="stylesheet" href="bus-feedback.css">
 </head>
 <body>
 
-  <div class="container">
-    <h1>Bus Stop Information Form</h1>
+  <div class="feedback-container">
+    <h2>Bus Tracker Feedback</h2>
 
-    <div class="bus-stop">
-      <h2>Bus Stop #1</h2>
-
-      <label for="stop-name">Bus Stop Name:</label>
-      <input type="text" id="stop-name" placeholder="Enter bus stop name" required>
-
-      <label for="stop-location">Location:</label>
-      <input type="text" id="stop-location" placeholder="Enter location" required>
-
-      <label for="stop-code">Bus Stop Code:</label>
-      <input type="text" id="stop-code" placeholder="E.g., BS001" required>
-
-      <label for="routes">Bus Routes:</label>
-      <input type="text" id="routes" placeholder="E.g., 101, 203B, 14A">
-
-      <label for="landmark">Nearest Landmark:</label>
-      <input type="text" id="landmark" placeholder="E.g., Near Main Market, Opposite Hospital">
-
-      <label for="type">Bus Type:</label>
-      <select id="type" required>
-        <option value="">Select Bus Type</option>
-        <option value="ac">AC</option>
-        <option value="non-ac">Non-AC</option>
-        <option value="electric">Electric</option>
-        <option value="mini">Mini Bus</option>
+    <form id="feedbackForm">
+      <label for="feedbackType">Feedback Type:</label>
+      <select id="feedbackType" required>
+        <option value="" disabled selected>Select type</option>
+        <option value="appIssue">App Issue</option>
+        <option value="busTiming">Bus Timing</option>
+        <option value="driverBehavior">Driver Behavior</option>
+        <option value="featureRequest">Feature Request</option>
+        <option value="other">Other</option>
       </select>
 
-      <label for="operating-hours">Operating Hours:</label>
-      <select id="operating-hours" required>
-        <option value="">Select Operating Hours</option>
-        <option value="24-hours">24 Hours</option>
-        <option value="morning">Morning (6 AM - 12 PM)</option>
-        <option value="afternoon">Afternoon (12 PM - 6 PM)</option>
-        <option value="evening">Evening (6 PM - 12 AM)</option>
+     <label for="routeNumber">Bus Route (Optional):</label>
+<input type="text" id="routeNumber" placeholder="e.g. Route 45A">
+
+<label for="location">Location (Optional):</label>
+<input type="text" id="location" placeholder="e.g. Main Street Stop">
+
+<label for="feedbackText">Your Feedback:</label>
+<textarea id="feedbackText" rows="5" required></textarea>
+
+
+     
+
+      <label for="urgency">Urgency:</label>
+      <select id="urgency" required>
+        <option value="low">Low</option>
+        <option value="normal">Normal</option>
+        <option value="urgent">Urgent</option>
       </select>
 
-      <label for="peak-hours">Peak Hours:</label>
-      <select id="peak-hours" required>
-        <option value="">Select Peak Hours</option>
-        <option value="morning-peak">Morning Peak (7 AM - 9 AM)</option>
-        <option value="evening-peak">Evening Peak (5 PM - 7 PM)</option>
-        <option value="no-peak">No Peak</option>
-      </select>
-
-      <label for="notes">Additional Notes:</label>
-      <textarea id="notes" rows="3" placeholder="Any extra information..."></textarea>
-    </div>
-
-    <button class="submit-btn" type="submit">Submit Bus Stop Info</button>
+      <button type="submit">Submit Feedback</button>
+    </form>
   </div>
+
+  <script>
+    document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      const type = document.getElementById("feedbackType").value;
+      const route = document.getElementById("routeNumber").value;
+      const text = document.getElementById("feedbackText").value;
+      const urgency = document.getElementById("urgency").value;
+
+      console.log("Feedback Type:", type);
+      console.log("Route:", route);
+      console.log("Feedback:", text);
+      console.log("Urgency:", urgency);
+
+      alert("Thanks for your feedback! We appreciate your input.");
+      
+      this.reset(); 
+    });
+  </script>
 
 </body>
 </html>
