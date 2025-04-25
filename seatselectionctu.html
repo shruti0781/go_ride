@@ -1,3 +1,4 @@
+<!-- Book Seat with 4 selection limit + display -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,6 +135,12 @@
     .book-btn:hover {
       background-color: #45a049;
     }
+
+    .selected-info {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -141,7 +148,6 @@
 <h2>Select Your Seat</h2>
 
 <div class="bus-card">
-
   <!-- Centered title and route -->
   <div style="text-align: center;">
     <h3>CTU <span style="color: gray; font-weight: normal;">(ROADWAYS)</span></h3>
@@ -208,17 +214,43 @@
     <div class="legend-item"><div class="legend-color waiting-color"></div>Waiting</div>
   </div>
 
+  <div class="selected-info" id="selected-info">Selected Seats: None</div>
+
   <button class="book-btn">Continue</button>
 </div>
 
 <script>
   const seats = document.querySelectorAll('.seat.available');
+  const selectedInfo = document.getElementById('selected-info');
+  const selectedSeats = new Set();
+  const maxSelectable = 4;
+
   seats.forEach(seat => {
     seat.addEventListener('click', () => {
-      seats.forEach(s => s.classList.remove('selected'));
-      seat.classList.add('selected');
+      const seatNumber = seat.textContent;
+
+      if (seat.classList.contains('selected')) {
+        seat.classList.remove('selected');
+        selectedSeats.delete(seatNumber);
+      } else {
+        if (selectedSeats.size >= maxSelectable) {
+          alert(`You can only select up to ${maxSelectable} seats.`);
+          return;
+        }
+        seat.classList.add('selected');
+        selectedSeats.add(seatNumber);
+      }
+
+      updateSelectedInfo();
     });
   });
+
+  function updateSelectedInfo() {
+    const seatsArray = Array.from(selectedSeats).sort((a, b) => a - b);
+    selectedInfo.textContent = seatsArray.length
+      ? `Selected Seats: ${seatsArray.join(', ')}`
+      : 'Selected Seats: None';
+  }
 </script>
 
 </body>
