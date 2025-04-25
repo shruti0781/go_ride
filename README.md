@@ -22,10 +22,6 @@
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -69,11 +65,13 @@ This section contains a list any major frameworks/libraries used in the project.
 ### 🗺️ Navigation  
 ✔ Provides **turn-by-turn** navigation to help users **reach their destination efficiently**.  
 ✔ **Live tracking** ensures you never miss your bus!  
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ##  🎯 How It Works  
 1️⃣ **Search** for your bus route.  
 2️⃣ Get **live tracking** updates.  
 3️⃣ **Navigate** to your destination with real-time assistance.  
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 👩‍💻 Team Members  
 [![Contributors](https://contrib.rocks/image?repo=shruti0781/go_ride)](https://github.com/shruti0781/go_ride/graphs/contributors)
@@ -81,13 +79,15 @@ This section contains a list any major frameworks/libraries used in the project.
 <p align="center">
   <img src="images/Sandy_Tsp-01_Single-12.jpg" width="400" height="400" alt="Bus Tracking Interface">
 </p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📞 Contact
 
 Project Link: [GoRide Repository] https://shruti0781.github.io/go_ride/  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-### 🗺️ Roadmap
+
+## 🗺️ Roadmap
 
 ```mermaid
 flowchart TB
