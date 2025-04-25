@@ -1,115 +1,91 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bus Feedback Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f0f2f5;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
+    .feedback-form {
+      background: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
 
-/* Main container */
-.feedback-container {
-  background-color: #ffffff;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  max-width: 600px;
-  width: 100%;
-}
+    .feedback-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-/* Heading */
-.feedback-container h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 22px;
-  color: #1a202c;
-  font-weight: 600;
-}
+    .feedback-form label {
+      display: block;
+      margin-top: 10px;
+    }
 
-/* Form layout */
-form > div {
-  margin-bottom: 20px;
-}
+    .feedback-form input, 
+    .feedback-form select,
+    .feedback-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
 
-/* Label */
-label {
-  display: block;
-  font-weight: 500;
-  color: #333;
-  margin-bottom: 6px;
-}
+    .feedback-form button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+    }
 
-/* Inputs, selects, textarea */
-input[type="text"],
-textarea,
-select {
-  width: 100%;
-  padding: 12px 14px;
-  border: 1px solid #dcdcdc;
-  border-radius: 8px;
-  font-size: 15px;
-  background-color: #fafafa;
-  transition: all 0.25s ease;
-}
+    .feedback-form button:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
 
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #3b82f6;
-  background-color: #fff;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
+  <div class="feedback-form">
+    <h2>Bus Feedback Form</h2>
+    <form action="#" method="post">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required>
 
-/* Placeholder styling */
-::placeholder {
-  color: #999;
-}
+      <label for="busNo">Bus Number:</label>
+      <input type="text" id="busNo" name="busNo" required>
 
-/* Button */
-button[type="submit"] {
-  background-color: #3b82f6;
-  color: #fff;
-  padding: 12px 24px;
-  font-size: 15px;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.25s ease;
-  width: 100%;
-}
+      <label for="date">Date of Travel:</label>
+      <input type="date" id="date" name="date" required>
 
-button[type="submit"]:hover {
-  background-color: #2563eb;
-}
+      <label for="rating">Rating (1-5):</label>
+      <select id="rating" name="rating" required>
+        <option value="">Select Rating</option>
+        <option value="1">1 - Very Poor</option>
+        <option value="2">2 - Poor</option>
+        <option value="3">3 - Average</option>
+        <option value="4">4 - Good</option>
+        <option value="5">5 - Excellent</option>
+      </select>
 
-button[type="submit"]:active {
-  background-color: #1d4ed8;
-}
+      <label for="comments">Comments:</label>
+      <textarea id="comments" name="comments" rows="5" placeholder="Write your feedback here..."></textarea>
 
-button:disabled {
-  background-color: #d1d5db;
-  color: #888;
-  cursor: not-allowed;
-}
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </div>
 
-/* Responsive adjustments */
-@media (max-width: 500px) {
-  .feedback-container {
-    padding: 28px 20px;
-  }
-
-  button[type="submit"] {
-    font-size: 0.95rem;
-    padding: 10px 20px;
-  }
-}
+</body>
+</html>
