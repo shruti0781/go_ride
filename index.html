@@ -222,7 +222,7 @@
       <h2>Want more?</h2>
       <p>Create an account or log in to see additional search results, add your favorites to Collections, and save changes.</p>
       <div class="popup-buttons">
-        <button id="signUpBtn" class="popup-button sign-up">Sign Up</button>
+        <button id="registerBtn" class="popup-button register">Register</button>
         <button id="logInBtn" class="popup-button log-in">Log In</button>
       </div>
     </div>
@@ -230,7 +230,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const popupOverlay = document.getElementById('popupOverlay');
-      const signUpBtn = document.getElementById('signUpBtn');
+      const signUpBtn = document.getElementById('registerBtn');
       const logInBtn = document.getElementById('logInBtn');
 
       // Show the popup after a short delay (e.g., 1 second)
@@ -239,7 +239,7 @@
       }, 1000);
 
       signUpBtn.addEventListener('click', function() {
-        window.location.href = 'signup.html';
+        window.location.href = 'login.html';
       });
 
       logInBtn.addEventListener('click', function() {
