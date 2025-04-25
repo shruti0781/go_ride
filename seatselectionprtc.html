@@ -130,6 +130,12 @@
     .continue-btn:hover {
       background-color: #45a049;
     }
+
+    .selected-info {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -154,17 +160,21 @@
       <span style="background-color: #a5d6a7;"></span> Available
     </div>
 
+    <div class="selected-info" id="selected-info">Selected Seats: None</div>
+
     <button class="continue-btn">Continue</button>
   </div>
 
   <script>
     const grid = document.getElementById('seat-grid');
+    const selectedInfo = document.getElementById('selected-info');
     const totalSeats = 40;
     const bookedSeats = new Set([2, 7, 14, 23]);
     const waitingSeats = new Set([5, 17, 28]);
+    const selectedSeats = new Set();
+    const maxSelectable = 4;
 
     for (let i = 1; i <= totalSeats; i++) {
-      // Add two seats, then aisle, then two seats per row (i.e., 4 seats per row with aisle)
       const seat = document.createElement('div');
       seat.classList.add('seat');
 
@@ -175,24 +185,38 @@
       } else {
         seat.classList.add('available');
         seat.addEventListener('click', () => {
-          document.querySelectorAll('.seat.available').forEach(s => s.classList.remove('selected'));
-          seat.classList.add('selected');
+          if (seat.classList.contains('selected')) {
+            seat.classList.remove('selected');
+            selectedSeats.delete(i);
+          } else {
+            if (selectedSeats.size >= maxSelectable) {
+              alert(`You can select up to ${maxSelectable} seats.`);
+              return;
+            }
+            seat.classList.add('selected');
+            selectedSeats.add(i);
+          }
+          updateSelectedInfo();
         });
       }
 
       seat.textContent = i;
 
-      // Determine position in grid
       const positionInRow = (i - 1) % 4;
-
       if (positionInRow === 2) {
-        // Add empty space for aisle
         const spacer = document.createElement('div');
         spacer.classList.add('empty-space');
         grid.appendChild(spacer);
       }
 
       grid.appendChild(seat);
+    }
+
+    function updateSelectedInfo() {
+      const seats = Array.from(selectedSeats).sort((a, b) => a - b);
+      selectedInfo.textContent = seats.length
+        ? `Selected Seats: ${seats.join(', ')}`
+        : 'Selected Seats: None';
     }
   </script>
 </body>
