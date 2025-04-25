@@ -11,86 +11,57 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: url("58271781-5497-4015-81fd-4622e78da2ae.png") no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-    }
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.8);
+      background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
       min-height: 100vh;
-      padding: 40px 20px;
     }
     .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
+      max-width: 700px;
+      background: #fff;
+      margin: 40px auto;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+      color: #333;
     }
     h1 {
-      color: #ff5722;
+      color: #007bff;
       text-align: center;
+      margin-bottom: 10px;
     }
     p.subheading {
       text-align: center;
-      color: #ccc;
+      color: #555;
+      margin-bottom: 30px;
     }
-    input[type="text"] {
+    input[type="text"], input[type="email"], textarea, select {
       width: 100%;
       padding: 12px;
-      border-radius: 8px;
-      border: none;
+      border: 1px solid #ccc;
+      border-radius: 6px;
       font-size: 1rem;
-      margin: 20px 0;
+      margin: 10px 0 20px 0;
     }
     .faq {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
       margin: 15px 0;
       padding: 15px 20px;
       cursor: pointer;
-      backdrop-filter: blur(6px);
       transition: background 0.3s;
     }
     .faq:hover {
-      background: rgba(255, 255, 255, 0.15);
+      background: #f1f1f1;
     }
     .faq h2 {
       margin: 0;
-      color: #ffa726;
+      color: #007bff;
+      font-size: 1.1rem;
     }
     .faq-content {
       display: none;
       padding-top: 10px;
-      color: #ddd;
-    }
-    .contact-form {
-      margin-top: 40px;
-      background: rgba(255,255,255,0.05);
-      padding: 20px;
-      border-radius: 12px;
-    }
-    .contact-form h3 {
-      color: #ffab40;
-      text-align: center;
-    }
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      margin: 10px 0;
-      padding: 10px;
-      border-radius: 6px;
-      border: none;
-      font-size: 1rem;
-    }
-    .contact-form button {
-      display: block;
-      margin: auto;
-      background-color: #ff5722;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      margin-top: 10px;
+      color: #555;
     }
     .feedback {
       text-align: center;
@@ -101,131 +72,193 @@
       padding: 8px 16px;
       border: none;
       border-radius: 20px;
-      background-color: #ff5722;
+      background-color: #007bff;
       color: #fff;
       cursor: pointer;
       transition: background 0.3s;
     }
     .feedback button:hover {
-      background-color: #e64a19;
+      background-color: #0056b3;
+    }
+    .contact-form {
+      margin-top: 40px;
+    }
+    .contact-form h3 {
+      color: #007bff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .contact-form button {
+      display: block;
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+    .contact-form button:hover {
+      background-color: #0056b3;
     }
     .ad-section {
-      background: rgba(255,255,255,0.08);
-      border: 2px dashed #ff5722;
+      background: #f1f1f1;
+      border: 1px dashed #007bff;
       text-align: center;
-      padding: 20px;
-      border-radius: 12px;
+      padding: 15px;
+      border-radius: 8px;
       margin-top: 40px;
+      font-size: 0.95rem;
+      color: #555;
     }
     footer {
       margin-top: 50px;
       text-align: center;
-      color: #aaa;
+      color: #777;
       font-size: 0.9rem;
     }
     .footer-links {
       margin: 20px 0;
     }
     .footer-links a {
-      color: #ffa726;
+      color: #007bff;
       text-decoration: none;
       margin: 0 10px;
     }
     .footer-links a:hover {
       text-decoration: underline;
     }
+    /* Floating Buttons */
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      color: white;
+      background-color: #007bff;
+      cursor: pointer;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #scrollBtn {
+      left: 20px;
+    }
+    #chatBtn {
+      right: 20px;
+    }
+    #chatBox {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 300px;
+      background: white;
+      color: #333;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+    #chatBox input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
 <body>
-  <div class="overlay">
-    <div class="container">
-      <h1>Welcome to GoRide Help Center</h1>
-      <p class="subheading">Search your issue or explore answers below.</p>
 
-      <input type="text" placeholder="Search Help Topics...">
+  <div class="container">
+    <h1>Welcome to GoRide Help Center</h1>
+    <p class="subheading">Search your issue or explore answers below.</p>
 
-      <!-- FAQ Section -->
-      <div class="faq" onclick="toggleFAQ(this)">
-        <h2>How do I book a bus ticket?</h2>
-        <div class="faq-content">Search your destination, choose a bus, select your seat, and pay securely.</div>
-      </div>
-      <div class="faq" onclick="toggleFAQ(this)">
-        <h2>Can I cancel or reschedule a ticket?</h2>
-        <div class="faq-content">Yes. Visit ‘My Bookings’ and select your ticket. Check our cancellation policy before proceeding.</div>
-      </div>
-      <div class="faq" onclick="toggleFAQ(this)">
-        <h2>How do I get a refund?</h2>
-        <div class="faq-content">Refunds are processed to the original payment method within 3-7 business days.</div>
-      </div>
-      <div class="faq" onclick="toggleFAQ(this)">
-        <h2>Is there a customer support number?</h2>
-        <div class="faq-content">Yes. Contact us anytime through the in-app support or call 1800-XXX-XXXX.</div>
-      </div>
+    <input type="text" placeholder="Search Help Topics...">
 
-      <!-- Feedback -->
-      <div class="feedback">
-        <p>Was this page helpful?</p>
-        <button>Yes</button>
-        <button>No</button>
-      </div>
-
-      <!-- Contact Form -->
-      <div class="contact-form">
-        <h3>Still need help? Contact Us</h3>
-        <input type="text" placeholder="Your Name" />
-        <input type="email" placeholder="Your Email" />
-        <textarea rows="4" placeholder="Describe your issue..."></textarea>
-        <button>Submit</button>
-      </div>
-
-      <!-- Ad Section -->
-      <div class="ad-section">
-        Thank you for visiting GoRide help page
-      </div>
-
-      <!-- Accessibility Tip -->
-      <div style="text-align: center; margin-top: 40px; font-size: 0.9rem; color: #ccc;">
-        <p>Tip: Use <kbd>Tab</kbd> to navigate through links and form elements for better accessibility.</p>
-      </div>
-
-      <!-- Footer -->
-      <footer>
-        <div class="footer-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms & Conditions</a>
-          <a href="#">Careers</a>
-          <a href="#">Feedback</a>
-        </div>
-        <p>&copy; 2025 GoRide. All rights reserved.</p>
-      </footer>
+    <!-- FAQ Section -->
+    <div class="faq" onclick="toggleFAQ(this)">
+      <h2>How do I book a bus ticket?</h2>
+      <div class="faq-content">Search your destination, choose a bus, select your seat, and pay securely.</div>
     </div>
+    <div class="faq" onclick="toggleFAQ(this)">
+      <h2>Can I cancel or reschedule a ticket?</h2>
+      <div class="faq-content">Yes. Visit ‘My Bookings’ and select your ticket. Check our cancellation policy before proceeding.</div>
+    </div>
+    <div class="faq" onclick="toggleFAQ(this)">
+      <h2>How do I get a refund?</h2>
+      <div class="faq-content">Refunds are processed to the original payment method within 3-7 business days.</div>
+    </div>
+    <div class="faq" onclick="toggleFAQ(this)">
+      <h2>Is there a customer support number?</h2>
+      <div class="faq-content">Yes. Contact us anytime through the in-app support or call 1800-XXX-XXXX.</div>
+    </div>
+
+    <!-- Feedback -->
+    <div class="feedback">
+      <p>Was this page helpful?</p>
+      <button>Yes</button>
+      <button>No</button>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <h3>Still need help? Contact Us</h3>
+      <input type="text" placeholder="Your Name" />
+      <input type="email" placeholder="Your Email" />
+      <textarea rows="4" placeholder="Describe your issue..."></textarea>
+      <button>Submit</button>
+    </div>
+
+    <!-- Ad Section -->
+    <div class="ad-section">
+      Thank you for visiting GoRide help page
+    </div>
+
+    <!-- Accessibility Tip -->
+    <div style="text-align: center; margin-top: 40px; font-size: 0.9rem; color: #555;">
+      <p>Tip: Use <kbd>Tab</kbd> to navigate through links and form elements for better accessibility.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Careers</a>
+        <a href="#">Feedback</a>
+      </div>
+      <p>&copy; 2025 GoRide. All rights reserved.</p>
+    </footer>
   </div>
 
-  <!-- Live Chat Floating Button -->
-  <div style="position: fixed; bottom: 20px; right: 20px; z-index: 999;">
-    <button onclick="toggleChat()" style="background-color: #ff5722; color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1.5rem; cursor: pointer;">💬</button>
-  </div>
+  <!-- Floating Buttons -->
+  <button id="scrollBtn" class="floating-btn" onclick="scrollToTop()">⬆</button>
+  <button id="chatBtn" class="floating-btn" onclick="toggleChat()">💬</button>
 
-  <div id="chatBox" style="display: none; position: fixed; bottom: 90px; right: 20px; width: 300px; background: rgba(0,0,0,0.9); color: white; padding: 15px; border-radius: 10px; box-shadow: 0 0 10px black; z-index: 999;">
+  <!-- Chat Box -->
+  <div id="chatBox">
     <p><strong>GoRide Assistant</strong></p>
     <p>Hi! How can I help you today?</p>
-    <input type="text" placeholder="Type a message..." style="width: 100%; padding: 8px; border-radius: 6px; border: none; margin-top: 10px;">
+    <input type="text" placeholder="Type a message...">
   </div>
-
-  <!-- Scroll to Top Button -->
-  <button onclick="scrollToTop()" style="position: fixed; bottom: 20px; left: 20px; background-color: #ff5722; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5rem; cursor: pointer; z-index: 999;">⬆</button>
 
   <script>
     function toggleFAQ(element) {
       const content = element.querySelector(".faq-content");
       content.style.display = content.style.display === "block" ? "none" : "block";
     }
-
     function toggleChat() {
       const chat = document.getElementById("chatBox");
       chat.style.display = chat.style.display === "block" ? "none" : "block";
     }
-
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
