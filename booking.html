@@ -1,30 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Bus Ticket Booking</title>
+  <meta charset="UTF-8">
+  <title>Bus Ticket Booking</title>
+  <link rel="stylesheet" href="stylebooking.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="background"></div>
+  <div class="container">
+    <div class="progress-bar">
+      <div class="step active"><div class="circle">1</div><span>Travel Date</span></div>
+      <div class="step"><div class="circle">2</div><span>Available Buses</span></div>
+      <div class="step"><div class="circle">3</div><span>Book Seat</span></div>
+      <div class="step"><div class="circle">4</div><span>Details</span></div>
+      <div class="step"><div class="circle">5</div><span>Payment</span></div>
+      <div class="step"><div class="circle">6</div><span>Ticket</span></div>
+    </div>
 
-    <h2>Bus Ticket Booking</h2>
+    <form class="booking-form" action="available-buses.html" method="get">
+      <div class="input-group">
+        <label>From</label>
+        <input type="text" placeholder="Enter departure city" required>
+      </div>
 
-    <form>
-        From: <input type="text" id="from"><br><br>
-        To: <input type="text" id="to"><br><br>
-        Travel Date: <input type="date" id="date"><br><br>
-        <button type="button" onclick="proceedBooking()">Continue</button>
+      <div class="input-group">
+        <label>To</label>
+        <input type="text" placeholder="Enter destination city" required>
+      </div>
+
+      <div class="input-group">
+        <label>Date of Travel</label>
+        <input type="date" required>
+      </div>
+
+      <div class="button-group">
+        <button type="button" class="back-btn">Back</button>
+        <button type="submit" class="continue-btn">Continue</button>
+      </div>
     </form>
+  </div>
 
-    <h2>Booking Summary:</h2>
-    <p id="summary"></p>
-
-    <script>
-        function proceedBooking() {
-            var from = document.getElementById("from").value;
-            var to = document.getElementById("to").value;
-            var date = document.getElementById("date").value;
-            document.getElementById("summary").innerHTML = "You are booking a bus from " + from + " to " + to + " on " + date + ".";
-        }
-    </script>
-
+  <script src="scriptbooking.js"></script>
 </body>
 </html>
