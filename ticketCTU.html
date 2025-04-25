@@ -5,13 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bus Ticket</title>
   <link rel="stylesheet" href="ticketstyle.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .city-input {
+      margin-bottom: 20px;
+    }
+
+    .city-input input {
+      padding: 8px;
+      margin: 0 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .city-input button {
+      padding: 8px 14px;
+      border: none;
+      background-color: #4caf50;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .ticket-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .ticket {
+      display: flex;
+      width: 600px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      justify-content: space-between;
+    }
+
+    .ticket-left, .ticket-right {
+      width: 48%;
+    }
+
+    .ticket-left h2 {
+      margin-bottom: 10px;
+    }
+
+    .ticket-left p {
+      margin: 5px 0;
+    }
+
+    .route {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .details {
+      text-align: left;
+    }
+
+    .detail {
+      margin: 8px 0;
+    }
+
+    .footer {
+      margin-top: 15px;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .download-button {
+      margin-top: 20px;
+      padding: 10px 16px;
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  </style>
 </head>
 <body>
+
+  <div class="city-input">
+    <label>From: <input type="text" id="fromCity" placeholder="Enter departure city"/></label>
+    <label>To: <input type="text" id="toCity" placeholder="Enter destination city"/></label>
+    <button onclick="updateTicket()">Update Ticket</button>
+  </div>
+
   <div class="ticket-wrapper">
     <div class="ticket" id="ticket">
       <div class="ticket-left">
         <h2>BUS TICKET</h2>
-        <p>Ticket No: <span class="ticket-id">#BT785624</strong></p>
+        <p>Ticket No: <span class="ticket-id">#BT785624</span></p>
         <div class="boarding-info">
           <p>Boarding: SEC-17, CHD BUS STAND</p>
           <p>Gate No: 4</p>
@@ -20,52 +123,55 @@
 
       <div class="ticket-right">
         <div class="route">
-        <span class="location">CHANDIGARH</span>
-        <span class="arrow">→</span>
-        <span class="location">DELHI</span>
-      </div>
-      <div class="details">
-        <div class="detail">
-        <label>Date</label>
-          <div>28 Apr 2025</div>
+          <span class="location">CHANDIGARH</span>
+          <span class="arrow">→</span>
+          <span class="location">DELHI</span>
         </div>
-          <div class="detail">
-          <label>Time</label>
-          <div>8:30 PM</div>
+        <div class="details">
+          <div class="detail"><label>Date</label><div>28 Apr 2025</div></div>
+          <div class="detail"><label>Time</label><div>8:30 PM</div></div>
+          <div class="detail"><label>SEAT NO.</label><div>34</div></div>
+          <div class="detail"><label>PASSENGER</label><div>Vanshika</div></div> 
+          <div class="detail"><label>BUS NO.</label><div>123</div></div>
+          <div class="detail"><label>FARE</label><div>1000</div></div>
         </div>
-         <div class="detail">
-          <label>SEAT NO.</label>
-          <div>34</div>
+        <div class="footer">
+          <span>Enjoy your trip!</span>
+          <span>Issued: 24/4/2025</span>
         </div>
-        <div class="detail">
-          <label>PASSENGER</label>
-          <div>Vanshika</div>
-        </div> 
-        <div class="detail">
-          <label>BUS NO.</label>
-          <div>123</div>
-        </div>
-        <div class="detail">
-          <label>FARE</label>
-          <div>1000</div>
-        </div>
-      </div>
-      <div class="footer">
-        <span>Enjoy your trip!</span>
-        <span>Issued: 24/4/2025</span>
       </div>
     </div>
   </div>
+
   <button id="downloadBtn" class="download-button">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
-      </svg>
-      Download Ticket
-    </button>
-  </div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+    </svg>
+    Download Ticket
+  </button>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script>
+    function updateTicket() {
+      const fromCity = document.getElementById("fromCity").value.trim().toUpperCase();
+      const toCity = document.getElementById("toCity").value.trim().toUpperCase();
+
+      if (fromCity) document.querySelectorAll(".location")[0].innerText = fromCity;
+      if (toCity) document.querySelectorAll(".location")[1].innerText = toCity;
+
+      // Change background based on city
+      const ticket = document.getElementById("ticket");
+      if (fromCity === "DELHI") {
+        ticket.style.background = "linear-gradient(to right, #ff9a9e, #fad0c4)";
+      } else if (fromCity === "CHANDIGARH") {
+        ticket.style.background = "linear-gradient(to right, #a18cd1, #fbc2eb)";
+      } else if (fromCity === "MUMBAI") {
+        ticket.style.background = "linear-gradient(to right, #fbc2eb, #a6c1ee)";
+      } else {
+        ticket.style.background = "#fff"; // Default
+      }
+    }
+
     document.getElementById("downloadBtn").addEventListener("click", () => {
       const ticket = document.getElementById("ticket");
       html2canvas(ticket).then(canvas => {
@@ -76,5 +182,6 @@
       });
     });
   </script>
+
 </body>
 </html>
