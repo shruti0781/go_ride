@@ -183,6 +183,11 @@
         Thank you for visiting GoRide help page
       </div>
 
+      <!-- Accessibility Tip -->
+      <div style="text-align: center; margin-top: 40px; font-size: 0.9rem; color: #ccc;">
+        <p>Tip: Use <kbd>Tab</kbd> to navigate through links and form elements for better accessibility.</p>
+      </div>
+
       <!-- Footer -->
       <footer>
         <div class="footer-links">
@@ -196,10 +201,33 @@
     </div>
   </div>
 
+  <!-- Live Chat Floating Button -->
+  <div style="position: fixed; bottom: 20px; right: 20px; z-index: 999;">
+    <button onclick="toggleChat()" style="background-color: #ff5722; color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1.5rem; cursor: pointer;">💬</button>
+  </div>
+
+  <div id="chatBox" style="display: none; position: fixed; bottom: 90px; right: 20px; width: 300px; background: rgba(0,0,0,0.9); color: white; padding: 15px; border-radius: 10px; box-shadow: 0 0 10px black; z-index: 999;">
+    <p><strong>GoRide Assistant</strong></p>
+    <p>Hi! How can I help you today?</p>
+    <input type="text" placeholder="Type a message..." style="width: 100%; padding: 8px; border-radius: 6px; border: none; margin-top: 10px;">
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button onclick="scrollToTop()" style="position: fixed; bottom: 20px; left: 20px; background-color: #ff5722; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5rem; cursor: pointer; z-index: 999;">⬆</button>
+
   <script>
     function toggleFAQ(element) {
       const content = element.querySelector(".faq-content");
       content.style.display = content.style.display === "block" ? "none" : "block";
+    }
+
+    function toggleChat() {
+      const chat = document.getElementById("chatBox");
+      chat.style.display = chat.style.display === "block" ? "none" : "block";
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
 </body>
