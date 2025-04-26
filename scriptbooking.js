@@ -1,6 +1,6 @@
 function handleContinue() {
-    alert("✔ Proceeding to Available Buses...");
     
-    return true; 
+    window.location.href = "availablebuses.html";
+    return false;
   }
   
