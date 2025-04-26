@@ -317,42 +317,90 @@
   <button class="book-btn">Continue</button>
 </div>
 
-<script>
-  const farePerSeat = 1000;
-  const seats = document.querySelectorAll('.seat.available');
-  const selectedInfo = document.getElementById('selected-info');
-  const totalFare = document.getElementById('total-fare');
-  const selectedSeats = new Set();
-  const maxSelectable = 4;
+  <script>
+    const grid = document.getElementById('seat-grid');
+const selectedInfo = document.getElementById('selected-info');
+const fareInfo = document.getElementById('fare-info');
+const totalSeats = 40;
+const bookedSeats = new Set([2, 7, 14, 23]);
+const waitingSeats = new Set([5, 17, 28]);
+const selectedSeats = new Set();
+const maxSelectable = 4;
 
-  seats.forEach(seat => {
+// Create seats
+for (let i = 1; i <= totalSeats; i++) {
+  const seat = document.createElement('div');
+  seat.classList.add('seat');
+  seat.setAttribute('data-tooltip', `Seat ${i} - `);
+
+  if (bookedSeats.has(i)) {
+    seat.classList.add('booked');
+    seat.setAttribute('data-tooltip', `Seat ${i} - Booked`);
+  } else if (waitingSeats.has(i)) {
+    seat.classList.add('waiting');
+    seat.setAttribute('data-tooltip', `Seat ${i} - Waiting`);
+  } else {
+    seat.classList.add('available');
+    seat.setAttribute('data-tooltip', `Seat ${i} - Available`);
     seat.addEventListener('click', () => {
-      const seatNumber = seat.textContent;
-
       if (seat.classList.contains('selected')) {
         seat.classList.remove('selected');
-        selectedSeats.delete(seatNumber);
+        selectedSeats.delete(i);
       } else {
         if (selectedSeats.size >= maxSelectable) {
-          alert(`You can only select up to ${maxSelectable} seats.`);
+          alert(`You can select up to ${maxSelectable} seats.`);
           return;
         }
         seat.classList.add('selected');
-        selectedSeats.add(seatNumber);
+        selectedSeats.add(i);
       }
-
-      updateInfo();
+      updateSelectedInfo();
     });
-  });
-
-  function updateInfo() {
-    const sorted = Array.from(selectedSeats).sort((a, b) => a - b);
-    selectedInfo.textContent = sorted.length
-      ? `Selected Seats: ${sorted.join(', ')}`
-      : 'Selected Seats: None';
-    totalFare.textContent = `Total Fare: ₹${sorted.length * farePerSeat}`;
   }
-</script>
+
+  seat.textContent = i;
+
+  const positionInRow = (i - 1) % 4;
+  if (positionInRow === 2) {
+    const spacer = document.createElement('div');
+    spacer.classList.add('empty-space');
+    grid.appendChild(spacer);
+  }
+
+  grid.appendChild(seat);
+}
+
+// 👉 This part must be AFTER creating all seats!
+document.getElementById('continue-btn').addEventListener('click', function() {
+  if (selectedSeats.size === 0) {
+    alert('Please select at least one seat.');
+    return;
+  }
+
+  const seatsArray = Array.from(selectedSeats);
+  const totalFare = seatsArray.length * 400; // Fare per seat ₹400
+
+  // Save to localStorage
+  localStorage.setItem('selectedSeats', JSON.stringify(seatsArray));
+  localStorage.setItem('totalFare', totalFare);
+
+  // Redirect to details page
+  window.location.href = 'details.html'; 
+});
+
+function updateSelectedInfo() {
+  const seats = Array.from(selectedSeats).sort((a, b) => a - b);
+  selectedInfo.textContent = seats.length
+    ? `Selected Seats: ${seats.join(', ')}`
+    : 'Selected Seats: None';
+
+  const farePerSeat = 400;
+  const totalFare = seats.length * farePerSeat;
+  fareInfo.textContent = `Total Fare: ₹${totalFare}`;
+}
+
+  </script>
+
 
 </body>
 </html>
