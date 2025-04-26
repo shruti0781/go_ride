@@ -5,7 +5,181 @@
   <title>Available Bus Rides</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Existing styles remain unchanged */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100%;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      z-index: -1;
+    }
+
+    .container {
+      background: white;
+      width: 100%;
+      max-width: 600px;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(10px);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .progress-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 30px;
+      position: relative;
+      padding: 0 30px;
+    }
+
+    .progress-bar::before {
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: 30px;
+      right: 30px;
+      height: 4px;
+      background: #dcdcdc;
+      z-index: 0;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
+      flex: 1;
+    }
+
+    .step .circle {
+      background: #dcdcdc;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .step.active .circle {
+      background: #4CAF50;
+    }
+
+    .step span {
+      font-size: 12px;
+      color: #333;
+      margin-top: 8px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .bus-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .bus-card {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      width: 100%;
+    }
+
+    .bus-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .bus-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .bus-card span {
+      font-size: 12px;
+      font-weight: 400;
+      color: #777;
+    }
+
+    .bus-card p {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .card-buttons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .book-btn {
+      background: #4CAF50;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      text-decoration: none;
+    }
+
+    .book-btn:hover {
+      background: #45a049;
+    }
+
+    .view-gallery {
+      font-size: 12px;
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    .view-gallery:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -24,15 +198,12 @@
     <!-- Section Title -->
     <h2 class="section-title">Available Bus Rides</h2>
 
-    <!-- Updated Route Section -->
-    <h3 id="dynamicRoute">Route: Loading...</h3>
-
     <!-- Bus Cards -->
     <div class="bus-cards">
       <div class="bus-card">
         <h3>CTU <span>(ROADWAYS)</span></h3>
         <p><strong>Time:</strong> 20:30hr</p>
-        <p><strong>Route:</strong> <span id="busRoute1">-</span></p>
+        <p><strong>Route:</strong> CHANDIGARH - DELHI</p>
         <p><strong>Seats Left:</strong> 1 seat left</p>
         <p><strong>Fare:</strong> ₹1000</p>
         <div class="card-buttons">
@@ -44,7 +215,7 @@
       <div class="bus-card">
         <h3>PRTC <span>(Express Shuttle)</span></h3>
         <p><strong>Time:</strong> 18:00hr</p>
-        <p><strong>Route:</strong> <span id="busRoute2">-</span></p>
+        <p><strong>Route:</strong> CHANDIGARH - LUDHIANA</p>
         <p><strong>Seats Left:</strong> 5 seats left</p>
         <p><strong>Fare:</strong> ₹400</p>
         <div class="card-buttons">
@@ -56,7 +227,7 @@
       <div class="bus-card">
         <h3>HRTC <span>(Highway Coach)</span></h3>
         <p><strong>Time:</strong> 22:00hr</p>
-        <p><strong>Route:</strong> <span id="busRoute3">-</span></p>
+        <p><strong>Route:</strong> SHIMLA - SOLAN</p>
         <p><strong>Seats Left:</strong> 12 seats left</p>
         <p><strong>Fare:</strong> ₹550</p>
         <div class="card-buttons">
@@ -66,22 +237,5 @@
       </div>
     </div>
   </div>
-
-  <!-- JavaScript to Update Route Dynamically -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let fromCity = localStorage.getItem("fromCity");
-        let toCity = localStorage.getItem("toCity");
-
-        if (fromCity && toCity) {
-            document.getElementById("dynamicRoute").textContent = `Route: ${fromCity} - ${toCity}`;
-            document.getElementById("busRoute1").textContent = `${fromCity} - ${toCity}`;
-            document.getElementById("busRoute2").textContent = `${fromCity} - ${toCity}`;
-            document.getElementById("busRoute3").textContent = `${fromCity} - ${toCity}`;
-        } else {
-            document.getElementById("dynamicRoute").textContent = "Route: Not Selected";
-        }
-    });
-  </script>
 </body>
 </html>
