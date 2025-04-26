@@ -127,74 +127,6 @@
       color: white;
       text-shadow: 2px 2px 4px rgba(255, 94, 77, 0.3);
     }
-     /* POPUP STYLES START */
-    .popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000; /* Ensure it's on top */
-    }
-
-    .popup-content {
-      background-color: #36393f; /* Dark background like in the image */
-      color: #dcddde; /* Light text color */
-      padding: 30px;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    .popup-content h2 {
-      color: #fff;
-      margin-bottom: 15px;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    .popup-content p {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .popup-buttons {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-    }
-
-    .popup-button {
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .popup-button.sign-up {
-      background-color: #2ecc71; /* Green like in the image */
-      color: white;
-    }
-
-    .popup-button.sign-up:hover {
-      background-color: #27ae60;
-    }
-
-    .popup-button.log-in {
-      background-color: #7289da; /* Greyish blue like in the image */
-      color: white;
-    }
-
-    .popup-button.log-in:hover {
-      background-color: #677bc4;
-    }
   </style>
 </head>
 <body>
@@ -212,108 +144,22 @@
   </header>
 
   <div class="content">
-    <h1 class="fade">Welcome To</h1>
+    <h1 class="fade">Welcome, <span id="userNameDisplay">Guest</span> to</h1>
     <h2 class="fade delay-1 highlight-text">GoRide</h2>
     <p class="fade delay-2">Fast. Reliable. Wherever you need to go.</p>
     <a href="booking.html" class="book-btn fade delay-3">BOOK NOW</a>
   </div>
-   <div id="popupOverlay" class="popup-overlay" style="display: none;">
-    <div class="popup-content">
-      <h2>Want more?</h2>
-      <p>Create an account or log in to see additional search results, add your favorites to Collections, and save changes.</p>
-      <div class="popup-buttons">
-        <button id="registerBtn" class="popup-button register">Register</button>
-        <button id="logInBtn" class="popup-button log-in">Log In</button>
-      </div>
-    </div>
-  </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const popupOverlay = document.getElementById('popupOverlay');
-      const signUpBtn = document.getElementById('registerBtn');
-      const logInBtn = document.getElementById('logInBtn');
-
-      // Show the popup after a short delay (e.g., 1 second)
-      setTimeout(() => {
-        popupOverlay.style.display = 'flex';
-      }, 1000);
-
-      signUpBtn.addEventListener('click', function() {
-        window.location.href = 'login.html';
-      });
-
-      logInBtn.addEventListener('click', function() {
-        window.location.href = 'login.html';
-      });
-
-      popupOverlay.addEventListener('click', function(event) {
-        if (event.target === popupOverlay) {
-          popupOverlay.style.display = 'none';
-        }
-      });
-    });
-  </script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const popupOverlay = document.getElementById('popupOverlay');
-      const signUpBtnPopup = document.getElementById('signUpBtn');
-      const logInBtnPopup = document.getElementById('logInBtn');
-      const signupContainer = document.querySelector('.signup-container');
-      const loginContainer = document.querySelector('.login-container');
-
-      // Show the popup after a short delay on the homepage
-      setTimeout(() => {
-        popupOverlay.style.display = 'flex';
-      }, 1000);
-
-      signUpBtnPopup.addEventListener('click', function() {
-        popupOverlay.style.display = 'none';
-        signupContainer.style.display = 'flex';
-        bodyElement.style.justifyContent = 'center'; // Center the signup container
-        bodyElement.style.alignItems = 'center';
-      });
-
-      logInBtnPopup.addEventListener('click', function() {
-        popupOverlay.style.display = 'none';
-        loginContainer.style.display = 'flex';
-        bodyElement.style.justifyContent = 'center'; // Center the login container
-        bodyElement.style.alignItems = 'center';
-      });
-
-      popupOverlay.addEventListener('click', function(event) {
-        if (event.target === popupOverlay) {
-          popupOverlay.style.display = 'none';
-        }
-      });
-
-      // --- Functionality for signup.html (if accessed directly) ---
-      const signupLink = document.querySelector('.signup-container .login-link a');
-      if (signupLink) {
-        signupLink.addEventListener('click', function(event) {
-          event.preventDefault();
-          signupContainer.style.display = 'none';
-          loginContainer.style.display = 'flex';
-          bodyElement.style.justifyContent = 'center';
-          bodyElement.style.alignItems = 'center';
-        });
-      }
-
-      // --- Functionality for login.html (if accessed directly) ---
-      const loginLink = document.querySelector('.login-container .signup-link a');
-      if (loginLink) {
-        loginLink.addEventListener('click', function(event) {
-          event.preventDefault();
-          loginContainer.style.display = 'none';
-          signupContainer.style.display = 'flex';
-          bodyElement.style.justifyContent = 'center';
-          bodyElement.style.alignItems = 'center';
-        });
-      }
-
-      // Get the body element for centering
-      const bodyElement = document.body;
-    });
+    // Get the username from localStorage and display it
+    const userName = localStorage.getItem('userName');
+    if (userName) {
+        // If username exists in localStorage, display it in the welcome message
+        document.getElementById('userNameDisplay').textContent = userName;
+    } else {
+        // If no username is found, display "Guest"
+        document.getElementById('userNameDisplay').textContent = "Guest";
+    }
   </script>
 </body>
 </html>
