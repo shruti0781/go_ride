@@ -121,6 +121,13 @@
 
       <label for="dob">Date of Birth:</label>
       <input type="date" id="dob" required>
+       <label for="gender">Gender:</label>
+      <select id="gender" required>
+        <option value="">--Select--</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
 
       <button type="submit">Submit</button>
     </form>
@@ -136,6 +143,7 @@
       const email = document.getElementById('email').value.trim();
       const phone = document.getElementById('phone').value.trim();
       const dob = document.getElementById('dob').value;
+      const gender = document.getElementById('gender').value;
 
       const output = `
         <h3>✅ Your Details:</h3>
@@ -143,6 +151,7 @@
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Date of Birth:</strong> ${dob}</p>
+         <p><strong>Gender:</strong> ${gender}</p>
       `;
 
       const outputBox = document.getElementById('output');
