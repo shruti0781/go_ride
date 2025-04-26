@@ -1,0 +1,21 @@
+name: Auto Reply to New Issues
+
+on:
+  issues:
+    types: [opened]   
+
+permissions:
+  issues: write   
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Comment on the new issue
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            👋 Hello! Thank you for creating an issue.
+            We have received your report and will look into it shortly! 🚀
