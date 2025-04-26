@@ -13,8 +13,9 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
       padding: 20px;
+      color: #fff;
     }
 
     h2 {
@@ -23,12 +24,14 @@
     }
 
     .bus-card {
-      background-color: #f9f9f9;
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 15px;
       padding: 20px;
       margin: 20px auto;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       max-width: 700px;
+      backdrop-filter: blur(8px);
+      color: #fff;
     }
 
     .bus-card h3 {
@@ -51,13 +54,13 @@
     .seat {
       width: 60px;
       height: 60px;
-      background-color: #ddd;
+      background-color: #ccc;
       border-radius: 8px;
       line-height: 60px;
       text-align: center;
       font-weight: bold;
       cursor: pointer;
-      transition: 0.3s;
+      transition: 0.3s ease-in-out;
     }
 
     .seat:nth-child(5n) {
@@ -65,23 +68,24 @@
     }
 
     .seat.available:hover {
-      background-color: #4CAF50;
+      background-color: #00e676;
       color: white;
+      transform: scale(1.1);
     }
 
     .seat.selected {
-      background-color: #4CAF50;
+      background-color: #00c853;
       color: white;
     }
 
     .seat.booked {
-      background-color: red;
+      background-color: #e53935;
       color: white;
       cursor: not-allowed;
     }
 
     .seat.waiting {
-      background-color: purple;
+      background-color: #8e24aa;
       color: white;
       cursor: not-allowed;
     }
@@ -91,6 +95,7 @@
       justify-content: center;
       margin-top: 20px;
       gap: 20px;
+      color: #eee;
     }
 
     .legend-item {
@@ -106,39 +111,51 @@
     }
 
     .available-color {
-      background-color: #4CAF50;
+      background-color: #00c853;
     }
 
     .booked-color {
-      background-color: red;
+      background-color: #e53935;
     }
 
     .waiting-color {
-      background-color: purple;
+      background-color: #8e24aa;
     }
 
     .book-btn {
-      background-color: #4CAF50;
+      background-color: #00c853;
       color: white;
       border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
+      padding: 12px 28px;
+      border-radius: 25px;
       cursor: pointer;
       font-weight: bold;
-      margin-top: 20px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 25px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: background 0.3s;
     }
 
     .book-btn:hover {
-      background-color: #45a049;
+      background-color: #00e676;
     }
 
     .selected-seats-info {
       text-align: center;
       margin-top: 20px;
       font-weight: bold;
+    }
+
+    .seat-count {
+      background-color: #fff;
+      color: #333;
+      font-weight: bold;
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin-left: 12px;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -149,11 +166,10 @@
 <div class="bus-card">
   
   <div style="text-align: center;">
-    <h3>HRTC <span style="color: gray; font-weight: normal;">(ROADWAYS)</span></h3>
+    <h3>HRTC <span style="color: lightgray; font-weight: normal;">(ROADWAYS)</span></h3>
     <p style="margin-top: -10px;"><strong>Route:</strong> SHIMLA – SOLAN</p>
   </div>
 
- 
   <div style="margin-top: 10px;">
     <p><strong>Time:</strong> 20:30hr</p>
     <p><strong>Fare:</strong> ₹1000</p>
@@ -214,12 +230,16 @@
 
   <div class="selected-seats-info" id="selected-seats-info">Selected Seats: None</div>
 
-  <button class="book-btn">Continue</button>
+  <button class="book-btn">
+    Continue
+    <span class="seat-count" id="seat-count">0</span>
+  </button>
 </div>
 
 <script>
   const seats = document.querySelectorAll('.seat.available');
   const selectedSeatsInfo = document.getElementById('selected-seats-info');
+  const seatCountDisplay = document.getElementById('seat-count');
   const maxSelectable = 4;
   let selectedSeats = new Set();
 
@@ -248,6 +268,7 @@
     selectedSeatsInfo.textContent = selectedSeatsArray.length
       ? `Selected Seats: ${selectedSeatsArray.join(', ')}`
       : 'Selected Seats: None';
+    seatCountDisplay.textContent = selectedSeatsArray.length;
   }
 </script>
 
