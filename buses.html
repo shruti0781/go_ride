@@ -26,19 +26,18 @@
       padding: 20px;
     }
 
-   .background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzfGVufDB8fDB8fHww');
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-  filter: brightness(0.6); /* Optional: to darken the image for readability */
-}
-
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzfGVufDB8fDB8fHww');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      filter: brightness(0.6);
+    }
 
     .container {
       background: rgba(255, 255, 255, 0.1); 
@@ -71,7 +70,7 @@
       left: 30px;
       right: 30px;
       height: 4px;
-      background: #dcdcdc;
+      background: linear-gradient(to right, #4CAF50 0%, #4CAF50 32%, #dcdcdc 32%, #dcdcdc 100%);
       z-index: 0;
     }
 
@@ -85,7 +84,7 @@
 
     .step .circle {
       background: #dcdcdc;
-      color: #fff;
+      color: #ffffff;
       width: 36px;
       height: 36px;
       border-radius: 50%;
@@ -97,7 +96,7 @@
     }
 
     .step.active .circle {
-      background: #4CAF50;
+      background: hsl(0, 2%, 82%);
     }
 
     .step span {
@@ -122,7 +121,7 @@
     }
 
     .bus-card {
-      background: #f9f9f9;
+      background: rgba(255, 255, 255, 0.1); 
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
@@ -184,6 +183,19 @@
     .view-gallery:hover {
       text-decoration: underline;
     }
+
+    /* ADDED CUSTOM CODE BELOW */
+
+    /* Make Roadways, Express Shuttle, and Highway Coach text black */
+    .bus-card h3 span {
+      color: black;
+    }
+
+    /* Make Travel Date Circle Green */
+    .step:first-child .circle {
+      background: #4CAF50;
+    }
+    
   </style>
 </head>
 <body>
