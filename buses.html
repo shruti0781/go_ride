@@ -50,7 +50,6 @@
       align-items: center;
     }
 
-    /* Progress Bar */
     .progress-bar {
       display: flex;
       justify-content: space-between;
@@ -115,7 +114,7 @@
       flex-direction: column;
       gap: 20px;
       width: 100%;
-      margin-top: 20px; /* Ensure proper spacing from the progress bar */
+      margin-top: 20px;
     }
 
     .bus-card {
@@ -125,7 +124,7 @@
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      width: 100%; /* Make sure the bus card takes full width */
+      width: 100%;
     }
 
     .bus-card:hover {
@@ -165,6 +164,7 @@
       font-weight: 600;
       cursor: pointer;
       transition: background 0.3s ease;
+      text-decoration: none;
     }
 
     .book-btn:hover {
@@ -207,7 +207,7 @@
         <p><strong>Seats Left:</strong> 1 seat left</p>
         <p><strong>Fare:</strong> ₹1000</p>
         <div class="card-buttons">
-          <button class="book-btn" onclick="bookSeat('CTU')">Book Seats</button>
+          <a href="seatselectionctu.html" class="book-btn">Book Seats</a>
           <a href="#" class="view-gallery">View Gallery</a>
         </div>
       </div>
@@ -219,7 +219,7 @@
         <p><strong>Seats Left:</strong> 5 seats left</p>
         <p><strong>Fare:</strong> ₹400</p>
         <div class="card-buttons">
-          <button class="book-btn" onclick="bookSeat('PRTC')">Book Seats</button>
+          <a href="seatselectionprtc.html" class="book-btn">Book Seats</a>
           <a href="#" class="view-gallery">View Gallery</a>
         </div>
       </div>
@@ -231,17 +231,11 @@
         <p><strong>Seats Left:</strong> 12 seats left</p>
         <p><strong>Fare:</strong> ₹550</p>
         <div class="card-buttons">
-          <button class="book-btn" onclick="bookSeat('HRTC')">Book Seats</button>
+          <a href="seatselectionhrtc.html" class="book-btn">Book Seats</a>
           <a href="#" class="view-gallery">View Gallery</a>
         </div>
       </div>
     </div>
   </div>
-
-  <script>
-    function bookSeat(busName) {
-      alert(`You selected ${busName} bus. Proceeding to booking...`);
-    }
-  </script>
 </body>
 </html>
