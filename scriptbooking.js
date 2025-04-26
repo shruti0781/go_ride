@@ -1,6 +1,6 @@
 function handleContinue() {
     
-    window.location.href = "availablebuses.html";
+    window.location.href = "buses.html";
     return false;
   }
   
