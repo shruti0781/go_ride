@@ -5,6 +5,21 @@
   <title>Bus Ticket Booking</title>
   <link rel="stylesheet" href="stylebooking.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Add map styling here */
+    .map-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    #map {
+      width: 600px;
+      height: 400px;
+      background-color: #ddd; /* fallback color if map not loaded */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -53,6 +68,15 @@
         <button type="submit" class="continue-btn">Continue</button>
       </div>
     </form>
+
+    <!-- 🗺️ Map Bar Start -->
+    <div class="map-wrapper">
+      <div id="map">
+        <!-- (Map will appear here later if needed) -->
+      </div>
+    </div>
+    <!-- 🗺️ Map Bar End -->
+
   </div>
 
   <script src="scriptbooking.js"></script>
