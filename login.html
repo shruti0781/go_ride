@@ -19,15 +19,16 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" />
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI-h-e2hgz8mwGfCt4gvj4IgMG_wAUolVM6w&s" />
         </div>
-    <!-- Login Form -->
-        <form id="loginForm" class="input-group active" action="index.html">
-            <input type="text" class="input-field" placeholder="Username or Phone Number" required />
-            <input type="password" class="input-field" placeholder="Password" required />
+
+        <!-- Login Form -->
+        <form id="loginForm" class="input-group active" onsubmit="handleLogin(event)">
+            <input type="text" id="username" class="input-field" placeholder="Username or Phone Number" required />
+            <input type="password" id="password" class="input-field" placeholder="Password" required />
             <label><input type="checkbox" class="check-box" /> Remember Password</label>
             <button type="submit" class="submit-btn">Log In</button>
         </form>
 
-    <!-- Registration Form -->
+        <!-- Registration Form -->
         <form id="registerForm" class="input-group">
             <input type="text" class="input-field" placeholder="Full Name" required />
             <input type="email" class="input-field" placeholder="Email Address" required />
@@ -36,8 +37,8 @@
             <label><input type="checkbox" class="check-box" id="chkAgree" onclick="toggleSubmit()"> I agree to the Terms & Conditions</label>
             <button type="submit" id="btnSubmit" class="submit-btn" disabled>Register</button>
         </form>
-      </div>
+    </div>
 
-  <script src="loginscript.js"></script>
+    <script src="loginscript.js"></script>
 </body>
 </html>
