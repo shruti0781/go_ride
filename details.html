@@ -121,6 +121,8 @@
 
       <label for="dob">Date of Birth:</label>
       <input type="date" id="dob" required>
+      <label for="address">Address:</label>
+      <textarea id="address" required></textarea>
        <label for="gender">Gender:</label>
       <select id="gender" required>
         <option value="">--Select--</option>
@@ -143,6 +145,7 @@
       const email = document.getElementById('email').value.trim();
       const phone = document.getElementById('phone').value.trim();
       const dob = document.getElementById('dob').value;
+       const address = document.getElementById('address').value.trim();
       const gender = document.getElementById('gender').value;
 
       const output = `
@@ -151,6 +154,7 @@
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Date of Birth:</strong> ${dob}</p>
+        <p><strong>Address:</strong> ${address}</p>
          <p><strong>Gender:</strong> ${gender}</p>
       `;
 
