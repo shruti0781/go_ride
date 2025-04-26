@@ -18,32 +18,60 @@
       min-height: 100vh;
     }
 
-    /* Feedback container with frosted glass effect */
     .feedback-container {
       width: 100%;
       max-width: 600px;
-      background: rgba(255, 255, 255, 0.85); /* Lighter background with opacity */
+      background: rgba(255, 255, 255, 0.85);
       border-radius: 15px;
       box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.3);
       padding: 30px;
       color: black;
     }
 
-    /* Header */
     h2 {
       text-align: center;
       margin-bottom: 30px;
       color: #007bff;
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 10px 0;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    /* Feedback item styling */
+    .search-bar {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .search-bar input {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: rgba(169, 169, 169, 0.2);
+    }
+
     .feedback-item {
-      background: rgba(169, 169, 169, 0.2); /* Light gray background */
+      background: rgba(169, 169, 169, 0.2);
       border-left: 5px solid #007bff;
       margin-bottom: 20px;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.8s ease-in;
+      transition: transform 0.2s ease;
+    }
+
+    .feedback-item:hover {
+      transform: translateY(-3px);
+      background-color: rgba(200, 200, 200, 0.3);
     }
 
     .feedback-item h4 {
@@ -62,7 +90,6 @@
       color: #007bff;
     }
 
-    /* Centered back button */
     .back-btn {
       display: block;
       margin-top: 30px;
@@ -84,14 +111,33 @@
       background: linear-gradient(to right, #e83e2e, #c21d65);
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .feedback-container {
+        padding: 20px 15px;
+      }
+
+      .search-bar input {
+        width: 90%;
+      }
+    }
   </style>
 </head>
 <body>
 
   <div class="feedback-container">
     <h2>Thank You for Your Feedback!</h2>
-    
-    <!-- Display submitted feedback here -->
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search by name or bus number..." onkeyup="filterFeedbacks()">
+    </div>
+
+    <!-- Feedback Entries -->
     <div class="feedback-item">
       <h4>Sonam</h4>
       <p><span>Bus Number:</span> 102</p>
@@ -101,41 +147,56 @@
     </div>
 
     <div class="feedback-item">
-      <h4>Tanu jain</h4>
+      <h4>Tanu Jain</h4>
       <p><span>Bus Number:</span> 203</p>
       <p><span>Date of Travel:</span> 2025-04-25</p>
       <p><span>Rating:</span> 4 - Good</p>
       <p><span>Comments:</span> Overall a good experience, though the bus could have been cleaner.</p>
     </div>
 
-    <!-- Your feedback will go here (this part can be dynamically populated) -->
     <div class="feedback-item">
       <h4>Pranchal</h4>
       <p><span>Bus Number:</span> 723</p>
       <p><span>Date of Travel:</span> 2025-04-23</p>
-      <p><span>Rating:</span> 5 - Excellent </p>
+      <p><span>Rating:</span> 5 - Excellent</p>
       <p><span>Comments:</span> Had a great experience travelling with GoRide!</p>
     </div>
 
     <div class="feedback-item">
-        <h4>shruti</h4>
-        <p><span>Bus Number:</span> 334</p>
-        <p><span>Date of Travel:</span> 2025-04-20</p>
-        <p><span>Rating:</span> 5 - Excellent</p>
-        <p><span>Comments:</span> The ride was very comfortable.</p>
-      </div>
+      <h4>Shruti</h4>
+      <p><span>Bus Number:</span> 334</p>
+      <p><span>Date of Travel:</span> 2025-04-20</p>
+      <p><span>Rating:</span> 5 - Excellent</p>
+      <p><span>Comments:</span> The ride was very comfortable.</p>
+    </div>
 
-      <div class="feedback-item">
-        <h4>Shivangi</h4>
-        <p><span>Bus Number:</span> 182</p>
-        <p><span>Date of Travel:</span> 2025-04-19</p>
-        <p><span>Rating:</span> 4 - Goodt</p>
-        <p><span>Comments:</span> The app service was great however it could be improved.</p>
-      </div>
+    <div class="feedback-item">
+      <h4>Shivangi</h4>
+      <p><span>Bus Number:</span> 182</p>
+      <p><span>Date of Travel:</span> 2025-04-19</p>
+      <p><span>Rating:</span> 4 - Good</p>
+      <p><span>Comments:</span> The app service was great however it could be improved.</p>
+    </div>
 
     <!-- Back to Form Button -->
     <a href="feedback-form.html" class="back-btn">Back to Feedback Form</a>
   </div>
 
+  <!-- Script for Search Functionality -->
+  <script>
+    function filterFeedbacks() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const feedbacks = document.querySelectorAll('.feedback-item');
+
+      feedbacks.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        if (text.includes(input)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
