@@ -157,6 +157,15 @@
       margin-left: 12px;
       font-size: 14px;
     }
+
+    /* New Fare Display Styling */
+    #fare-display {
+      margin-top: 10px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -234,13 +243,19 @@
     Continue
     <span class="seat-count" id="seat-count">0</span>
   </button>
+
+  <!-- New: Total Fare Display -->
+  <div id="fare-display">Total Fare: ₹0</div>
+
 </div>
 
 <script>
   const seats = document.querySelectorAll('.seat.available');
   const selectedSeatsInfo = document.getElementById('selected-seats-info');
   const seatCountDisplay = document.getElementById('seat-count');
+  const totalFareDisplay = document.getElementById('fare-display');
   const maxSelectable = 4;
+  const farePerSeat = 1000;
   let selectedSeats = new Set();
 
   seats.forEach(seat => {
@@ -269,6 +284,7 @@
       ? `Selected Seats: ${selectedSeatsArray.join(', ')}`
       : 'Selected Seats: None';
     seatCountDisplay.textContent = selectedSeatsArray.length;
+    totalFareDisplay.textContent = `Total Fare: ₹${selectedSeatsArray.length * farePerSeat}`;
   }
 </script>
 
