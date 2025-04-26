@@ -127,10 +127,19 @@
       color: white;
       text-shadow: 2px 2px 4px rgba(255, 94, 77, 0.3);
     }
+     #profile-wrapper {
+      position: relative;
+      display: none;
+      align-items: center;
+    }
+    #profile-wrapper.active {
+      display: flex;
+    }
+
     #profile-container {
-  display: none;
+  display: flex;
   align-items: center;
-  position: relative;
+  cursor: pointer;
   gap: 10px;
 }
 
@@ -181,6 +190,11 @@
 .dropdown a:hover {
   color: #f0592c;
 }
+    
+#profile-wrapper:hover .dropdown {
+  display: block;
+}
+
 
   </style>
 </head>
@@ -200,12 +214,14 @@
 </div>
 
 <!-- Profile shown after login -->
+<div id="profile-wrapper">
 <div id="profile-container">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtRs_rWILOMx5-v3aXwJu7LWUhnPceiKvvDg&s" class="profile-pic" alt="User" />
   <span class="username">User</span>
+</div>
   <div class="dropdown">
     <ul>
-      <li><a href="#">My Tickets</a></li>
+      <li><a href="ticketctu.html">My Tickets</a></li>
       <li><a href="#" id="logout">Logout</a></li>
     </ul>
   </div>
@@ -230,6 +246,7 @@ if (userName) {
   userNameDisplay.textContent = userName;
   loginContainer.style.display = "none";
   profileContainer.style.display = "flex";
+  document.getElementById("profile-wrapper").style.display = "flex";
   document.querySelector(".username").textContent = userName;
 } else {
   userNameDisplay.textContent = "Guest";
