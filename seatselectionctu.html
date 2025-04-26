@@ -1,10 +1,10 @@
-<!-- Book Seat with 4 selection limit + display -->
+<!-- Book Seat with Stylish Theme + Features -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Book Seat</title>
+  <title>Book CTU Seat</title>
   <style>
     * {
       margin: 0;
@@ -14,51 +14,55 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
       padding: 20px;
     }
 
     h2 {
       text-align: center;
       margin-bottom: 30px;
+      font-size: 2em;
     }
 
     .bus-card {
-      background-color: #f9f9f9;
-      border-radius: 15px;
-      padding: 20px;
-      margin: 20px auto;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      max-width: 700px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 25px;
+      margin: 0 auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      max-width: 750px;
+      backdrop-filter: blur(10px);
     }
 
     .bus-card h3 {
-      font-size: 20px;
-      margin-bottom: 5px;
+      font-size: 24px;
+      margin-bottom: 8px;
     }
 
     .bus-card p {
       font-size: 16px;
+      color: #ddd;
     }
 
     .seat-grid {
       display: grid;
       grid-template-columns: repeat(5, 60px);
-      gap: 10px;
+      gap: 12px;
       justify-content: center;
-      margin-top: 20px;
+      margin-top: 25px;
     }
 
     .seat {
       width: 60px;
       height: 60px;
-      background-color: #ddd;
-      border-radius: 8px;
+      background-color: #ccc;
+      border-radius: 10px;
       line-height: 60px;
       text-align: center;
       font-weight: bold;
       cursor: pointer;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
 
     .seat:nth-child(5n) {
@@ -66,17 +70,17 @@
     }
 
     .seat.available:hover {
-      background-color: #4CAF50;
+      background-color: #1e90ff;
       color: white;
     }
 
     .seat.selected {
-      background-color: #4CAF50;
+      background-color: #007bff;
       color: white;
     }
 
     .seat.booked {
-      background-color: red;
+      background-color: crimson;
       color: white;
       cursor: not-allowed;
     }
@@ -90,78 +94,76 @@
     .legend {
       display: flex;
       justify-content: center;
-      margin-top: 20px;
       gap: 20px;
+      margin-top: 25px;
     }
 
     .legend-item {
       display: flex;
       align-items: center;
       gap: 10px;
+      font-size: 14px;
     }
 
     .legend-color {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       border-radius: 4px;
     }
 
-    .available-color {
-      background-color: #4CAF50;
-    }
-
-    .booked-color {
-      background-color: red;
-    }
-
-    .waiting-color {
-      background-color: purple;
-    }
+    .available-color { background-color: #007bff; }
+    .booked-color { background-color: crimson; }
+    .waiting-color { background-color: purple; }
 
     .book-btn {
-      background-color: #4CAF50;
+      background-color: #007bff;
       color: white;
       border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-size: 16px;
       cursor: pointer;
-      font-weight: bold;
-      margin-top: 20px;
+      margin: 30px auto 0;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
+      transition: background 0.3s;
     }
 
     .book-btn:hover {
-      background-color: #45a049;
+      background-color: #0056b3;
     }
 
     .selected-info {
       text-align: center;
-      margin-top: 15px;
+      margin-top: 20px;
       font-weight: bold;
+      font-size: 16px;
+    }
+
+    .details-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      font-size: 15px;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
 
-<h2>Select Your Seat</h2>
+<h2>CTU Seat Booking</h2>
 
 <div class="bus-card">
-  <!-- Centered title and route -->
   <div style="text-align: center;">
-    <h3>CTU <span style="color: gray; font-weight: normal;">(ROADWAYS)</span></h3>
-    <p style="margin-top: -10px;"><strong>Route:</strong> CHANDIGARH - DELHI</p>
+    <h3>CTU <span style="color: lightgray; font-weight: normal;">(ROADWAYS)</span></h3>
+    <p style="margin-top: -8px;"><strong>Route:</strong> CHANDIGARH - DELHI</p>
   </div>
 
-  <!-- Left-aligned Time and Fare -->
-  <div style="margin-top: 10px;">
-    <p><strong>Time:</strong> 20:30hr</p>
-    <p><strong>Fare:</strong> ₹1000</p>
+  <div class="details-row">
+    <p><strong>Time:</strong> 20:30 hr</p>
+    <p><strong>Fare per seat:</strong> ₹1000</p>
   </div>
 
   <div class="seat-grid">
-    <!-- 30 seats with center aisle (represented by empty div) -->
     <div class="seat available">1</div>
     <div class="seat waiting">2</div>
     <div></div>
@@ -215,13 +217,16 @@
   </div>
 
   <div class="selected-info" id="selected-info">Selected Seats: None</div>
+  <div class="selected-info" id="total-fare">Total Fare: ₹0</div>
 
   <button class="book-btn">Continue</button>
 </div>
 
 <script>
+  const farePerSeat = 1000;
   const seats = document.querySelectorAll('.seat.available');
   const selectedInfo = document.getElementById('selected-info');
+  const totalFare = document.getElementById('total-fare');
   const selectedSeats = new Set();
   const maxSelectable = 4;
 
@@ -241,15 +246,16 @@
         selectedSeats.add(seatNumber);
       }
 
-      updateSelectedInfo();
+      updateInfo();
     });
   });
 
-  function updateSelectedInfo() {
-    const seatsArray = Array.from(selectedSeats).sort((a, b) => a - b);
-    selectedInfo.textContent = seatsArray.length
-      ? `Selected Seats: ${seatsArray.join(', ')}`
+  function updateInfo() {
+    const sorted = Array.from(selectedSeats).sort((a, b) => a - b);
+    selectedInfo.textContent = sorted.length
+      ? `Selected Seats: ${sorted.join(', ')}`
       : 'Selected Seats: None';
+    totalFare.textContent = `Total Fare: ₹${sorted.length * farePerSeat}`;
   }
 </script>
 
