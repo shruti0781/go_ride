@@ -155,4 +155,58 @@
   .continue-btn:hover {
     background: #45a049;
   }
-  
+  header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  background: black;
+  color: white;
+  position: fixed;  /* Fixes the header at the top */
+  top: 0;  /* Positions the header at the top of the page */
+  left: 0;  /* Ensures it stretches across the full width */
+  width: 100%;  /* Full width of the page */
+  z-index: 1000;  /* Makes sure the header stays on top of other elements */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #f0592c;
+}
+
+.login-btn {
+  background-color: #f0592c;
+  border: none;
+  padding: 8px 18px;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.login-btn:hover {
+  background-color: #d94f22;
+}
+
