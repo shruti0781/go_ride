@@ -1,16 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Book Seat</title>
+  <title>PRTC Bus Seat Booking</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzfGVufDB8fDB8fHww') no-repeat center center fixed;
@@ -19,35 +14,93 @@
   color: #fff;
 }
 
-
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
+header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 20px;
+      background: black;
+      color: white;
     }
-
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    nav {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f0592c;
+    }
+    .login-btn {
+      background-color: #f0592c;
+      border: none;
+      padding: 8px 18px;
+      color: white;
+      font-weight: bold;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+    }
+    .login-btn:hover {
+      background-color: #d94f22;
+    }
     .bus-card {
-      background: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.1); 
       border-radius: 15px;
       padding: 20px;
-      margin: 20px auto;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      margin: 0 auto 30px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
       max-width: 700px;
-      backdrop-filter: blur(8px);
-      color: #fff;
     }
 
-    .bus-card h3 {
-      font-size: 20px;
-      margin-bottom: 5px;
+    .bus-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
     }
 
-    .bus-card p {
-      font-size: 16px;
+    .bus-info {
+      flex: 1;
+    }
+
+    .bus-title {
+      text-align: center;
+      flex: 1 1 100%;
+      margin-bottom: 10px;
+    }
+
+    .bus-title h3 {
+      margin: 0;
+      font-size: 24px;
+      color: #00e5ff;
+    }
+
+    .bus-title span {
+      font-weight: normal;
+      color: #b0bec5;
+    }
+
+    .bus-title p {
+      margin: 5px 0 0;
     }
 
     .seat-grid {
       display: grid;
-      grid-template-columns: repeat(5, 60px);
+      grid-template-columns: 60px 60px 30px 60px 60px;
       gap: 10px;
       justify-content: center;
       margin-top: 20px;
@@ -56,235 +109,143 @@
     .seat {
       width: 60px;
       height: 60px;
-      background-color: #ccc;
       border-radius: 8px;
-      line-height: 60px;
       text-align: center;
+      line-height: 60px;
       font-weight: bold;
       cursor: pointer;
-      transition: 0.3s ease-in-out;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
 
-    .seat:nth-child(5n) {
-      margin-right: 40px;
-    }
-
-    .seat.available:hover {
-      background-color: #00e676;
-      color: white;
-      transform: scale(1.1);
-    }
-
-    .seat.selected {
+    .seat:hover.available {
       background-color: #00c853;
       color: white;
+      box-shadow: 0 0 10px #00e676;
+      transform: scale(1.05);
     }
 
-    .seat.booked {
+    .empty-space {
+      width: 30px;
+      height: 60px;
+      background: transparent;
+      pointer-events: none;
+    }
+
+    .available {
+      background-color: #4db6ac;
+      color: #000;
+    }
+
+    .booked {
       background-color: #e53935;
       color: white;
       cursor: not-allowed;
     }
 
-    .seat.waiting {
+    .waiting {
       background-color: #8e24aa;
       color: white;
-      cursor: not-allowed;
+    }
+
+    .selected {
+      background-color: #1e88e5 !important;
+      color: white;
+      box-shadow: 0 0 10px #64b5f6;
+      transform: scale(1.05);
+    }
+
+    .seat::after {
+      content: attr(data-tooltip);
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      bottom: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.75);
+      color: white;
+      padding: 5px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: opacity 0.3s;
+    }
+
+    .seat:hover::after {
+      visibility: visible;
+      opacity: 1;
     }
 
     .legend {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-      gap: 20px;
-      color: #eee;
+      text-align: center;
+      margin: 20px 0;
     }
 
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .legend-color {
+    .legend span {
+      display: inline-block;
       width: 20px;
       height: 20px;
       border-radius: 4px;
+      margin: 0 8px;
     }
 
-    .available-color {
-      background-color: #00c853;
-    }
-
-    .booked-color {
-      background-color: #e53935;
-    }
-
-    .waiting-color {
-      background-color: #8e24aa;
-    }
-
-    .book-btn {
-      background-color: #00c853;
-      color: white;
+    .continue-btn {
+      background-color: #00e676;
+      color: #000;
       border: none;
-      padding: 12px 28px;
+      padding: 12px 24px;
       border-radius: 25px;
       cursor: pointer;
-      font-weight: bold;
-      margin: 25px auto 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
+      margin: 20px auto 0;
       font-size: 16px;
-      transition: background 0.3s;
+      font-weight: bold;
+      box-shadow: 0 0 10px #00e676;
+      transition: background-color 0.3s, transform 0.2s;
     }
 
-    .book-btn:hover {
-      background-color: #00e676;
+    .continue-btn:hover {
+      background-color: #00c853;
+      transform: scale(1.05);
     }
 
-    .selected-seats-info {
+    .selected-info {
       text-align: center;
-      margin-top: 20px;
-      font-weight: bold;
-    }
-
-    .seat-count {
-      background-color: #fff;
-      color: #333;
-      font-weight: bold;
-      padding: 4px 10px;
-      border-radius: 12px;
-      margin-left: 12px;
-      font-size: 14px;
-    }
-
-    /* New Fare Display Styling */
-    #fare-display {
       margin-top: 10px;
-      text-align: center;
       font-weight: bold;
-      font-size: 16px;
-      color: #fff;
+      color: #80deea;
     }
   </style>
 </head>
 <body>
 
-<!-- Progress Bar Start -->
-<div style="background: rgba(255, 255, 255, 0.1); padding: 20px 10px; border-radius: 15px; margin-bottom: 20px;">
-  <div style="display: flex; justify-content: space-between; align-items: center; max-width: 700px; margin: auto;">
-    <div style="text-align: center;">
-      <div style="width: 30px; height: 30px; background: #00c853; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">1</div>
-      <small style="display: block; margin-top: 5px; color: black;">Travel Date</small>
+  <div class="bus-card">
+    <div class="bus-title">
+      <h3>PRTC <span>(HRTC ROADWAYS)</span></h3>
+      <p><strong>Route:</strong> CHANDIGARH - LUDHIANA</p>
     </div>
-    <div style="flex: 1; height: 4px; background: #00c853; margin: 0 5px;"></div>
-    <div style="text-align: center;">
-      <div style="width: 30px; height: 30px; background: #00c853; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">2</div>
-      <small style="display: block; margin-top: 5px; color: black;">Available Buses</small>
+    <div class="bus-header">
+      <div class="bus-info">
+        <p><strong>Time:</strong> 18:00hr</p>
+        <p><strong>Fare:</strong> ₹400</p>
+      </div>
     </div>
-    <div style="flex: 1; height: 4px; background: #00c853; margin: 0 5px;"></div>
-    <div style="text-align: center;">
-      <div style="width: 30px; height: 30px; background: #ccc; color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">3</div>
-      <small style="display: block; margin-top: 5px; color: black;">Book Seat</small>
+
+    <div class="seat-grid" id="seat-grid"></div>
+
+    <div class="legend">
+      <span style="background-color: #e53935;"></span> Booked
+      <span style="background-color: #8e24aa;"></span> Waiting
+      <span style="background-color: #4db6ac;"></span> Available
     </div>
-    <div style="flex: 1; height: 4px; background: #ccc; margin: 0 5px;"></div>
-    <div style="text-align: center;">
-      <div style="width: 30px; height: 30px; background: #ccc; color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">4</div>
-      <small style="display: block; margin-top: 5px; color: black;">Details</small>
-    </div>
-    <div style="flex: 1; height: 4px; background: #ccc; margin: 0 5px;"></div>
-    <div style="text-align: center;">
-      <div style="width: 30px; height: 30px; background: #ccc; color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">5</div>
-      <small style="display: block; margin-top: 5px; color: black;">Payment</small>
-    </div>
-    <div style="flex: 1; height: 4px; background: #cccccc; margin: 0 5px;"></div>
-    <div style="text-align: center;">
-      <div style="width: 30px; height: 30px; background: #ccc; color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">6</div>
-      <small style="display: block; margin-top: 5px; color: black;">Ticket</small>
-    </div>
+
+    <div class="selected-info" id="selected-info">Selected Seats: None</div>
+
+    <div class="selected-info" id="fare-info">Total Fare: ₹0</div>
+
+    <button id="continue-btn" class="continue-btn">Continue</button>
   </div>
-</div>
-<!-- Progress Bar End -->
-
-<h2>Select Your Seat</h2>
-
-<div class="bus-card">
-  
-  <div style="text-align: center;">
-    <h3>HRTC <span style="color: rgb(211, 211, 211); font-weight: normal;">(ROADWAYS)</span></h3>
-    <p style="margin-top: -10px;"><strong>Route:</strong> SHIMLA – SOLAN</p>
-  </div>
-
-  <div style="margin-top: 10px;">
-    <p><strong>Time:</strong> 20:30hr</p>
-    <p><strong>Fare:</strong> ₹1000</p>
-  </div>
-
-  <div class="seat-grid">
-    <div class="seat available">1</div>
-    <div class="seat waiting">2</div>
-    <div></div>
-    <div class="seat booked">3</div>
-    <div class="seat available">4</div>
-
-    <div class="seat booked">5</div>
-    <div class="seat available">6</div>
-    <div></div>
-    <div class="seat waiting">7</div>
-    <div class="seat available">8</div>
-
-    <div class="seat available">9</div>
-    <div class="seat booked">10</div>
-    <div></div>
-    <div class="seat available">11</div>
-    <div class="seat waiting">12</div>
-
-    <div class="seat waiting">13</div>
-    <div class="seat available">14</div>
-    <div></div>
-    <div class="seat booked">15</div>
-    <div class="seat available">16</div>
-
-    <div class="seat booked">17</div>
-    <div class="seat waiting">18</div>
-    <div></div>
-    <div class="seat available">19</div>
-    <div class="seat available">20</div>
-
-    <div class="seat available">21</div>
-    <div class="seat available">22</div>
-    <div></div>
-    <div class="seat waiting">23</div>
-    <div class="seat booked">24</div>
-
-    <div class="seat waiting">25</div>
-    <div class="seat booked">26</div>
-    <div></div>
-    <div class="seat available">27</div>
-    <div class="seat available">28</div>
-
-    <div class="seat booked">29</div>
-    <div class="seat available">30</div>
-  </div>
-
-  <div class="legend">
-    <div class="legend-item"><div class="legend-color available-color"></div>Available</div>
-    <div class="legend-item"><div class="legend-color booked-color"></div>Booked</div>
-    <div class="legend-item"><div class="legend-color waiting-color"></div>Waiting</div>
-  </div>
-
-  <div class="selected-seats-info" id="selected-seats-info">Selected Seats: None</div>
-
-  <button class="book-btn">
-    Continue
-    <span class="seat-count" id="seat-count">0</span>
-  </button>
-
-  <div id="fare-display">Total Fare: ₹0</div>
-
-</div>
 
   <script>
     const grid = document.getElementById('seat-grid');
@@ -369,7 +330,6 @@ function updateSelectedInfo() {
 }
 
   </script>
-
 
 </body>
 </html>
