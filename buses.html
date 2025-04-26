@@ -22,7 +22,7 @@
       justify-content: center;
       align-items: flex-start;
       min-height: 100%;
-      background: #f5f5f5;
+      background-image: url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzfGVufDB8fDB8fHww");
       padding: 20px;
     }
 
@@ -32,15 +32,13 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzfGVufDB8fDB8fHww');
-      background-size: cover;
-      background-position: center;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
       z-index: -1;
-      filter: brightness(0.6);
     }
 
     .container {
-      background: rgba(255, 255, 255, 0.1); 
+      margin-top: 100px;
+      background: white;
       width: 100%;
       max-width: 600px;
       padding: 40px;
@@ -70,7 +68,7 @@
       left: 30px;
       right: 30px;
       height: 4px;
-      background: linear-gradient(to right, #4CAF50 0%, #4CAF50 32%, #dcdcdc 32%, #dcdcdc 100%);
+      background: #dcdcdc;
       z-index: 0;
     }
 
@@ -84,7 +82,7 @@
 
     .step .circle {
       background: #dcdcdc;
-      color: #ffffff;
+      color: #fff;
       width: 36px;
       height: 36px;
       border-radius: 50%;
@@ -96,7 +94,7 @@
     }
 
     .step.active .circle {
-      background: hsl(0, 2%, 82%);
+      background: #4CAF50;
     }
 
     .step span {
@@ -121,7 +119,7 @@
     }
 
     .bus-card {
-      background: rgba(255, 255, 255, 0.1); 
+      background: #f9f9f9;
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
@@ -184,21 +182,124 @@
       text-decoration: underline;
     }
 
-    /* ADDED CUSTOM CODE BELOW */
-
-    /* Make Roadways, Express Shuttle, and Highway Coach text black */
-    .bus-card h3 span {
-      color: black;
+    /* Header Styling */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: black;
+      color: white;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
     }
 
-    /* Make Travel Date Circle Green */
-    .step:first-child .circle {
-      background: #4CAF50;
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-grow: 1;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #f0592c;
+    }
+
+    .login-btn {
+      background-color: #f0592c;
+      border: none;
+      padding: 8px 18px;
+      color: white;
+      font-weight: bold;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    .login-btn:hover {
+      background-color: #d94f22;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 0;
+      }
+
+      header {
+        padding: 10px 15px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+        background-color: #f0592c;
+        border: none;
+        color: white;
+        padding: 8px 12px;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .menu-btn.active + nav {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+
+      .bus-cards {
+        gap: 10px;
+      }
+
+      .bus-card {
+        padding: 15px;
+      }
+
+      .bus-card h3 {
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo-container">
+      <img src="images/logo.png" alt="Logo" height="60" width="60" />
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="AboutUs.html">About Us</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="HelpPage.html">Help</a>
+    </nav>
+    <a href="login.html" class="login-btn">Login</a>
+  </header>
   <div class="background"></div>
   <div class="container">
     <!-- Progress Bar -->
