@@ -50,6 +50,7 @@
       align-items: center;
     }
 
+    /* Progress Bar */
     .progress-bar {
       display: flex;
       justify-content: space-between;
@@ -164,7 +165,6 @@
       font-weight: 600;
       cursor: pointer;
       transition: background 0.3s ease;
-      text-decoration: none;
     }
 
     .book-btn:hover {
@@ -200,6 +200,7 @@
 
     <!-- Bus Cards -->
     <div class="bus-cards">
+      <!-- CTU Bus -->
       <div class="bus-card">
         <h3>CTU <span>(ROADWAYS)</span></h3>
         <p><strong>Time:</strong> 20:30hr</p>
@@ -207,11 +208,12 @@
         <p><strong>Seats Left:</strong> 1 seat left</p>
         <p><strong>Fare:</strong> ₹1000</p>
         <div class="card-buttons">
-          <a href="seatselectionctu.html" class="book-btn">Book Seats</a>
+          <button class="book-btn" onclick="bookSeat('CTU')">Book Seats</button>
           <a href="#" class="view-gallery">View Gallery</a>
         </div>
       </div>
 
+      <!-- PRTC Bus -->
       <div class="bus-card">
         <h3>PRTC <span>(Express Shuttle)</span></h3>
         <p><strong>Time:</strong> 18:00hr</p>
@@ -219,11 +221,12 @@
         <p><strong>Seats Left:</strong> 5 seats left</p>
         <p><strong>Fare:</strong> ₹400</p>
         <div class="card-buttons">
-          <a href="seatselectionprtc.html" class="book-btn">Book Seats</a>
+          <button class="book-btn" onclick="bookSeat('PRTC')">Book Seats</button>
           <a href="#" class="view-gallery">View Gallery</a>
         </div>
       </div>
 
+      <!-- HRTC Bus -->
       <div class="bus-card">
         <h3>HRTC <span>(Highway Coach)</span></h3>
         <p><strong>Time:</strong> 22:00hr</p>
@@ -231,11 +234,24 @@
         <p><strong>Seats Left:</strong> 12 seats left</p>
         <p><strong>Fare:</strong> ₹550</p>
         <div class="card-buttons">
-          <a href="seatselectionhrtc.html" class="book-btn">Book Seats</a>
+          <button class="book-btn" onclick="bookSeat('HRTC')">Book Seats</button>
           <a href="#" class="view-gallery">View Gallery</a>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Redirect to seat selection pages -->
+  <script>
+    function bookSeat(busName) {
+      if (busName === 'CTU') {
+        window.location.href = 'seatselectionctu.html';
+      } else if (busName === 'PRTC') {
+        window.location.href = 'seatselectionprtc.html';
+      } else if (busName === 'HRTC') {
+        window.location.href = 'seatselectionhrtc.html';
+      }
+    }
+  </script>
 </body>
 </html>
