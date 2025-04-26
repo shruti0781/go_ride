@@ -1,12 +1,19 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const from = localStorage.getItem('fromLocation');
-    const to = localStorage.getItem('toLocation');
+function handleContinue() {
+  const fromLocation = document.querySelector('input[placeholder="Enter departure city"]').value;
+  const toLocation = document.querySelector('input[placeholder="Enter destination city"]').value;
+  const travelDateRaw = document.querySelector('input[type="date"]').value;
+
+  // Format the date to DD-MM-YYYY
+  const dateParts = travelDateRaw.split("-");
+  const formattedDate = `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
+
+  // Save user inputs into localStorage
+  localStorage.setItem('fromLocation', fromLocation);
+  localStorage.setItem('toLocation', toLocation);
+  localStorage.setItem('travelDate', formattedDate);
+
+  // Redirect to available buses page
+  window.location.href = "buses.html";
   
-    if (from && to) {
-      // Update all route elements
-      document.querySelectorAll('.bus-card p:nth-of-type(2)').forEach(routePara => {
-        routePara.innerHTML = `<strong>Route:</strong> ${from} ➔ ${to}`;
-      });
-    }
-  });
-  
+  return false; // Prevent form from actually submitting
+}
