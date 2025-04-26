@@ -139,7 +139,6 @@
     #profile-container {
   display: flex;
   align-items: center;
-  cursor: pointer;
   gap: 10px;
 }
 
@@ -159,12 +158,12 @@
 .dropdown {
   display: none;
   position: absolute;
-  top: 60px;
+  top: 50px;
   right: 0;
   background-color: #222;
   padding: 10px;
   border-radius: 8px;
-  z-index: 100;
+  z-index: 999;
 }
 
 #profile-container:hover .dropdown {
@@ -192,8 +191,9 @@
 }
     
 #profile-wrapper:hover .dropdown {
-  display: block;
+  display: block; 
 }
+
 
 
   </style>
