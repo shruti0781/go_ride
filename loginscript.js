@@ -36,4 +36,10 @@ function handleLogin(event) {
         // Redirect back to index.html
         window.location.href = 'index.html';
     }
+    // Example login validation
+  if (username && password) {
+      localStorage.setItem("userName", username);
+      window.location.href = "index.html"; // Redirect to homepage
+    }
+
 }
