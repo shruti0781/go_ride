@@ -1,61 +1,63 @@
+
 @media (max-width: 768px) {
+    .bus-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .bus-logo img {
+      margin-bottom: 10px;
+    }
+  
+    .actions {
+      justify-content: center;
+    }
+  
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
   .bus-card {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    animation: fadeUp 0.5s ease forwards;
+    opacity: 0; /* Will be overridden by animation */
+    /* Optional gradient background for pop */
+    /* background: linear-gradient(to right, #ffffff, #f0f0f0); */
   }
-
-  .bus-logo img {
-    margin-bottom: 10px;
+  
+  .bus-details h2::after {
+    content: ' 🚍';
+    font-size: 16px;
   }
-
-  .actions {
-    justify-content: center;
+  
+  .bus-type {
+    display: inline-block;
+    background-color: #e0f2f1;
+    color: #00796b;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-top: 6px;
   }
-
-  .info-grid {
-    grid-template-columns: 1fr;
+  
+  .book-btn:active {
+    transform: scale(0.96);
   }
-}
-
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
+  
+  .view-gallery::before {
+    content: '📷 ';
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.bus-card {
-  animation: fadeUp 0.5s ease forwards;
-  opacity: 0; /* Will be overridden by animation */
-  /* Optional gradient background for pop */
-  /* background: linear-gradient(to right, #ffffff, #f0f0f0); */
-}
-
-.bus-details h2::after {
-  content: ' 🚍';
-  font-size: 16px;
-}
-
-.bus-type {
-  display: inline-block;
-  background-color: #e0f2f1;
-  color: #00796b;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 999px;
-  margin-top: 6px;
-}
-
-.book-btn:active {
-  transform: scale(0.96);
-}
-
-.view-gallery::before {
-  content: '📷 ';
-}
+  
