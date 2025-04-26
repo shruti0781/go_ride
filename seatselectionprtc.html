@@ -7,16 +7,17 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #74ebd5, #acb6e5);
+      background: linear-gradient(to right, #141e30, #243b55);
       padding: 20px;
+      color: #f0f0f0;
     }
 
     .bus-card {
-      background-color: #fff;
+      background-color: #1e2a38;
       border-radius: 15px;
       padding: 20px;
       margin: 0 auto 30px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
       max-width: 700px;
     }
 
@@ -39,12 +40,13 @@
 
     .bus-title h3 {
       margin: 0;
-      font-size: 22px;
+      font-size: 24px;
+      color: #00e5ff;
     }
 
     .bus-title span {
       font-weight: normal;
-      color: gray;
+      color: #b0bec5;
     }
 
     .bus-title p {
@@ -67,6 +69,15 @@
       line-height: 60px;
       font-weight: bold;
       cursor: pointer;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .seat:hover.available {
+      background-color: #00c853;
+      color: white;
+      box-shadow: 0 0 10px #00e676;
+      transform: scale(1.05);
     }
 
     .empty-space {
@@ -77,11 +88,12 @@
     }
 
     .available {
-      background-color: #a5d6a7;
+      background-color: #4db6ac;
+      color: #000;
     }
 
     .booked {
-      background-color: #f44336;
+      background-color: #e53935;
       color: white;
       cursor: not-allowed;
     }
@@ -91,14 +103,33 @@
       color: white;
     }
 
-    .seat:hover.available {
-      background-color: #4CAF50;
+    .selected {
+      background-color: #1e88e5 !important;
       color: white;
+      box-shadow: 0 0 10px #64b5f6;
+      transform: scale(1.05);
     }
 
-    .selected {
-      background-color: #0277bd !important;
+    .seat::after {
+      content: attr(data-tooltip);
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      bottom: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.75);
       color: white;
+      padding: 5px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: opacity 0.3s;
+    }
+
+    .seat:hover::after {
+      visibility: visible;
+      opacity: 1;
     }
 
     .legend {
@@ -115,8 +146,8 @@
     }
 
     .continue-btn {
-      background-color: #4CAF50;
-      color: white;
+      background-color: #00e676;
+      color: #000;
       border: none;
       padding: 12px 24px;
       border-radius: 25px;
@@ -125,16 +156,20 @@
       margin: 20px auto 0;
       font-size: 16px;
       font-weight: bold;
+      box-shadow: 0 0 10px #00e676;
+      transition: background-color 0.3s, transform 0.2s;
     }
 
     .continue-btn:hover {
-      background-color: #45a049;
+      background-color: #00c853;
+      transform: scale(1.05);
     }
 
     .selected-info {
       text-align: center;
       margin-top: 10px;
       font-weight: bold;
+      color: #80deea;
     }
   </style>
 </head>
@@ -155,9 +190,9 @@
     <div class="seat-grid" id="seat-grid"></div>
 
     <div class="legend">
-      <span style="background-color: #f44336;"></span> Booked
+      <span style="background-color: #e53935;"></span> Booked
       <span style="background-color: #8e24aa;"></span> Waiting
-      <span style="background-color: #a5d6a7;"></span> Available
+      <span style="background-color: #4db6ac;"></span> Available
     </div>
 
     <div class="selected-info" id="selected-info">Selected Seats: None</div>
@@ -177,13 +212,17 @@
     for (let i = 1; i <= totalSeats; i++) {
       const seat = document.createElement('div');
       seat.classList.add('seat');
+      seat.setAttribute('data-tooltip', `Seat ${i} - `);
 
       if (bookedSeats.has(i)) {
         seat.classList.add('booked');
+        seat.setAttribute('data-tooltip', `Seat ${i} - Booked`);
       } else if (waitingSeats.has(i)) {
         seat.classList.add('waiting');
+        seat.setAttribute('data-tooltip', `Seat ${i} - Waiting`);
       } else {
         seat.classList.add('available');
+        seat.setAttribute('data-tooltip', `Seat ${i} - Available`);
         seat.addEventListener('click', () => {
           if (seat.classList.contains('selected')) {
             seat.classList.remove('selected');
