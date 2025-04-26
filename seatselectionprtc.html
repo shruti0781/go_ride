@@ -12,6 +12,55 @@
       color: #f0f0f0;
     }
 
+    /* Progress Bar CSS */
+    .progress-container {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      position: relative;
+      height: 70px;
+    }
+    .progress-line {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background-color: #ccc;
+    }
+    .progress-line-fill {
+      width: 33%;
+      height: 100%;
+      background-color: #00c853;
+    }
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+    .progress-step {
+      text-align: center;
+      flex: 1;
+    }
+    .progress-step .circle {
+      width: 30px;
+      height: 30px;
+      background-color: #ccc;
+      border-radius: 50%;
+      margin: 0 auto;
+      line-height: 30px;
+      color: white;
+      font-weight: bold;
+    }
+    .progress-step.active .circle {
+      background-color: #00c853;
+    }
+    .progress-step p {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+
+    /* Existing styles for bus card */
     .bus-card {
       background-color: #1e2a38;
       border-radius: 15px;
@@ -175,96 +224,130 @@
 </head>
 <body>
 
-  <div class="bus-card">
-    <div class="bus-title">
-      <h3>PRTC <span>(Express Shuttle)</span></h3>
-      <p><strong>Route:</strong> CHANDIGARH - LUDHIANA</p>
+<!-- Progress Bar HTML -->
+<div class="progress-container">
+  <div class="progress-line">
+    <div class="progress-line-fill"></div>
+  </div>
+  <div class="progress-steps">
+    <div class="progress-step active">
+      <div class="circle">1</div>
+      <p>Travel Date</p>
     </div>
-    <div class="bus-header">
-      <div class="bus-info">
-        <p><strong>Time:</strong> 18:00hr</p>
-        <p><strong>Fare:</strong> ₹400</p>
-      </div>
+    <div class="progress-step active">
+      <div class="circle">2</div>
+      <p>Available Buses</p>
     </div>
-
-    <div class="seat-grid" id="seat-grid"></div>
-
-    <div class="legend">
-      <span style="background-color: #e53935;"></span> Booked
-      <span style="background-color: #8e24aa;"></span> Waiting
-      <span style="background-color: #4db6ac;"></span> Available
+    <div class="progress-step">
+      <div class="circle">3</div>
+      <p>Book Seat</p>
     </div>
+    <div class="progress-step">
+      <div class="circle">4</div>
+      <p>Details</p>
+    </div>
+    <div class="progress-step">
+      <div class="circle">5</div>
+      <p>Payment</p>
+    </div>
+    <div class="progress-step">
+      <div class="circle">6</div>
+      <p>Ticket</p>
+    </div>
+  </div>
+</div>
 
-    <div class="selected-info" id="selected-info">Selected Seats: None</div>
-
-    <div class="selected-info" id="fare-info">Total Fare: ₹0</div>
-
-    <button class="continue-btn">Continue</button>
+<!-- Bus Card -->
+<div class="bus-card">
+  <div class="bus-title">
+    <h3>PRTC <span>(Express Shuttle)</span></h3>
+    <p><strong>Route:</strong> CHANDIGARH - LUDHIANA</p>
+  </div>
+  <div class="bus-header">
+    <div class="bus-info">
+      <p><strong>Time:</strong> 18:00hr</p>
+      <p><strong>Fare:</strong> ₹400</p>
+    </div>
   </div>
 
-  <script>
-    const grid = document.getElementById('seat-grid');
-    const selectedInfo = document.getElementById('selected-info');
-    const fareInfo = document.getElementById('fare-info');
-    const totalSeats = 40;
-    const bookedSeats = new Set([2, 7, 14, 23]);
-    const waitingSeats = new Set([5, 17, 28]);
-    const selectedSeats = new Set();
-    const maxSelectable = 4;
+  <div class="seat-grid" id="seat-grid"></div>
 
-    for (let i = 1; i <= totalSeats; i++) {
-      const seat = document.createElement('div');
-      seat.classList.add('seat');
-      seat.setAttribute('data-tooltip', `Seat ${i} - `);
+  <div class="legend">
+    <span style="background-color: #e53935;"></span> Booked
+    <span style="background-color: #8e24aa;"></span> Waiting
+    <span style="background-color: #4db6ac;"></span> Available
+  </div>
 
-      if (bookedSeats.has(i)) {
-        seat.classList.add('booked');
-        seat.setAttribute('data-tooltip', `Seat ${i} - Booked`);
-      } else if (waitingSeats.has(i)) {
-        seat.classList.add('waiting');
-        seat.setAttribute('data-tooltip', `Seat ${i} - Waiting`);
-      } else {
-        seat.classList.add('available');
-        seat.setAttribute('data-tooltip', `Seat ${i} - Available`);
-        seat.addEventListener('click', () => {
-          if (seat.classList.contains('selected')) {
-            seat.classList.remove('selected');
-            selectedSeats.delete(i);
-          } else {
-            if (selectedSeats.size >= maxSelectable) {
-              alert(`You can select up to ${maxSelectable} seats.`);
-              return;
-            }
-            seat.classList.add('selected');
-            selectedSeats.add(i);
+  <div class="selected-info" id="selected-info">Selected Seats: None</div>
+
+  <div class="selected-info" id="fare-info">Total Fare: ₹0</div>
+
+  <button class="continue-btn">Continue</button>
+</div>
+
+<script>
+  const grid = document.getElementById('seat-grid');
+  const selectedInfo = document.getElementById('selected-info');
+  const fareInfo = document.getElementById('fare-info');
+  const totalSeats = 40;
+  const bookedSeats = new Set([2, 7, 14, 23]);
+  const waitingSeats = new Set([5, 17, 28]);
+  const selectedSeats = new Set();
+  const maxSelectable = 4;
+
+  for (let i = 1; i <= totalSeats; i++) {
+    const seat = document.createElement('div');
+    seat.classList.add('seat');
+    seat.setAttribute('data-tooltip', `Seat ${i} - `);
+
+    if (bookedSeats.has(i)) {
+      seat.classList.add('booked');
+      seat.setAttribute('data-tooltip', `Seat ${i} - Booked`);
+    } else if (waitingSeats.has(i)) {
+      seat.classList.add('waiting');
+      seat.setAttribute('data-tooltip', `Seat ${i} - Waiting`);
+    } else {
+      seat.classList.add('available');
+      seat.setAttribute('data-tooltip', `Seat ${i} - Available`);
+      seat.addEventListener('click', () => {
+        if (seat.classList.contains('selected')) {
+          seat.classList.remove('selected');
+          selectedSeats.delete(i);
+        } else {
+          if (selectedSeats.size >= maxSelectable) {
+            alert(`You can select up to ${maxSelectable} seats.`);
+            return;
           }
-          updateSelectedInfo();
-        });
-      }
-
-      seat.textContent = i;
-
-      const positionInRow = (i - 1) % 4;
-      if (positionInRow === 2) {
-        const spacer = document.createElement('div');
-        spacer.classList.add('empty-space');
-        grid.appendChild(spacer);
-      }
-
-      grid.appendChild(seat);
+          seat.classList.add('selected');
+          selectedSeats.add(i);
+        }
+        updateSelectedInfo();
+      });
     }
 
-    function updateSelectedInfo() {
-      const seats = Array.from(selectedSeats).sort((a, b) => a - b);
-      selectedInfo.textContent = seats.length
-        ? `Selected Seats: ${seats.join(', ')}`
-        : 'Selected Seats: None';
+    seat.textContent = i;
 
-      const farePerSeat = 400;
-      const totalFare = seats.length * farePerSeat;
-      fareInfo.textContent = `Total Fare: ₹${totalFare}`;
+    const positionInRow = (i - 1) % 4;
+    if (positionInRow === 2) {
+      const spacer = document.createElement('div');
+      spacer.classList.add('empty-space');
+      grid.appendChild(spacer);
     }
-  </script>
+
+    grid.appendChild(seat);
+  }
+
+  function updateSelectedInfo() {
+    const seats = Array.from(selectedSeats).sort((a, b) => a - b);
+    selectedInfo.textContent = seats.length
+      ? `Selected Seats: ${seats.join(', ')}`
+      : 'Selected Seats: None';
+
+    const farePerSeat = 400;
+    const totalFare = seats.length * farePerSeat;
+    fareInfo.textContent = `Total Fare: ₹${totalFare}`;
+  }
+</script>
 
 </body>
 </html>
