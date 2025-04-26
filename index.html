@@ -140,7 +140,22 @@
       <a href="feedback.html">Feedback</a>
       <a href="HelpPage.html">Help</a>
     </nav>
-    <a href="login.html" class="login-btn">Login</a>
+   <div id="login-container">
+  <a href="login.html" class="login-btn">Login</a>
+</div>
+
+<!-- Profile shown after login -->
+<div id="profile-container">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtRs_rWILOMx5-v3aXwJu7LWUhnPceiKvvDg&s" class="profile-pic" alt="User" />
+  <span class="username">User</span>
+  <div class="dropdown">
+    <ul>
+      <li><a href="#">My Tickets</a></li>
+      <li><a href="#" id="logout">Logout</a></li>
+    </ul>
+  </div>
+</div>
+
   </header>
 
   <div class="content">
@@ -151,15 +166,25 @@
   </div>
 
   <script>
-    // Get the username from localStorage and display it
-    const userName = localStorage.getItem('userName');
-    if (userName) {
-        // If username exists in localStorage, display it in the welcome message
-        document.getElementById('userNameDisplay').textContent = userName;
-    } else {
-        // If no username is found, display "Guest"
-        document.getElementById('userNameDisplay').textContent = "Guest";
-    }
+  const userName = localStorage.getItem('userName');
+const loginContainer = document.getElementById("login-container");
+const profileContainer = document.getElementById("profile-container");
+const userNameDisplay = document.getElementById("userNameDisplay");
+
+if (userName) {
+  userNameDisplay.textContent = userName;
+  loginContainer.style.display = "none";
+  profileContainer.style.display = "flex";
+  document.querySelector(".username").textContent = userName;
+} else {
+  userNameDisplay.textContent = "Guest";
+}
+
+document.getElementById("logout")?.addEventListener("click", () => {
+  localStorage.clear();
+  location.reload();
+});
+ 
   </script>
 </body>
 </html>
