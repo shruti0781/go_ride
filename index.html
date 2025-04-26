@@ -128,7 +128,6 @@
       text-shadow: 2px 2px 4px rgba(255, 94, 77, 0.3);
     }
      #profile-wrapper {
-      position: relative;
       display: none;
       align-items: center;
     }
@@ -137,9 +136,11 @@
     }
 
     #profile-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
 }
 
 .profile-pic {
@@ -163,12 +164,11 @@
   background-color: #222;
   padding: 10px;
   border-radius: 8px;
-  z-index: 999;
+  z-index: 1000;
+  min-width: 120px;
 }
 
-#profile-container:hover .dropdown {
-  display: block;
-}
+
 
 .dropdown ul {
   list-style: none;
@@ -190,11 +190,16 @@
   color: #f0592c;
 }
     
-#profile-wrapper:hover .dropdown {
-  display: block; 
+.dropdown.show {
+  display: block;
+}
+#profile-container:hover .dropdown {
+  /* display: block; */
 }
 
-
+#profile-wrapper:hover .dropdown {
+  /* display: block; */
+}
 
   </style>
 </head>
@@ -218,7 +223,6 @@
 <div id="profile-container">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtRs_rWILOMx5-v3aXwJu7LWUhnPceiKvvDg&s" class="profile-pic" alt="User" />
   <span class="username">User</span>
-</div>
   <div class="dropdown">
     <ul>
       <li><a href="ticketctu.html">My Tickets</a></li>
@@ -226,7 +230,8 @@
     </ul>
   </div>
 </div>
-
+</div>
+</div>
   </header>
 
   <div class="content">
@@ -256,7 +261,19 @@ document.getElementById("logout")?.addEventListener("click", () => {
   localStorage.clear();
   location.reload();
 });
- 
+ const dropdown = document.querySelector(".dropdown");
+
+profileContainer.addEventListener("click", function (e) {
+  e.stopPropagation();
+  dropdown.classList.toggle("show");
+});
+
+document.addEventListener("click", function (e) {
+  if (!profileContainer.contains(e.target)) {
+    dropdown.classList.remove("show");
+  }
+});
+
   </script>
 </body>
 </html>
