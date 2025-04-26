@@ -197,12 +197,15 @@
 
     <div class="selected-info" id="selected-info">Selected Seats: None</div>
 
+    <div class="selected-info" id="fare-info">Total Fare: ₹0</div>
+
     <button class="continue-btn">Continue</button>
   </div>
 
   <script>
     const grid = document.getElementById('seat-grid');
     const selectedInfo = document.getElementById('selected-info');
+    const fareInfo = document.getElementById('fare-info');
     const totalSeats = 40;
     const bookedSeats = new Set([2, 7, 14, 23]);
     const waitingSeats = new Set([5, 17, 28]);
@@ -256,7 +259,12 @@
       selectedInfo.textContent = seats.length
         ? `Selected Seats: ${seats.join(', ')}`
         : 'Selected Seats: None';
+
+      const farePerSeat = 400;
+      const totalFare = seats.length * farePerSeat;
+      fareInfo.textContent = `Total Fare: ₹${totalFare}`;
     }
   </script>
+
 </body>
 </html>
