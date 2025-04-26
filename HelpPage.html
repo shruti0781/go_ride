@@ -16,34 +16,40 @@
     }
     .container {
       max-width: 700px;
-      background: #fff;
+      background: #1d2d3c; /* New Darker Card Color */
       margin: 40px auto;
       padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
-      color: #333;
+      border-radius: 15px; /* More Rounded */
+      box-shadow: 0px 12px 25px rgba(0,0,0,0.2);
+      color: #f1f1f1; /* Lighter Text Color */
     }
     h1 {
-      color: #007bff;
+      color: #1e88e5; /* Brighter Color for Heading */
       text-align: center;
       margin-bottom: 10px;
     }
     p.subheading {
       text-align: center;
-      color: #555;
+      color: #bbb; /* Lighter Subheading Color */
       margin-bottom: 30px;
     }
     input[type="text"], input[type="email"], textarea, select {
       width: 100%;
       padding: 12px;
-      border: 1px solid #ccc;
+      border: 1px solid #4e5865; /* Darker Border */
       border-radius: 6px;
       font-size: 1rem;
       margin: 10px 0 20px 0;
+      background-color: #2e3b47; /* Darker Background for Inputs */
+      color: #f1f1f1; /* Light text inside inputs */
+    }
+    input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+      border-color: #1e88e5; /* Focus Border Color */
+      outline: none;
     }
     .faq {
-      background: #f9f9f9;
-      border: 1px solid #ddd;
+      background: #2e3b47; /* Darker FAQ Background */
+      border: 1px solid #4e5865;
       border-radius: 8px;
       margin: 15px 0;
       padding: 15px 20px;
@@ -51,17 +57,17 @@
       transition: background 0.3s;
     }
     .faq:hover {
-      background: #f1f1f1;
+      background: #3a4d5d; /* Hover Effect for FAQ */
     }
     .faq h2 {
       margin: 0;
-      color: #007bff;
+      color: #1e88e5; /* Brighter Color for FAQ Titles */
       font-size: 1.1rem;
     }
     .faq-content {
       display: none;
       padding-top: 10px;
-      color: #555;
+      color: #bbb; /* Lighter Content Color */
     }
     .feedback {
       text-align: center;
@@ -72,26 +78,26 @@
       padding: 8px 16px;
       border: none;
       border-radius: 20px;
-      background-color: #007bff;
+      background-color: #1e88e5;
       color: #fff;
       cursor: pointer;
       transition: background 0.3s;
     }
     .feedback button:hover {
-      background-color: #0056b3;
+      background-color: #1565c0; /* Darker Hover Color for Buttons */
     }
     .contact-form {
       margin-top: 40px;
     }
     .contact-form h3 {
-      color: #007bff;
+      color: #1e88e5;
       text-align: center;
       margin-bottom: 20px;
     }
     .contact-form button {
       display: block;
       width: 100%;
-      background-color: #007bff;
+      background-color: #1e88e5;
       color: white;
       padding: 12px;
       border-radius: 8px;
@@ -101,11 +107,11 @@
       margin-top: 10px;
     }
     .contact-form button:hover {
-      background-color: #0056b3;
+      background-color: #1565c0;
     }
     .ad-section {
       background: #f1f1f1;
-      border: 1px dashed #007bff;
+      border: 1px dashed #1e88e5;
       text-align: center;
       padding: 15px;
       border-radius: 8px;
@@ -123,7 +129,7 @@
       margin: 20px 0;
     }
     .footer-links a {
-      color: #007bff;
+      color: #1e88e5;
       text-decoration: none;
       margin: 0 10px;
     }
@@ -140,7 +146,7 @@
       height: 50px;
       font-size: 1.5rem;
       color: white;
-      background-color: #007bff;
+      background-color: #1e88e5;
       cursor: pointer;
       z-index: 999;
       display: flex;
@@ -173,6 +179,27 @@
       border-radius: 6px;
       border: 1px solid #ccc;
     }
+
+    /* Suggestions for Search Bar */
+    .suggestions {
+      position: absolute;
+      background-color: #2e3b47;
+      width: 100%;
+      max-height: 150px;
+      overflow-y: auto;
+      border-radius: 8px;
+      margin-top: 5px;
+      z-index: 1000;
+    }
+    .suggestion-item {
+      padding: 10px;
+      color: #bbb;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .suggestion-item:hover {
+      background-color: #3a4d5d;
+    }
   </style>
 </head>
 <body>
@@ -181,7 +208,8 @@
     <h1>Welcome to GoRide Help Center</h1>
     <p class="subheading">Search your issue or explore answers below.</p>
 
-    <input type="text" placeholder="Search Help Topics...">
+    <input type="text" id="search-bar" placeholder="Search Help Topics..." oninput="showSuggestions(this.value)">
+    <div id="suggestions" class="suggestions"></div>
 
     <!-- FAQ Section -->
     <div class="faq" onclick="toggleFAQ(this)">
@@ -219,7 +247,7 @@
 
     <!-- Ad Section -->
     <div class="ad-section">
-      Thank you for visiting GoRide help page
+      <b>Thank you for visiting GoRide help page</b>
     </div>
 
     <!-- Accessibility Tip -->
@@ -240,28 +268,4 @@
   </div>
 
   <!-- Floating Buttons -->
-  <button id="scrollBtn" class="floating-btn" onclick="scrollToTop()">⬆</button>
-  <button id="chatBtn" class="floating-btn" onclick="toggleChat()">💬</button>
-
-  <!-- Chat Box -->
-  <div id="chatBox">
-    <p><strong>GoRide Assistant</strong></p>
-    <p>Hi! How can I help you today?</p>
-    <input type="text" placeholder="Type a message...">
-  </div>
-
-  <script>
-    function toggleFAQ(element) {
-      const content = element.querySelector(".faq-content");
-      content.style.display = content.style.display === "block" ? "none" : "block";
-    }
-    function toggleChat() {
-      const chat = document.getElementById("chatBox");
-      chat.style.display = chat.style.display === "block" ? "none" : "block";
-    }
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
-</body>
-</html>
+  <button id="scrollBtn" class
