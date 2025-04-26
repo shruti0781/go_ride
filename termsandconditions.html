@@ -8,77 +8,123 @@
     * {
       box-sizing: border-box;
     }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
-      min-height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #333;
     }
+
     .container {
       max-width: 900px;
-      background: #cfd6fd;
-      margin: 40px auto;
+      background: #ffffffee;
+      margin: 60px auto;
       padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0px 12px 50px rgba(0, 0, 0, 0.1);
-      color: #333;
-      text-align: left;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease;
     }
+
+    .container:hover {
+      transform: scale(1.01);
+    }
+
     h1 {
-      color: #000000;
       text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+      font-size: 2.8rem;
+      color: #1276e1;
+      margin-bottom: 30px;
     }
+
     h2 {
-      color: #0b0b0b;
       font-size: 1.5rem;
       margin-top: 30px;
+      color: #0b0b0b;
     }
+
     p {
-      color: #666767;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       line-height: 1.8;
-      margin-bottom: 20px;
-    }
-    ul {
       color: #555;
-      font-size: 1.1rem;
-      margin-left: 30px;
     }
-    footer {
-      margin-top: 50px;
-      text-align: center;
-      color: #777;
-      font-size: 0.9rem;
+
+    ul {
+      margin-left: 20px;
+      color: #444;
     }
-    .footer-links {
-      margin: 20px 0;
+
+    ul li {
+      margin-bottom: 10px;
     }
-    .footer-links a {
-      color: #000000;
+
+    a {
+      color: #1276e1;
       text-decoration: none;
-      margin: 0 10px;
     }
-    .footer-links a:hover {
+
+    a:hover {
       text-decoration: underline;
     }
+
     .button-container {
       text-align: center;
       margin-top: 40px;
     }
+
     .button-container button {
-      padding: 12px 25px;
-      font-size: 1rem;
-      background-color: #1276e1;
+      background: linear-gradient(to right, #1276e1, #0d59a4);
       color: white;
+      padding: 14px 30px;
+      font-size: 1rem;
       border: none;
-      border-radius: 15px;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
     }
+
     .button-container button:hover {
-      background-color: #00356d;
+      background: linear-gradient(to right, #0d59a4, #074077);
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      background-color: #f0f0f0;
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 60px;
+    }
+
+    .footer-links {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      margin: 0 12px;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #1276e1;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 30px 15px;
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
     }
   </style>
 </head>
