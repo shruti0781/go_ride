@@ -170,12 +170,48 @@
 </head>
 <body>
 
+<!-- Progress Bar Start -->
+<div style="background: rgb(65, 68, 225); padding: 20px 10px; border-radius: 15px; margin-bottom: 20px;">
+  <div style="display: flex; justify-content: space-between; align-items: center; max-width: 700px; margin: auto;">
+    <div style="text-align: center;">
+      <div style="width: 30px; height: 30px; background: #00c853; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">1</div>
+      <small style="display: block; margin-top: 5px; color: black;">Travel Date</small>
+    </div>
+    <div style="flex: 1; height: 4px; background: #00c853; margin: 0 5px;"></div>
+    <div style="text-align: center;">
+      <div style="width: 30px; height: 30px; background: #00c853; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">2</div>
+      <small style="display: block; margin-top: 5px; color: black;">Available Buses</small>
+    </div>
+    <div style="flex: 1; height: 4px; background: #00c853; margin: 0 5px;"></div>
+    <div style="text-align: center;">
+      <div style="width: 30px; height: 30px; background: #ccc; color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">3</div>
+      <small style="display: block; margin-top: 5px; color: black;">Book Seat</small>
+    </div>
+    <div style="flex: 1; height: 4px; background: #ccc; margin: 0 5px;"></div>
+    <div style="text-align: center;">
+      <div style="width: 30px; height: 30px; background: #ccc; color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">4</div>
+      <small style="display: block; margin-top: 5px; color: black;">Details</small>
+    </div>
+    <div style="flex: 1; height: 4px; background: #ccc; margin: 0 5px;"></div>
+    <div style="text-align: center;">
+      <div style="width: 30px; height: 30px; background: #ccc; color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">5</div>
+      <small style="display: block; margin-top: 5px; color: black;">Payment</small>
+    </div>
+    <div style="flex: 1; height: 4px; background: #cccccc; margin: 0 5px;"></div>
+    <div style="text-align: center;">
+      <div style="width: 30px; height: 30px; background: #ccc; color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: auto;">6</div>
+      <small style="display: block; margin-top: 5px; color: black;">Ticket</small>
+    </div>
+  </div>
+</div>
+<!-- Progress Bar End -->
+
 <h2>Select Your Seat</h2>
 
 <div class="bus-card">
   
   <div style="text-align: center;">
-    <h3>HRTC <span style="color: lightgray; font-weight: normal;">(ROADWAYS)</span></h3>
+    <h3>HRTC <span style="color: rgb(211, 211, 211); font-weight: normal;">(ROADWAYS)</span></h3>
     <p style="margin-top: -10px;"><strong>Route:</strong> SHIMLA – SOLAN</p>
   </div>
 
@@ -244,7 +280,6 @@
     <span class="seat-count" id="seat-count">0</span>
   </button>
 
-  <!-- New: Total Fare Display -->
   <div id="fare-display">Total Fare: ₹0</div>
 
 </div>
