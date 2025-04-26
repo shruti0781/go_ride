@@ -75,3 +75,18 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+/* ===== New MAP BAR ===== */
+.map-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+#map {
+  width: 600px;
+  height: 400px;
+  background-color: #ddd; /* fallback if map not loaded */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
