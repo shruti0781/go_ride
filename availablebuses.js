@@ -1,12 +1,12 @@
-// Read from localStorage
-const fromCity = localStorage.getItem('fromCity');
-const toCity = localStorage.getItem('toCity');
+function handleContinue() {
+  const fromInput = document.querySelector('input[placeholder="Enter departure city"]').value;
+  const toInput = document.querySelector('input[placeholder="Enter destination city"]').value;
 
-// Update all routes dynamically
-const routeElements = document.querySelectorAll('.bus-card p:nth-of-type(2)');
+  // Save to localStorage
+  localStorage.setItem('fromCity', fromInput);
+  localStorage.setItem('toCity', toInput);
 
-routeElements.forEach(route => {
-  if (fromCity && toCity) {
-    route.innerHTML = `<strong>Route:</strong> ${fromCity} - ${toCity}`;
-  }
-});
+  // Redirect to available buses page
+  window.location.href = 'availablebuses.html'; // Correct your file name
+  return false; // prevent form submission default
+}
