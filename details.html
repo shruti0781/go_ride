@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Handwritten Details Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Caveat', cursive;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 450px;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .form-container:hover {
+      transform: scale(1.01);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 25px;
+      font-weight: 700;
+      font-size: 2em;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 1.3em;
+      margin-top: 15px;
+      display: block;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      margin-top: 6px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1.2em;
+      font-family: 'Caveat', cursive;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
+    }
+
+    button {
+      width: 100%;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 12px;
+      margin-top: 20px;
+      font-size: 1.3em;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-family: 'Caveat', cursive;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .output-box {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #ecfdf5;
+      border-left: 5px solid #2ecc71;
+      border-radius: 10px;
+      animation: fadeIn 0.6s ease-in-out;
+      font-size: 1.2em;
+    }
+
+    .output-box h3 {
+      margin-top: 0;
+      color: #2c3e50;
+      font-size: 1.5em;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Tell Me About Yourself!</h2>
+    <form id="detailsForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" pattern="[0-9]{10}" required>
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" required>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="output" class="output-box" style="display:none;"></div>
+  </div>
+
+  <script>
+    document.getElementById('detailsForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const dob = document.getElementById('dob').value;
+
+      const output = `
+        <h3>✅ Your Details:</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Date of Birth:</strong> ${dob}</p>
+      `;
+
+      const outputBox = document.getElementById('output');
+      outputBox.innerHTML = output;
+      outputBox.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
