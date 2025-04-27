@@ -323,7 +323,7 @@
         <p><strong>Date:</strong> 2-03-2025</p>
         <p><strong>Time:</strong> 18:00hr</p>
         <div class="card-buttons">
-          <a href="seatselectionctu.html" class="book-btn">Book Seats</a>
+          <a href="seatselectionctu.html" class="book-btn" onclick="setBusName('CTU (ROADWAYS)')">Book Seats</a>
           <a href="#" class="view-gallery">View Gallery</a>
         </div>
       </div>
@@ -334,7 +334,7 @@
         <p><strong>Time:</strong> 18:00hr</p>
         <p></p>
         <div class="card-buttons">
-          <a href="seatselectionprtc.html" class="book-btn">Book Seats</a>
+         <a href="seatselectionprtc.html" class="book-btn" onclick="setBusName('PRTC (Express Shuttle)')">Book Seats</a>
           <a href="#" class="view-gallery">View Gallery</a>
         </div>
       </div>
@@ -344,7 +344,7 @@
         <p><strong>Date:</strong> 2-03-2025</p>
         <p><strong>Time:</strong> 18:00hr</p>
         <div class="card-buttons">
-          <a href="seatselectionhrtc.html" class="book-btn">Book Seats</a>
+          <a href="seatselectionhrtc.html" class="book-btn" onclick="setBusName('HRTC (Highway Coach)')">Book Seats</a>
           <a href="#" class="view-gallery">View Gallery</a>
         </div>
       </div>
@@ -356,7 +356,12 @@
   function setBusName(busName) {
     localStorage.setItem('busName', busName);
   }
-</script>
+  
+  function setBusName(name) {
+    localStorage.setItem('busName', name);
+  }
+
+
   </script>
 </body>
 </html>
