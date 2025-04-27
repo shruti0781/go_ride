@@ -80,6 +80,27 @@
     document.getElementById('bus-name').textContent = `Bus: ${busName}`;
     document.getElementById('selected-seats').textContent = `Selected Seats: ${selectedSeats.length > 0 ? selectedSeats.join(', ') : 'None'}`;
     document.getElementById('total-fare').textContent = `Total Fare: ₹${totalFare}`;
+    // Assuming you have form fields with ids 'seatNo' and 'fare'
+function handleDetailsSubmit(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get the seat number and fare values from the input fields
+    const seatNo = document.getElementById("seatNo").value;
+    const fare = document.getElementById("fare").value;
+
+    // Ensure both seat and fare are provided
+    if (seatNo && fare) {
+        // Save to localStorage
+        localStorage.setItem('seatNo', seatNo);
+        localStorage.setItem('fare', fare);
+
+        // After saving the details, redirect to the ticket page
+        window.location.href = 'ticket.html';
+    } else {
+        alert('Please enter both seat number and fare.');
+    }
+}
+
   </script>
 
 </body>
