@@ -38,7 +38,7 @@
 </p>
 
 ### 🚀 No More Waiting & Losing a Bus!  
-GoRide is a smart bus navigation system designed to help people book and track buses in real time, ensuring a smooth and hassle-free travel experience.
+GoRide is a smart bus booking system designed to help people book and track buses in real time and book tickets, ensuring a smooth and hassle-free travel experience.
 
 - Real-time Bus Tracking using Leaflet.js for interactive maps to track locations.
 - Authentication to allow secure access and personalized tracking.
