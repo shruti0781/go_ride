@@ -179,7 +179,6 @@
       border-radius: 6px;
       border: 1px solid #ccc;
     }
-
     /* Suggestions for Search Bar */
     .suggestions {
       position: absolute;
@@ -267,4 +266,20 @@
   </div>
 
   <!-- Floating Buttons -->
-  <button id="scrollBtn" class
+  <button id="scrollBtn" class="floating-btn">↑</button>
+  <button id="chatBtn" class="floating-btn">💬</button>
+
+  <!-- FAQ Dropdown Script -->
+  <script>
+    function toggleFAQ(element) {
+      const content = element.querySelector('.faq-content');
+      if (content.style.display === 'block') {
+        content.style.display = 'none';
+      } else {
+        content.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
