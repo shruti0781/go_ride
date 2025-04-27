@@ -258,7 +258,7 @@
     <footer>
       <div class="footer-links">
         <a href="#">Privacy Policy</a>
-        <a href="termsandconditions.html">Terms &amp; Conditions</a>
+        <a href="termsandconditions.html">Terms & Conditions</a>
         <a href="feedback.html">Feedback</a>
       </div>
       <p>&copy; 2025 GoRide. All rights reserved.</p>
@@ -279,7 +279,25 @@
         content.style.display = 'block';
       }
     }
+
   </script>
+  <script>
+   
+    const feedbackButtons = document.querySelectorAll('.feedback button');
+    const feedbackDiv = document.querySelector('.feedback');
+  
+    feedbackButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        if (button.textContent.trim() === 'Yes') {
+          feedbackDiv.innerHTML = "<p>Thank you for your feedback!</p>";
+        } else if (button.textContent.trim() === 'No') {
+          feedbackDiv.innerHTML = "<p>Thank you! We will strive to improve.</p>";
+        }
+      });
+    });
+  </script>
+  
+  
 
 </body>
 </html>
