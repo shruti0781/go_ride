@@ -350,6 +350,13 @@
       </div>
     </div>
   </div>
-  <script src="availablebuses.js"></script>
+  <script src="availablebuses.js">
+    <script>
+  // Function to save selected bus name
+  function setBusName(busName) {
+    localStorage.setItem('busName', busName);
+  }
+</script>
+  </script>
 </body>
 </html>
