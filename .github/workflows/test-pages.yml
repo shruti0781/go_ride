@@ -25,11 +25,12 @@ jobs:
         run: |
            npm install  # Install dependencies from package.json
            npm install --save-dev stylelint stylelint-config-standard  # Ensure Stylelint and config are installed
+
       - name: Lint HTML
-        run: htmlhint "**/*.html"
+        run: npx htmlhint "**/*.html"  # Using npx to run htmlhint
 
       - name: Lint CSS
-        run: stylelint "**/*.css" --config .stylelintrc.json
+        run: npx stylelint "**/*.css" --config .stylelintrc.json  # Using npx to run stylelint
 
       - name: Lint JS
-        run: eslint "**/*.js"
+        run: npx eslint "**/*.js"  # Using npx to run eslint
