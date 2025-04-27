@@ -2,166 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Handwritten Details Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Details</title>
   <style>
-    body {
-      font-family: 'Caveat', cursive;
-      background: url('https://png.pngtree.com/thumb_back/fh260/background/20200804/pngtree-sunset-bus-silhouette-illustration-image_382782.jpg') no-repeat center center fixed;
-      background-size: cover;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .form-container {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 30px 40px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      max-width: 450px;
-      width: 100%;
-      transition: all 0.3s ease;
-    }
-
-    .form-container:hover {
-      transform: scale(1.01);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
-    }
-
-    h2 {
-      text-align: center;
-      color: #2c3e50;
-      margin-bottom: 25px;
-      font-weight: 700;
-      font-size: 2em;
-    }
-
-    label {
-      font-weight: 600;
-      font-size: 1.3em;
-      margin-top: 15px;
-      display: block;
+  body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
       color: #333;
     }
 
-    input {
-      width: 100%;
-      padding: 10px 12px;
-      margin-top: 6px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1.2em;
-      font-family: 'Caveat', cursive;
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
     }
 
-    input:focus {
-      outline: none;
-      border-color: #3498db;
-      box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
+    h1 {
+      font-size: 28px;
+      color: #4CAF50;
     }
 
-    button {
-      width: 100%;
-      background-color: #3498db;
+    .detail {
+      margin: 15px 0;
+      font-size: 18px;
+    }
+
+    .button {
+      background-color: #4CAF50;
       color: white;
       border: none;
-      padding: 12px;
-      margin-top: 20px;
-      font-size: 1.3em;
-      font-weight: 600;
-      border-radius: 8px;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 18px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-      font-family: 'Caveat', cursive;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
     }
 
-    button:hover {
-      background-color: #2980b9;
-    }
-
-    .output-box {
-      margin-top: 30px;
-      padding: 20px;
-      background-color: #ecfdf5;
-      border-left: 5px solid #2ecc71;
-      border-radius: 10px;
-      animation: fadeIn 0.6s ease-in-out;
-      font-size: 1.2em;
-    }
-
-    .output-box h3 {
-      margin-top: 0;
-      color: #2c3e50;
-      font-size: 1.5em;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .button:hover {
+      background-color: #45a049;
     }
   </style>
 </head>
 <body>
-  <div class="form-container">
-    <h2>Tell Me About Yourself!</h2>
-    <form id="detailsForm">
-      <label for="name">Name:</label>
-      <input type="text" id="name" required>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" required>
+  <div class="card">
+    <h1>Booking Details</h1>
 
-      <label for="phone">Phone Number:</label>
-      <input type="tel" id="phone" pattern="[0-9]{10}" required>
+    <div class="detail" id="bus-name">Bus: Loading...</div>
+    <div class="detail" id="selected-seats">Selected Seats: Loading...</div>
+    <div class="detail" id="total-fare">Total Fare: ₹0</div>
 
-      <label for="dob">Date of Birth:</label>
-      <input type="date" id="dob" required>
-      <label for="address">Address:</label>
-      <textarea id="address" required></textarea>
-       <label for="gender">Gender:</label>
-      <select id="gender" required>
-        <option value="">--Select--</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Other">Other</option>
-      </select>
-
-      <button type="submit">Submit</button>
-    </form>
-
-    <div id="output" class="output-box" style="display:none;"></div>
+    <a href="seatselectionctu.html" class="button">Go Back to Seat Selection</a>
   </div>
 
   <script>
-    document.getElementById('detailsForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+    // Fetch data from localStorage
+    const busName = localStorage.getItem('busName') || 'No Bus Selected';
+    const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats')) || [];
+    const totalFare = localStorage.getItem('totalFare') || 0;
 
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const dob = document.getElementById('dob').value;
-       const address = document.getElementById('address').value.trim();
-      const gender = document.getElementById('gender').value;
+    // Update the page with the data
+    document.getElementById('bus-name').textContent = `Bus: ${busName}`;
+    document.getElementById('selected-seats').textContent = `Selected Seats: ${selectedSeats.length > 0 ? selectedSeats.join(', ') : 'None'}`;
+    document.getElementById('total-fare').textContent = `Total Fare: ₹${totalFare}`;
 
-      const output = `
-        <h3>✅ Your Details:</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Date of Birth:</strong> ${dob}</p>
-        <p><strong>Address:</strong> ${address}</p>
-         <p><strong>Gender:</strong> ${gender}</p>
-      `;
-
-      const outputBox = document.getElementById('output');
-      outputBox.innerHTML = output;
-      outputBox.style.display = 'block';
-    });
   </script>
 </body>
 </html>
