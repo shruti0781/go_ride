@@ -328,6 +328,9 @@ function updateSelectedInfo() {
   const totalFare = seats.length * farePerSeat;
   fareInfo.textContent = `Total Fare: ₹${totalFare}`;
 }
+ const busName = localStorage.getItem('busName') || 'Bus';
+document.getElementById('bus-name').textContent = busName;
+
  // seatselectionctu.html
 const from = localStorage.getItem('from');
 const to = localStorage.getItem('to');
