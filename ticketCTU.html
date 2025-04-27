@@ -221,6 +221,10 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script>
+    document.getElementById('passengerName').textContent = username;
+document.getElementById('ticketSeat').textContent = seatNo;
+document.getElementById('ticketFare').textContent = fare;
+
     document.getElementById("downloadBtn").addEventListener("click", () => {
       const ticket = document.getElementById("ticket");
       html2canvas(ticket).then(canvas => {
@@ -230,6 +234,9 @@
         link.click();
       });
     });
+    const username = localStorage.getItem('username');  // Username from login page
+const seatNo = localStorage.getItem('seatNo');      // Seat number from details page
+const fare = localStorage.getItem('fare');    
   </script>
 
 </body>
