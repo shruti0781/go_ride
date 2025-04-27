@@ -18,5 +18,11 @@
     "nodemon": "^3.1.9",
     "path": "^0.12.7",
     "socket.io": "^4.4.0"
+  },
+  "devDependencies": {
+    "htmlhint": "^0.14.1",
+    "stylelint": "^14.0.0",
+    "stylelint-config-standard": "^24.0.0",
+    "eslint": "^8.0.0"
   }
 }
