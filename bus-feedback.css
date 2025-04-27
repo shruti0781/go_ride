@@ -1,83 +1,83 @@
 body {
-  margin: 0;
-  padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url("https://media.istockphoto.com/id/1398473177/photo/questionnaire-with-checkboxes-filling-survey-form-online-answer-questions.jpg?s=612x612&w=0&k=20&c=sgZY6ojUqB0goVyn_9fKLfeyZ6lyWjSb3-FQjgeUPec=");
-  background-size: cover;
-  background-attachment: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-/* Feedback container with frosted glass effect */
-.feedback-container {
-  width: 100%;
-  max-width: 500px;
-  background: #f9f9f9; /* Changed from rgba(...) to solid white */
-  border-radius: 15px;
-  box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.3);
-  padding: 30px;
-  color: black;
-}
-
-
-/* Header */
-.feedback-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: black;
-}
-
-/* Form fields */
-.feedback-container form label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-  color: black;
-}
-
-.feedback-container input,
-.feedback-container select,
-.feedback-container textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 10px;
-  background:   rgba(169, 169, 169, 0.2);   /* Greyish background with transparency */
-  color: black;
-  outline: none;
-  font-size: 14px;
-}
-
-/* Placeholder color */
-.feedback-container input::placeholder,
-.feedback-container textarea::placeholder {
-  color: rgba(0, 0, 0, 0.5);
-}
-
-/* Textarea behavior */
-.feedback-container textarea {
-  resize: vertical;
-}
-
-/* Submit button */
-.feedback-container button {
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(to right, #FA4B37, #DF2771);
-  border: none;
-  border-radius: 30px;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.feedback-container button:hover {
-  background: linear-gradient(to right, #e83e2e, #c21d65);
-}
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("https://media.istockphoto.com/id/1398473177/photo/questionnaire-with-checkboxes-filling-survey-form-online-answer-questions.jpg?s=612x612&w=0&k=20&c=sgZY6ojUqB0goVyn_9fKLfeyZ6lyWjSb3-FQjgeUPec=");
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Feedback container with frosted glass effect */
+  .feedback-container {
+    width: 100%;
+    max-width: 500px;
+    background: #f9f9f997; /* Changed from rgba(...) to solid white */
+    border-radius: 15px;
+    box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    color: black;
+  }
+  
+  
+  /* Header */
+  .feedback-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  /* Form fields */
+  .feedback-container form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .feedback-container input,
+  .feedback-container select,
+  .feedback-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+    background:   rgba(169, 169, 169, 0.2);   /* Greyish background with transparency */
+    color: black;
+    outline: none;
+    font-size: 14px;
+  }
+  
+  /* Placeholder color */
+  .feedback-container input::placeholder,
+  .feedback-container textarea::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Textarea behavior */
+  .feedback-container textarea {
+    resize: vertical;
+  }
+  
+  /* Submit button */
+  .feedback-container button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #FA4B37, #DF2771);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .feedback-container button:hover {
+    background: linear-gradient(to right, #e83e2e, #c21d65);
+  }
