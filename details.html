@@ -17,7 +17,7 @@
     }
 
     .card {
-      background-color: rgba(255, 255, 255, 0.8); 
+      background-color: rgba(255, 255, 255, 0.8);
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -58,12 +58,14 @@
 
   <div class="card">
     <h1>Booking Details</h1>
-
+    
+    <div class="detail" id="person-name">Name: Loading...</div>
     <div class="detail" id="bus-name">Bus: Loading...</div>
     <div class="detail" id="selected-seats">Selected Seats: Loading...</div>
     <div class="detail" id="total-fare">Total Fare: ₹0</div>
 
-    <a href="seatselectionctu.html" class="button">Go Back to Seat Selection</a>
+    <a href="seatselectionctu.html" class="button">Back to Seat Selection</a>
+    <a href="Paymentsystem.html" class="button">Next</a>
   </div>
 
   <script>
@@ -71,8 +73,10 @@
     const busName = localStorage.getItem('busName') || 'No Bus Selected';
     const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats')) || [];
     const totalFare = localStorage.getItem('totalFare') || 0;
+    const userName = localStorage.getItem('userName') || 'Guest'; // Fetch the username
 
     // Update the page with the data
+    document.getElementById('person-name').textContent = `Name: ${userName}`; // Display the person's name
     document.getElementById('bus-name').textContent = `Bus: ${busName}`;
     document.getElementById('selected-seats').textContent = `Selected Seats: ${selectedSeats.length > 0 ? selectedSeats.join(', ') : 'None'}`;
     document.getElementById('total-fare').textContent = `Total Fare: ₹${totalFare}`;
