@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background: linear-gradient(to right, #e0f7fa, #e8f5e9);
   display: flex;
   justify-content: center;
@@ -18,9 +18,8 @@ body {
 }
 
 .container {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 75%);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   padding: 30px 40px;
   border-radius: 20px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
