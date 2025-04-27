@@ -22,7 +22,7 @@ body {
   backdrop-filter: blur(12px);
   padding: 30px 40px;
   border-radius: 20px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 10%);
   width: 100%;
   max-width: 420px;
 }
@@ -57,7 +57,7 @@ body {
 
 .available-dot { background: var(--green); }
 .selected-dot { background: var(--purple); }
-.reserved-dot { background: #4b5563; }
+.reserved-dot { background: var(--grey); }
 
 .seat-map {
   display: grid;
