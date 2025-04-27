@@ -6,7 +6,7 @@
   <title>Bus Ticket</title>
   <link rel="stylesheet" href="ticketstyle.css" />
   <style>
-   body {
+    body {
       margin: 0;
       padding: 100px 20px 40px; /* Top padding increased for fixed navbar */
       font-family: Arial, sans-serif;
@@ -16,23 +16,19 @@
       align-items: center;
       min-height: 100vh;
     }
-  
-
-   
-  header {
-  position: fixed;   
-  top: 0;            
-  left: 0;
-  width: 100%;
-  z-index: 1000;     
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 20px;
-  background: black;
-  color: white;
-}
-
+    header {
+      position: fixed;   
+      top: 0;            
+      left: 0;
+      width: 100%;
+      z-index: 1000;     
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 20px;
+      background: black;
+      color: white;
+    }
     .logo-container {
       display: flex;
       align-items: center;
@@ -68,7 +64,6 @@
     .login-btn:hover {
       background-color: #d94f22;
     }
-    
     .ticket {
       display: flex;
       max-width: 800px;
@@ -78,31 +73,26 @@
       border-radius: 12px;
       overflow: hidden;
       backdrop-filter: blur(10px);
-       margin-top: 80px;
+      margin-top: 80px;
     }
-
     .ticket-left {
       background: #007bff;
       color: white;
       padding: 30px;
       width: 40%;
     }
-
     .ticket-left h2 {
       margin-top: 0;
       font-size: 28px;
     }
-
     .ticket-left p {
       margin: 8px 0;
     }
-
     .ticket-right {
       padding: 30px;
       width: 60%;
       background: #ffffff;
     }
-
     .route {
       display: flex;
       justify-content: space-between;
@@ -112,23 +102,19 @@
       font-weight: bold;
       color: #007bff;
     }
-
     .details {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
     }
-
     .detail {
       width: calc(50% - 10px);
     }
-
     .detail label {
       font-size: 12px;
       color: #888;
       display: block;
     }
-
     .footer {
       margin-top: 30px;
       font-size: 14px;
@@ -136,8 +122,6 @@
       display: flex;
       justify-content: space-between;
     }
-
-    /* Download button styling */
     .download-button {
       margin-top: 30px;
       padding: 12px 24px;
@@ -149,7 +133,6 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-
     .download-button:hover {
       background-color: #0056b3;
     }
@@ -168,6 +151,8 @@
     </nav>
     <a href="login.html" class="login-btn">Login</a>
   </header>
+
+  <!-- ticketctu.html -->
   <div id="ticket" class="ticket">
     <div class="ticket-left">
       <h2>BUS TICKET</h2>
@@ -179,22 +164,22 @@
     </div>
     <div class="ticket-right">
       <div class="route">
-        <span class="location">CHANDIGARH</span>
+        <span id="from-location" class="location"></span> <!-- From location -->
         <span class="arrow">→</span>
-        <span class="location">LUDHIANA</span>
+        <span id="to-location" class="location"></span> <!-- To location -->
       </div>
       <div class="details">
         <div class="detail">
           <label>DATE</label>
-          <div>28 Aug 2025</div>
+          <div id="travel-date"></div> <!-- Travel date -->
         </div>
         <div class="detail">
-          <label>TIME</label>
-          <div>18:00 pm</div>
+          <label>BUS NO.</label>
+          <div id="bus-number"></div> <!-- Bus number -->
         </div>
         <div class="detail">
           <label>SEAT NO.</label>
-          <div>10</div>
+          <div id="seat-number"></div> <!-- Seat number -->
         </div>
         <div class="detail">
           <label>PASSENGER</label>
@@ -208,19 +193,33 @@
           <label>FARE</label>
           <div>400</div>
         </div>
-      </div>
-      <div class="footer">
-        <span>Enjoy your trip!</span>
-        <span>Issued: 24/4/2025</span>
+        <div class="footer">
+          <span>Enjoy your trip!</span>
+          <span>Issued: 24/4/2025</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Download Button Below Ticket -->
   <button id="downloadBtn" class="download-button">Download Ticket</button>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script>
+    // Retrieve data from localStorage
+    const fromLocation = localStorage.getItem('fromLocation');
+    const toLocation = localStorage.getItem('toLocation');
+    const travelDate = localStorage.getItem('travelDate');
+    const busNumber = localStorage.getItem('busNumber');
+    const seatNumber = localStorage.getItem('seatNumber');
+
+    // Update the ticket page with the retrieved data
+    document.getElementById('from-location').textContent = fromLocation;
+    document.getElementById('to-location').textContent = toLocation;
+    document.getElementById('travel-date').textContent = travelDate;
+    document.getElementById('bus-number').textContent = busNumber;
+    document.getElementById('seat-number').textContent = seatNumber;
+
+    // Download button functionality
     document.getElementById("downloadBtn").addEventListener("click", () => {
       const ticket = document.getElementById("ticket");
       html2canvas(ticket).then(canvas => {
@@ -231,6 +230,5 @@
       });
     });
   </script>
-
 </body>
 </html>
