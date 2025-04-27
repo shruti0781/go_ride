@@ -328,6 +328,14 @@ function updateSelectedInfo() {
   const totalFare = seats.length * farePerSeat;
   fareInfo.textContent = `Total Fare: ₹${totalFare}`;
 }
+ // seatselectionctu.html
+const from = localStorage.getItem('from');
+const to = localStorage.getItem('to');
+const date = localStorage.getItem('date');
+
+// Display these details on the page
+document.getElementById('route-info').textContent = `Route: ${from} - ${to}`;
+document.getElementById('date-info').textContent = `Date: ${date}`;
 
   </script>
 
