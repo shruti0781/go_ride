@@ -7,61 +7,148 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 500;
+      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: url('https://png.pngtree.com/thumb_back/fh260/background/20200804/pngtree-sunset-bus-silhouette-illustration-image_382782.jpg');
+      background: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzfGVufDB8fDB8fHww') no-repeat center center fixed;
       background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      color: #111;
-      font-weight: 600;
+      color: #f5f5f5;
     }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding: 80px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .container {
       max-width: 900px;
-      margin: 50px auto;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 50px 40px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
     }
-    h1, h2 {
-      color: #000;
+
+    h1 {
+      font-size: 2.5rem;
       font-weight: 700;
-      margin-bottom: 15px;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 30px;
     }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: #f9c74f;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #eeeeee;
+    }
+
     ul {
-      padding-left: 200px;
-      line-height: 1.6;
+      padding-left: 20px;
+      margin-top: 10px;
     }
+
     li {
-      margin-bottom: 80px;
+      margin-bottom: 12px;
+      font-size: 1rem;
+      color: #dddddd;
     }
+
+    .highlight {
+      color: #f39c12;
+      font-weight: 600;
+    }
+
     a {
-      color: #d35400;
+      color: #f39c12;
       text-decoration: none;
-      font-weight: 7000;
     }
+
     a:hover {
-      color: #b33e00;
+      color: #e67e22;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>About Us -    Code Crafters</h1>
-    <p>We create smart transit solutions using GPS and cloud technology for real-time bus tracking, efficient commuting, and seamless bus booking.</p>
-    
-    <ul>
-      <li>Real-timelocation updates using advanced GPS and cloud technology.</li>
-      <li>Accurate route tracking and estimated arrival times.</li>
-      <li>Instant delay alerts to keep you informed about your journey.</li>
-      <li>Smart and user-friendly bus booking system for hassle-free commuting.</li>
-      <li>Quick booking for seats, allowing users to reserve a spot in advance.</li>
-      <li>Supports schools, universities, and public transportation networks for easy travel planning.</li>
-      <li>Improves daily commutes with reliable and up-to-date transit data.</li>
-    </ul>
+  <div class="overlay">
+    <div class="container">
+      <h1>About Code Crafters</h1>
+      <p>
+        Welcome to <span class="highlight">Code Crafters</span>, where we combine cutting-edge technology with real-world transit needs to create smarter, more efficient travel solutions. Our mission is to make commuting easier, safer, and more connected, whether you're a commuter, school system, or transportation authority.
+      </p>
+     
 
+      <h2>🚀 What We Do</h2>
+      <ul>
+        <li><strong>Real-Time Tracking</strong> — Track your bus locations in real-time with GPS and cloud integration.</li>
+        <li><strong>Smart Booking</strong> — Book your seats in advance with an easy-to-use interface.</li>
+        <li><strong>Route Monitoring</strong> — Get accurate ETAs and avoid long waits at your bus stop.</li>
+        <li><strong>Delay Alerts</strong> — Receive timely updates on any schedule changes.</li>
+      </ul>
+
+      <h2>🌍 Who We Serve</h2>
+      <p>
+        Our platform is perfect for <span class="highlight">schools</span>, <span class="highlight">universities</span>, and <span class="highlight">public transportation authorities</span>. We work with various sectors to optimize your fleets and enhance the overall commuter experience.
+      </p>
+
+      <h2>💡 Our Vision</h2>
+      <p>
+        Our goal is to shape the future of travel by creating smarter, more sustainable transportation solutions. We're building a connected world where technology transforms how we move through our cities.
+      </p>
+
+      <!-- New Section: Home -->
+      <h2>🏠 Home</h2>
+      <p>
+        At Code Crafters, we’re not just about technology—we’re about bringing people together. Explore our <a href="#home">home page</a> to see our solutions in action and how we can make your commute easier.
+      </p>
+       <h2>🚍 How Our Bus Booking System Works</h2>
+      <ul>
+        <li><strong>Bus Seat Reservation</strong> — Book your seat with ease, choosing your preferred seat on the bus from our interactive seating chart.</li>
+        
+        <li><strong>Payment Integration</strong> — Secure online payments, allowing you to pay via credit/debit cards, mobile wallets, and other methods.</li>
+        
+      </ul>
+
+
+      <!-- New Section: Reviews -->
+      <h2>⭐ Reviews</h2>
+      <p>
+        Our customers love the impact our solutions have had on their daily lives. Check out our <a href="#reviews">reviews</a> to hear how Code Crafters has improved their commute. 
+        <br><br>
+        Here's a recent review: <em>"Code Crafters has revolutionized our transportation system! The real-time tracking and smart booking features have made commuting so much easier and predictable!"</em>
+      </p>
+
+      <!-- Contact Us -->
+      <h2>📩 Contact Us</h2>
+      <p>
+        Have questions or want to schedule a demo? Feel free to <a href="mailto:support@codecrafters.com">contact us</a>, and we’ll get back to you as soon as possible.
+      </p>
+
+      <p style="margin-top: 40px; text-align: center;">
+        <a href="mailto:support@codecrafters.com">Contact Us</a> to learn more or request a demo.
+      </p>
+    </div>
   </div>
 
 </body>
