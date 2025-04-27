@@ -41,5 +41,23 @@ function handleLogin(event) {
       localStorage.setItem("userName", username);
       window.location.href = "index.html"; // Redirect to homepage
     }
+    // Example: Handle login form submission
+function handleLogin(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    if (username && password) {
+        // Store the username in localStorage
+        localStorage.setItem('username', username);
+
+        // Redirect to details page after successful login
+        window.location.href = 'details.html';
+    } else {
+        alert('Please enter both username and password.');
+    }
+}
+
 
 }
