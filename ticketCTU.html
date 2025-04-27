@@ -1,53 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bus Ticket</title>
-  <link rel="stylesheet" href="ticketstyle.css"/>
+  <link rel="stylesheet" href="ticketstyle.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .ticket {
+      display: flex;
+      max-width: 800px;
+      width: 100%;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .ticket-left {
+      background: #007bff;
+      color: white;
+      padding: 30px;
+      width: 40%;
+    }
+
+    .ticket-left h2 {
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    .ticket-left p {
+      margin: 8px 0;
+    }
+
+    .ticket-right {
+      padding: 30px;
+      width: 60%;
+      background: #ffffff;
+    }
+
+    .route {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #007bff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 20px;
+      background: black;
+      color: white;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    nav {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #f0592c;
+    }
+    .login-btn {
+      background-color: #f0592c;
+      border: none;
+      padding: 8px 18px;
+      color: white;
+      font-weight: bold;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+    }
+    .login-btn:hover {
+      background-color: #d94f22;
+    }
+    .details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .detail {
+      width: calc(50% - 10px);
+    }
+
+    .detail label {
+      font-size: 12px;
+      color: #888;
+      display: block;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #555;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Download button styling */
+    .download-button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .download-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-  <div class="ticket-wrapper">
-    <div class="ticket" id="ticket">
-      <div class="ticket-left">
-        <h2>BUS TICKET</h2>
-        <p>Ticket No: <span class="ticket-id">#BT785624</strong></p>
-        <div class="boarding-info">
-          <p>Boarding: SEC-17, CHD BUS STAND</p>
-          <p>Gate No: 4</p>
-        </div>
+  <header>
+    <div class="logo-container">
+      <img src="images/logo.png" alt="Logo" height="60" width="60" />
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="AboutUs.html">About Us</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="HelpPage.html">Help</a>
+    </nav>
+    <a href="login.html" class="login-btn">Login</a>
+  </header>
+  <div id="ticket" class="ticket">
+    <div class="ticket-left">
+      <h2>BUS TICKET</h2>
+      <p>Ticket No: <span class="ticket-id">#BT659802</span></p>
+      <div class="boarding-info">
+        <p>Boarding: SEC-17, CHD BUS STAND</p>
+        <p>Gate No: 4</p>
       </div>
-
-      <div class="ticket-right">
-        <div class="route">
+    </div>
+    <div class="ticket-right">
+      <div class="route">
         <span class="location">CHANDIGARH</span>
         <span class="arrow">→</span>
-        <span class="location">DELHI</span>
+        <span class="location">LUDHIANA</span>
       </div>
       <div class="details">
         <div class="detail">
-        <label>Date</label>
-          <div>28 Apr 2025</div>
+          <label>DATE</label>
+          <div>28 Aug 2025</div>
         </div>
-          <div class="detail">
-          <label>Time</label>
-          <div>8:30 PM</div>
+        <div class="detail">
+          <label>TIME</label>
+          <div>18:00 pm</div>
         </div>
-         <div class="detail">
+        <div class="detail">
           <label>SEAT NO.</label>
-          <div>34</div>
+          <div>10</div>
         </div>
         <div class="detail">
           <label>PASSENGER</label>
-          <div>Vanshika</div>
-        </div> 
+          <div>VANSHIKA</div>
+        </div>
         <div class="detail">
           <label>BUS NO.</label>
-          <div>123</div>
+          <div>13 PRTC</div>
         </div>
         <div class="detail">
           <label>FARE</label>
-          <div>1000</div>
+          <div>400</div>
         </div>
       </div>
       <div class="footer">
@@ -56,13 +202,9 @@
       </div>
     </div>
   </div>
-  <button id="downloadBtn" class="download-button">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
-      </svg>
-      Download Ticket
-    </button>
-  </div>
+
+  <!-- Download Button Below Ticket -->
+  <button id="downloadBtn" class="download-button">Download Ticket</button>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script>
@@ -76,5 +218,6 @@
       });
     });
   </script>
+
 </body>
 </html>
