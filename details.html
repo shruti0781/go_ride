@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Booking Details</title>
   <style>
-  body {
+    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-       background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzfGVufDB8fDB8fHww'); /* Add your background image URL here */
+      background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzfGVufDB8fDB8fHww');
       background-size: cover;
       background-position: center;
       padding: 20px;
@@ -55,7 +55,8 @@
   </style>
 </head>
 <body>
- <div class="card">
+
+  <div class="card">
     <h1>Booking Details</h1>
 
     <div class="detail" id="bus-name">Bus: Loading...</div>
@@ -76,5 +77,6 @@
     document.getElementById('selected-seats').textContent = `Selected Seats: ${selectedSeats.length > 0 ? selectedSeats.join(', ') : 'None'}`;
     document.getElementById('total-fare').textContent = `Total Fare: ₹${totalFare}`;
   </script>
+
 </body>
 </html>
