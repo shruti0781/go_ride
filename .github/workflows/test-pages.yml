@@ -23,13 +23,13 @@ jobs:
 
       - name: Install Linters
         run: |
-          npm install -g htmlhint stylelint eslint
-
+           npm install  # Install dependencies from package.json
+           npm install --save-dev stylelint stylelint-config-standard  # Ensure Stylelint and config are installed
       - name: Lint HTML
         run: htmlhint "**/*.html"
 
       - name: Lint CSS
-        run: stylelint "**/*.css"
+        run: stylelint "**/*.css" --config .stylelintrc.json
 
       - name: Lint JS
         run: eslint "**/*.js"
