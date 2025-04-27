@@ -1,14 +1,13 @@
 button {
   padding: 14px 28px;
   font-size: 1rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;  /* switched to double quotes */
   font-weight: 500;
-  color: #ffffff;
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: #fff;  /* shortened hex color code */
+  border: 1.5px solid rgba(255, 255, 255, 30%);  /* changed 0.3 to 30% */
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 10%);  /* changed 0.1 to 10% */
+  backdrop-filter: blur(10px);  /* removed vendor prefix */
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
@@ -16,7 +15,7 @@ button {
 
 /* Hover: glow and brightness */
 button:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 20%);  /* changed 0.2 to 20% */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   transform: translateY(-2px);
 }
@@ -30,7 +29,7 @@ button:active {
 /* Focus ring */
 button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 30%);  /* changed 0.3 to 30% */
 }
 
 /* Disabled */
@@ -42,7 +41,7 @@ button:disabled {
 
 /* Optional: light text glow */
 button.glow-text {
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 60%);  /* changed 0.6 to 60% */
 }
 
 /* Optional: gradient background */
