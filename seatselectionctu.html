@@ -14,49 +14,60 @@
   color: #fff;
 }
 
-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 20px;
-      background: black;
-      color: white;
+ .progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.step-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+    .step {
+  background-color: #d3d3d3;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+}
+
+.step.completed {
+  background-color: #28a745; /* Green for completed */
+}
+
+.label {
+  margin-top: 8px;
+  font-size: 12px;
+  text-align: center;
+  color: #333;
+}
+
+.line {
+  height: 4px;
+  width: 50px;
+  background-color: #d3d3d3;
+}
+
+.line.completed {
+  background-color: #28a745;
+}
+
+
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2em;
     }
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    nav {
-      flex-grow: 1;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-    }
-    nav a {
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
-      font-size: 16px;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #f0592c;
-    }
-    .login-btn {
-      background-color: #f0592c;
-      border: none;
-      padding: 8px 18px;
-      color: white;
-      font-weight: bold;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 16px;
-      text-decoration: none;
-    }
-    .login-btn:hover {
-      background-color: #d94f22;
-    }
+
     .bus-card {
       background-color: rgba(255, 255, 255, 0.1); 
       border-radius: 15px;
@@ -216,9 +227,61 @@ header {
       font-weight: bold;
       color: #80deea;
     }
+    .details-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      font-size: 15px;
+      color: #ccc;
+    }
   </style>
 </head>
 <body>
+  
+<!-- Progress Bar Start -->
+<div class="progress-container">
+  
+    <div class="step-container">
+      <div class="step completed">1</div>
+      <div class="label">Travel Date</div>
+    </div>
+  
+    <div class="line completed"></div>
+  
+    <div class="step-container">
+      <div class="step">2</div>
+      <div class="label">Available Buses</div>
+    </div>
+  
+    <div class="line"></div>
+  
+    <div class="step-container">
+      <div class="step">3</div>
+      <div class="label">Book Seat</div>
+    </div>
+  
+    <div class="line"></div>
+  
+    <div class="step-container">
+      <div class="step">4</div>
+      <div class="label">Details</div>
+    </div>
+  
+    <div class="line"></div>
+  
+    <div class="step-container">
+      <div class="step">5</div>
+      <div class="label">Payment</div>
+    </div>
+  
+    <div class="line"></div>
+  
+    <div class="step-container">
+      <div class="step">6</div>
+      <div class="label">Ticket</div>
+    </div>
+  
+  </div>
 
   <div class="bus-card">
     <div class="bus-title">
